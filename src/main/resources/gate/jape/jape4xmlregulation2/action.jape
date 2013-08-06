@@ -1,0 +1,99 @@
+/*
+*	action.jape
+*	identifies the actions
+*/
+Phase:action
+Input:  Token Obligation 
+Options: control =  brill
+
+/* Defining shortcut macros */
+/* ==================== */
+
+Macro: CC ( {Token.category == CC}) //CC - coordinating conjunction: ‘and’, ‘but’, ‘nor’, ‘or’, ‘yet’, plus, minus, less, times (multiplication), over (division). Also ‘for’ (because) and ‘so’ (i.e., ‘so that’).
+Macro: RB ( {Token.category == RB}) //RB - adverb: most words ending in ‘-ly’. Also ‘quite’, ‘too’, ‘very’, ‘enough’, ‘indeed’, ‘not’, ‘-n’t’, and ‘never’.
+Macro: RBR ( {Token.category == RBR}) //RBR - adverb - comparative: adverbs ending with ‘-er’ with a comparative meaning.
+Macro: RBS ( {Token.category == RBS}) //RBS - adverb - superlative
+Macro: VBD ( {Token.category == VBD}) //VBD - verb - past tense: includes conditional form of the verb ‘to be’; ‘If I were/VBD rich...’.
+Macro: VBG ( {Token.category == VBG}) //VBG - verb - gerund or present participle
+Macro: VBN ( {Token.category == VBN}) //VBN - verb - past participle
+Macro: VBP ( {Token.category == VBP}) //VBP - verb - non-3rd person singular present
+Macro: VB ( {Token.category == VB}) //VB - verb - base form: subsumes imperatives, infinitives and subjunctives.
+Macro: VBZ ( {Token.category == VBZ}) //VBZ - verb - 3rd person singular present
+Macro: COMMA ( {Token.category == ","}) //, - literal comma
+Macro: OBL ({Obligation})
+Macro: NN ({Token.category == NN})
+Macro: NNP ({Token.category == NNP})
+Macro: NNS ({Token.category == NNS})
+Macro: JJ ({Token.category == JJ})
+
+
+/* Defining main macros */
+/* ================= */
+
+// defines "and, or, comma"
+Macro: CONJ 
+( CC | COMMA)
+
+// defines adverbs
+Macro: ADVERB 
+( RB | RBR | RBS)
+
+// defines nouns
+Macro: NOUN 
+( NN | NNP | NNS )
+
+// defines verbs, noun and ajectives
+Macro: VERB 
+( VBN | VB | VBP | VBD |VBG | VBZ | NOUN | JJ)
+
+// should be (appropriately) cleaned
+Macro: ONE_ACTION
+( OBL(ADVERB)? VERB )
+
+// , appropriately desined
+Macro: ACT_PART 
+( (CONJ)+(ADVERB)? VERB )
+
+// defines combination of may actions. e.g.
+// should be (appropriately) cleaned
+// should be (appropriately) cleaned and (appropriately) stored
+// should be (appropriately) cleaned ,(appropriately) stored, (carefully) handled and (appropriately) delivered.
+Macro: ACTIONS
+(  
+	OBL(ADVERB)?(VERB):action  |
+	ONE_ACTION(CONJ)+(ADVERB)?(VERB):action	|
+	ONE_ACTION (ACT_PART)+(CONJ)+(ADVERB)?(VERB):action 
+	//OBL ({Token})? ({Token.string=="be"})? (VERB):action
+)
+
+/* Defining rules */
+/* =========== */
+//  rule
+Rule: ActionFinder	 
+Priority:20
+(ACTIONS) 
+-->
+{
+	// obtains the annotation
+	gate.AnnotationSet actionAS = (gate.AnnotationSet)bindings.get("action");
+	gate.Annotation action = (gate.Annotation)actionAS.iterator().next();
+
+	// adding features to the annotation
+	gate.FeatureMap features = Factory.newFeatureMap();
+	features.put("rule","ActionFinder");
+
+	// adding string of the annotation to the fetures. It needs start and end node offsets as int values
+	int sNode = action.getStartNode().getOffset().intValue();
+	int eNode = action.getEndNode().getOffset().intValue();
+	features.put("startNode",sNode);
+	features.put("endNode", eNode);
+	String text = doc.getContent().toString().substring(sNode, eNode);		
+	features.put("text",text);
+
+	// finally adding the feature with the annotation. 
+	outputAS.add(actionAS.firstNode(), actionAS.lastNode(), "Action",features);
+}
+
+
+
+

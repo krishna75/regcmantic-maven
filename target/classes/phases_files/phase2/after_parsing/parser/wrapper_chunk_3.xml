@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<parsed_sentences size="50">
+    <parsed_sentence count="1">
+        <subject></subject>
+        <obligation> should be</obligation>
+        <action> investigated to determine</action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="2">
+        <subject>  GMP</subject>
+        <obligation></obligation>
+        <action> related computerized systems should be validated</action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="3">
+        <subject> The depth and scope</subject>
+        <obligation></obligation>
+        <action> depends on the diversity , complexity and criticality</action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="4">
+        <subject> Appropriate installation qualification and operational qualification</subject>
+        <obligation> should</obligation>
+        <action> demonstrate the suitability of computer hardware and software to perform</action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="5">
+        <subject> Commercially available software</subject>
+        <obligation> does not</obligation>
+        <action> require the same level</action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="6">
+        <subject> a retrospective validation</subject>
+        <obligation> could be</obligation>
+        <action> conducted if appropriate documentation is available</action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="7">
+        <subject> Computerized systems</subject>
+        <obligation> should</obligation>
+        <action> have sufficient controls to prevent</action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="8">
+        <subject> </subject>
+        <obligation> should be</obligation>
+        <action> controls to prevent omissions in data -LRB- e.g. system turned off and data not captured</action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="9">
+        <subject> </subject>
+        <obligation> should be a</obligation>
+        <action> record of any data change</action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="10">
+        <subject> Written procedures</subject>
+        <obligation> should be</obligation>
+        <action> available for the operation and maintenance</action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="11">
+        <subject> </subject>
+        <obligation> should be an additional</obligation>
+        <action> check on the accuracy</action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="12">
+        <subject>  This</subject>
+        <obligation> can be</obligation>
+        <action> done by a second operator or by the system itself</action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="13">
+        <subject></subject>
+        <obligation> should be</obligation>
+        <action> recorded and investigated</action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="14">
+        <subject></subject>
+        <obligation> should be</obligation>
+        <action> made according to a change procedure and should be formally authorized , documented and tested</action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="15">
+        <subject>  Records</subject>
+        <obligation> should be</obligation>
+        <action> kept of all changes , including modifications and enhancements</action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="16">
+        <subject> These records</subject>
+        <obligation> should</obligation>
+        <action> demonstrate that the system is maintained</action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="17">
+        <subject> a back-up system</subject>
+        <obligation> should be</obligation>
+        <action></action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="18">
+        <subject> A means</subject>
+        <obligation> should be</obligation>
+        <action> established for all computerized systems</action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="19">
+        <subject>  Data</subject>
+        <obligation> can be</obligation>
+        <action> recorded by a second means in addition to the computer system</action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="20">
+        <subject> All documents</subject>
+        <obligation> should be</obligation>
+        <action> prepared , reviewed , approved and distributed</action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="21">
+        <subject> Such documents</subject>
+        <obligation> can</obligation>
+        <action> be in paper or electronic form</action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="22">
+        <subject> The issuance , revision , superseding and withdrawal</subject>
+        <obligation> should be</obligation>
+        <action> controlled with maintenance</action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="23">
+        <subject> A procedure</subject>
+        <obligation> should be</obligation>
+        <action> established for retaining</action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="24">
+        <subject> The retention periods</subject>
+        <obligation> should be</obligation>
+        <action></action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="25">
+        <subject> All production , control , and distribution records</subject>
+        <obligation> should be</obligation>
+        <action> retained for at least 1 year after the expiry date</action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="26">
+        <subject>  For APIs with retest dates , records</subject>
+        <obligation> should be</obligation>
+        <action> retained for at least 3 years after the batch is completely distributed</action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="27">
+        <subject>  When entries are made in records , these</subject>
+        <obligation> should be</obligation>
+        <action> made indelibly in spaces provided for such entries , directly after performing the activities , and should identify</action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="28">
+        <subject></subject>
+        <obligation> should be</obligation>
+        <action> dated and signed and leave</action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="29">
+        <subject> copies</subject>
+        <obligation> should be readily</obligation>
+        <action> available at the establishment where the activities described in such records occurred</action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="30">
+        <subject></subject>
+        <obligation></obligation>
+        <action></action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="31">
+        <subject> instructions , procedures , and records</subject>
+        <obligation> can be</obligation>
+        <action> retained either as originals or as true copies</action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="32">
+        <subject> suitable retrieval equipment and a means</subject>
+        <obligation> should be readily</obligation>
+        <action></action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="33">
+        <subject>  Specifications</subject>
+        <obligation> should be</obligation>
+        <action> established and documented for raw materials , intermediates where necessary , APIs , and labeling and packaging</action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="34">
+        <subject>  In addition , specifications</subject>
+        <obligation> may be</obligation>
+        <action> appropriate for certain other materials</action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="35">
+        <subject> Acceptance criteria</subject>
+        <obligation> should be</obligation>
+        <action> established and documented for in-process controls</action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="36">
+        <subject>  If electronic signatures are used on documents , they</subject>
+        <obligation> should be</obligation>
+        <action> authenticated and secure</action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="37">
+        <subject></subject>
+        <obligation> should</obligation>
+        <action> show the date , time -LRB- if appropriate -RRB- , product , and batch number</action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="38">
+        <subject> then individual equipment records</subject>
+        <obligation></obligation>
+        <action> necessary if batches of the intermediate or API follow</action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="39">
+        <subject> the records</subject>
+        <obligation> can be</obligation>
+        <action> part of the batch record or maintained</action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="40">
+        <subject>  Records</subject>
+        <obligation> should be</obligation>
+        <action> maintained including</action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="41">
+        <subject> The name</subject>
+        <obligation></obligation>
+        <action> name of the supplier ; the supplier 's control number -LRB- s -RRB- , if known , or other identification number ; the number allocated on receipt ; and the date of receipt ; - The results of any test or examination performed and the conclusions derived from this ; - Records tracing the use of materials ; - Documentation of the examination and review of API labeling and packaging materials for conformity with established specifications ; and - The final decision</action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="42">
+        <subject></subject>
+        <obligation></obligation>
+        <action> labels should be maintained</action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="43">
+        <subject> master production instructions</subject>
+        <obligation> should be</obligation>
+        <action> prepared , dated , and signed by one person and independently checked , dated , and signed</action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="44">
+        <subject> The name</subject>
+        <obligation> being</obligation>
+        <action> manufactured and an identifying document reference</action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="45">
+        <subject> the calculation</subject>
+        <obligation> should be</obligation>
+        <action></action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="46">
+        <subject></subject>
+        <obligation> should be</obligation>
+        <action> included where they are justified ; - The production location and major production equipment to be used ; - Detailed production instructions , including the : - sequences to be followed , - ranges of process parameters to be used , - sampling instructions and in-process controls with their acceptance criteria , where appropriate , - time limits for completion of individual processing steps and\/or the total process , where appropriate ; and - expected yield ranges at appropriate phases of processing or time ; - Where appropriate , special notations and precautions to be followed , or cross references to these ; and - The instructions</action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="47">
+        <subject> Batch production records</subject>
+        <obligation> should be</obligation>
+        <action> prepared for each intermediate and API and should include</action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="48">
+        <subject> The batch production record</subject>
+        <obligation> should be</obligation>
+        <action> checked before issuance to assure</action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="49">
+        <subject> that document</subject>
+        <obligation> should</obligation>
+        <action> include a reference to the current master production instruction</action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="50">
+        <subject> These records</subject>
+        <obligation> should be</obligation>
+        <action> numbered with a unique batch or identification number , dated and signed</action>
+        <condition>null</condition>
+        <modifier>null</modifier>
+    </parsed_sentence>
+</parsed_sentences>

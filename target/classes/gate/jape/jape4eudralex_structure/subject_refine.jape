@@ -1,0 +1,69 @@
+/*
+ It trims the coverage of the subjects at the obligation of a sentence. In other
+ words, it specifies the potential subjects before the obligation as the subjets and 
+ ignores the rest.
+*/
+
+Phase: subjectSubject
+Input:  PotentialSubject Sentence
+Options: control = appelt
+
+
+
+
+Rule: SubRefiner
+Priority:100
+(
+  ({Sentence}):sen
+)
+-->
+{
+   /* Get the sentence annotations and its senAS (to use for start and end points) */
+   AnnotationSet senAS    = (gate.AnnotationSet) bindings.get("sen");
+   Annotation  sentence   = senAS.iterator().next();
+
+   /* Get all the contained Subject annotations */
+   AnnotationSet subjects = inputAS.getContained(senAS.firstNode().getOffset(), 
+                                               senAS.lastNode().getOffset()).get("PotentialSubject");
+   Iterator<Annotation>  subIter = subjects.iterator(); 
+   Annotation subject;
+
+   
+   /* Get all the contained Obligation annotations */
+   AnnotationSet obls = inputAS.getContained(senAS.firstNode().getOffset(), 
+                                               senAS.lastNode().getOffset()).get("Obligation");
+   if (obls.iterator().hasNext()) {										   
+	   Annotation  obl = obls.iterator().next(); 
+	   int startNode = obl.getEndNode().getOffset().intValue();   
+	   /* Iterate through the subjects  */
+	   while (subIter.hasNext()) {
+			  subject  = subIter.next();
+			  int endNode = subject.getStartNode().getOffset().intValue();
+			  if (startNode> endNode) {
+				gate.FeatureMap features = Factory.newFeatureMap();
+				features.put("rule","SubRefiner");
+				
+				// adding string of the annotation to the fetures. It needs start and end node offsets as int values
+				int sNode = subject.getStartNode().getOffset().intValue();
+				int eNode = subject.getEndNode().getOffset().intValue();
+				features.put("startNode",sNode);
+				features.put("endNode", eNode);
+				String theWord = doc.getContent().toString().substring(sNode, eNode);		
+				features.put("string",theWord);
+				
+				outputAS.add(subject.getStartNode(),subject.getEndNode(), "Subject",features);			  
+			  }
+		}
+	} 
+	 
+}
+
+Rule: RemoveAnnotation 
+Priority:10 
+(
+  ({PotentialSubject}):pSub
+)
+-->
+{
+	inputAS.removeAll(bindings.get("pSub"));
+}

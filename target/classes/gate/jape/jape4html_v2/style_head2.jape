@@ -1,0 +1,92 @@
+/*
+*
+*/
+Phase: style
+Input: Token  SpaceToken Split Style
+Options: control = appelt
+
+//Macros
+Macro: DOT ({Token.string=="."})
+Macro: CURLY_START ({Token.string=="{"})
+Macro: CURLY_END ({Token.string=="}"})
+Macro: FT({Token.string=="ft"})
+Macro: NUM ({Token.category==CD})
+Macro: CONTROL ({SpaceToken.kind==control})
+Macro: SPACE ({SpaceToken.kind==space})
+
+// defines the details of the styles in  a page
+Rule: StyleDetails
+Priority:90
+(
+	  DOT (FT NUM ):name CURLY_START 
+	  {Token.string=="font-style"} {Token.string==":"}({Token}):fs  {Token.string==";"}
+	  {Token.string=="font-weight"} {Token.string==":"}({Token}):fw {Token.string==";"}
+	  {Token.string=="font-size"} {Token.string==":"}({Token}):size {Token.string=="px"}{Token.string==";"}
+	  {Token.string=="font-family"} {Token.string==":"}({Token}| SPACE)[1,10]:family {Token.string==";"}
+	  {Token.string=="color"} {Token.string==":"}({Token.string=="#"} {Token}):color 
+	  ({Token}|SPACE)* CURLY_END CONTROL
+):curly
+-->
+{
+// obtains the annotation for whole style
+gate.AnnotationSet curlySet = (gate.AnnotationSet)bindings.get("curly");
+// adding features to the annotation
+gate.FeatureMap features = Factory.newFeatureMap();
+features.put("rule","StyleDetails");
+// adding string of the annotation to the fetures. It needs start and end node offsets as int values
+int sNodeCurly = curlySet.firstNode().getOffset().intValue();
+int eNodeCurly = curlySet.lastNode().getOffset().intValue();
+features.put("startNode",sNodeCurly);
+features.put("endNode", eNodeCurly);
+String wholeString = doc.getContent().toString().substring(sNodeCurly, eNodeCurly);		
+features.put("string",wholeString);
+	// ------ obtains the annotation for font name ------------------
+	gate.AnnotationSet nameSet = (gate.AnnotationSet)bindings.get("name");
+	// adding string of the annotation to the fetures. It needs start and end node offsets as int values
+	int sNodeName = nameSet.firstNode().getOffset().intValue();
+	int eNodeName = nameSet.lastNode().getOffset().intValue();
+	String fontName = doc.getContent().toString().substring(sNodeName, eNodeName);		
+	features.put("name", fontName);
+	
+	// ------ obtains the annotation for font style ------------------
+	gate.AnnotationSet fsSet = (gate.AnnotationSet)bindings.get("fs");
+	// adding string of the annotation to the fetures. It needs start and end node offsets as int values
+	int sNodeFS = fsSet.firstNode().getOffset().intValue();
+	int eNodeFS = fsSet.lastNode().getOffset().intValue();
+	String fontStyle = doc.getContent().toString().substring(sNodeFS, eNodeFS);		
+	features.put("font-style", fontStyle);
+	
+	// ------ obtains the annotation for font weight ------------------
+	gate.AnnotationSet fwSet = (gate.AnnotationSet)bindings.get("fw");
+	// adding string of the annotation to the fetures. It needs start and end node offsets as int values
+	int sNodeFW = fwSet.firstNode().getOffset().intValue();
+	int eNodeFW = fwSet.lastNode().getOffset().intValue();
+	String fontWeight = doc.getContent().toString().substring(sNodeFW, eNodeFW);		
+	features.put("font-weight", fontWeight);
+	
+	// ------ obtains the annotation for font size ------------------
+	gate.AnnotationSet sizeSet = (gate.AnnotationSet)bindings.get("size");
+	// adding string of the annotation to the fetures. It needs start and end node offsets as int values
+	int sNodeSize = sizeSet.firstNode().getOffset().intValue();
+	int eNodeSize = sizeSet.lastNode().getOffset().intValue();
+	String fontSize = doc.getContent().toString().substring(sNodeSize, eNodeSize);		
+	features.put("font-size", fontSize);
+	
+		// ------ obtains the annotation for font family ------------------
+	gate.AnnotationSet familySet = (gate.AnnotationSet)bindings.get("family");
+	// adding string of the annotation to the fetures. It needs start and end node offsets as int values
+	int sNodeFamily = familySet.firstNode().getOffset().intValue();
+	int eNodeFamily = familySet.lastNode().getOffset().intValue();
+	String fontFamily = doc.getContent().toString().substring(sNodeFamily, eNodeFamily);		
+	features.put("font-family", fontFamily);
+	
+ 	// ------ obtains the annotation for font color ------------------
+	gate.AnnotationSet colorSet = (gate.AnnotationSet)bindings.get("color");
+	// adding string of the annotation to the fetures. It needs start and end node offsets as int values
+	int sNodeColor = colorSet.firstNode().getOffset().intValue();
+	int eNodeColor = colorSet.lastNode().getOffset().intValue();
+	String fontColor = doc.getContent().toString().substring(sNodeColor, eNodeColor);		
+	features.put("color", fontColor); 
+// finally adding the feature with the annotation. 
+outputAS.add(curlySet.firstNode(), curlySet.lastNode(), "StyleHead",features);
+}

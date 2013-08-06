@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1"?> 
+<mapping_data>
+	<mapping>
+		<mapping_id>mapping_1 </mapping_id>
+		<regulation>
+			<reg_id> Eudralex_5.21 </reg_id>
+			<reg_text> Equipment should be cleaned such a way that they avoid contaminations.</reg_text>
+			<reg_subject> equipment</reg_subject>
+			<reg_action> clean</reg_action>
+		</regulation>
+		<validation_task>
+			<task_id> t101cleaningTask</task_id>
+			<task_subject> tank, equipment</task_subject>
+			<task_action> clean, clear, wash</task_action>
+		</validation_task>
+		<similarity_score>
+			<subject_score>90 </subject_score>
+			<action_score> 100</action_score>
+		</similarity_score>
+		<accepted> true </accepted>
+		<remark> test 1</remark>	
+	</mapping>	
+		<mapping>
+		<mapping_id> mapping_2 </mapping_id>
+		<regulation>
+			<reg_id> Eudralex_5.42 </reg_id>
+			<reg_text> Purchasing materials should be purchased from the approved dealers.</reg_text>
+			<reg_subject> materials</reg_subject>
+			<reg_action> purchase</reg_action>
+		</regulation>
+		<validation_task>
+			<task_id> acidPurchaseTask</task_id>
+			<task_subject> acid</task_subject>
+			<task_action> purchase </task_action>
+		</validation_task>
+		<similarity_score>
+			<subject_score>90 </subject_score>
+			<action_score> 100</action_score>
+		</similarity_score>
+		<accepted> true </accepted>
+		<remark> test 2</remark>	
+	</mapping>
+</mapping_data>

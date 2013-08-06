@@ -1,0 +1,39 @@
+/*
+* identifies sentences within a paragraph.
+* depends on the start and end points of the paragraph and the splits within it.
+*/
+Phase: sentence
+Input:  sentence_start sentence_end paragraph_start paragraph_end 
+Options: control = first
+
+
+
+/* macros */
+ Macro: START({sentence_start}|{paragraph_start})
+ Macro: END({sentence_end} | {paragraph_end})
+
+/* rule */
+Rule: SentenceFinder
+Priority:90	
+ (  START  END ):text 
+-->
+{
+// obtains the annotation
+AnnotationSet senAS = (AnnotationSet)bindings.get("text");
+
+
+// creating new feature map
+gate.FeatureMap features = Factory.newFeatureMap();
+features.put("rule","SentenceFinder");
+
+// adding string of the annotation to the fetures. It needs start and end node offsets as int values
+int intStart = senAS.firstNode().getOffset().intValue();
+int intEnd = senAS.lastNode().getOffset().intValue();
+features.put("startNode",intStart);
+features.put("endNode", intEnd);
+String text = doc.getContent().toString().substring(intStart, intEnd);	
+features.put("text",text.trim());
+
+// finally adding the feature with the annotation. 
+outputAS.add(senAS.firstNode(), senAS.lastNode(), "sentence",features); 
+}

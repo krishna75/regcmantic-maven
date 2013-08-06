@@ -1,0 +1,4081 @@
+@prefix protege:  <http://protege.stanford.edu/plugins/owl/protege#> .
+@prefix xsp:     <http://www.owl-ontologies.com/2005/08/07/xsp.owl#> .
+@prefix abox:    <http://swrl.stanford.edu/ontologies/built-ins/3.3/abox.owl#> .
+@prefix sqwrl:   <http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix swrl:    <http://www.w3.org/2003/11/swrl#> .
+@prefix default:  <http://www.owl-ontologies.com/2008/6/17/Ontology1213712768.owl#> .
+@prefix temporal:  <http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#> .
+@prefix swrlb:   <http://www.w3.org/2003/11/swrlb#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix tbox:    <http://swrl.stanford.edu/ontologies/built-ins/3.3/tbox.owl#> .
+@prefix swrla:   <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#> .
+
+default:FilterCleaningTaskTime_15
+      a       default:CleaningTaskTime ;
+      default:correspondsTo
+              default:FilterCleaningTask ;
+      default:isImmediatelyAfter
+              default:TimeFiltering_F101 ;
+      default:isImmediatelyBefore
+              default:FilterCleanlinessTestTaskTime .
+
+default:TankCleaningProcedure
+      a       default:TaskProcedure .
+
+default:TimeStorage_T102
+      a       default:TimeStorage ;
+      default:correspondsTo
+              default:Storage_T102 ;
+      default:isImmediatelyBefore
+              default:T102CleaningTaskTime .
+
+default:Qualification
+      a       owl:Class ;
+      rdfs:subClassOf default:ValidationPlan ;
+      owl:disjointWith default:ComputerValidationPlan , default:CleaningValidationPlan , default:ProcessValidationPlan .
+
+default:Tank101CleanlinessReport
+      a       default:EquipmentCleanlinessReport ;
+      default:hasAuthor default:Berkan_Sesen , default:Yetkin_Sesen ;
+      default:isReportOf default:T101CleaningTask , default:T101CleanlinessTestTask .
+
+default:hasPatient
+      a       owl:FunctionalProperty , owl:ObjectProperty ;
+      rdfs:domain default:ValidationTask ;
+      rdfs:range
+              [ a       owl:Class ;
+                owl:unionOf (default:Document default:Substance default:Operation default:ThirdParty default:Equipment default:IregularIncidence)
+              ] ;
+      owl:inverseOf default:isPatientOf .
+
+default:CleaningValidationPlan
+      a       owl:Class ;
+      rdfs:subClassOf default:ValidationPlan ;
+      owl:disjointWith default:ProcessValidationReport , default:DesignQualification , default:ComputerValidationPlan , default:Qualification , default:InstallationQualification , default:OperationalQualification , default:ProcessValidationPlan , default:PerformanceQualification , default:MaterialLabel .
+
+default:Sinking
+      a       owl:Class ;
+      rdfs:subClassOf default:Operation ;
+      owl:disjointWith default:Drying , default:Classifying , default:Milling , default:Washing , default:Heating , default:Filtering , default:Charging , default:Centrifuging , default:Crystallization , default:StoichReaction , default:Extraction , default:Delaying , default:Distillation , default:Storage , default:Purging , default:Cooling .
+
+default:hasPort
+      a       owl:InverseFunctionalProperty , owl:ObjectProperty ;
+      rdfs:domain default:Equipment ;
+      rdfs:range default:Port ;
+      owl:inverseOf default:isportOf .
+
+default:StoichReaction_R101
+      a       default:StoichReaction , default:InvestigatoryEntity ;
+      default:hasTime default:TimeStoichReaction_R101 ;
+      default:hasWrittenProcedure
+              default:IsobaricReactionProcedure ;
+      default:isOperationOfUnitProcedure
+              default:Reactor101Procedure ;
+      default:isPatientOf default:ReactionYieldTestTask_1 ;
+      default:isTestedBy default:ReactionYieldTest_1 .
+
+default:Blender
+      a       owl:Class ;
+      rdfs:label "blender"^^xsd:string ;
+      rdfs:subClassOf default:ProcessingEquipment ;
+      owl:disjointWith default:DistillationColumn , default:Crystallizer , default:Mill , default:Centrifuge , default:Filter , default:Dryer , default:Reactor , default:ExtractionColumn .
+
+default:hasMinimum
+      a       owl:DatatypeProperty ;
+      rdfs:domain default:RangeValue ;
+      rdfs:range xsd:int .
+
+default:hasAuthor
+      a       owl:ObjectProperty ;
+      rdfs:domain default:Document ;
+      rdfs:range default:Personnel ;
+      owl:inverseOf default:isAuthorOf .
+
+default:hasLabel
+      a       owl:ObjectProperty .
+
+default:Salicylic_Acid
+      a       default:StartingMaterial ;
+      default:isPatientOf default:AcidPurchaseTask101 , default:AcidProtectionTask101 , default:ReturningTask_101 , default:StartingMaterialPurchase_1 .
+
+default:YieldTestTaskTime
+      a       owl:Class ;
+      rdfs:subClassOf default:IntraProcessTaskTime ;
+      owl:disjointWith default:CleanlinessTestTaskTime , default:CleaningTaskTime .
+
+default:isSuppliedBy
+      a       owl:ObjectProperty ;
+      rdfs:domain default:Substance ;
+      rdfs:range default:PharmaSupplier ;
+      owl:inverseOf default:supplies .
+
+default:reportingTask
+      a       owl:Class ;
+      rdfs:subClassOf default:IrrelavantTask ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom default:Reporting ;
+                owl:onProperty default:hasAction
+              ] ;
+      owl:disjointWith default:ReturningTask , default:TransportingTask , default:RestrictingTask , default:QuarantiningTask , default:SupervisingTask , default:IdentifyingTask , default:WritingTask , default:ReinforcingTask , default:AllowingTask .
+
+default:T102CleanlinessTest
+      a       default:EquipmentCleanlinessTest ;
+      default:tests default:Tank102 .
+
+default:TimeStoichReaction_R101Single
+      a       default:SingleValue ;
+      default:hasExact "1"^^xsd:int .
+
+default:OperationTime
+      a       owl:Class ;
+      rdfs:subClassOf default:Time ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom
+                        [ a       owl:Class ;
+                          owl:unionOf (default:OperationTime default:TaskTime)
+                        ] ;
+                owl:onProperty default:isImmediatelyAfter
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:hasValue default:TimeIntPostProcess ;
+                owl:onProperty default:isBefore
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:hasValue default:TimeIntPreProcess ;
+                owl:onProperty default:isAfter
+              ] ;
+      owl:disjointWith default:TaskTime .
+
+default:DesignQualification
+      a       owl:Class ;
+      rdfs:subClassOf default:Qualification ;
+      owl:disjointWith default:ProcessValidationReport , default:ComputerValidationPlan , default:ValidationReport , default:InstallationQualification , default:TaskReport , default:CleaningValidationPlan , default:OperationalQualification , default:ProcessValidationPlan , default:PerformanceQualification , default:MaterialLabel , default:WrittenProcedure .
+
+default:Rejected
+      a       default:MaterialStatus .
+
+default:CleaningTaskTime
+      a       owl:Class ;
+      rdfs:subClassOf default:IntraProcessTaskTime ;
+      owl:disjointWith default:YieldTestTaskTime , default:CleanlinessTestTaskTime .
+
+default:LablelDisplayTask101
+      a       default:DisplayingTask ;
+      default:hasAction default:DisplayingIndividual101 ;
+      default:hasPatient default:AspirinPakageName .
+
+default:TimeStorage_T101
+      a       default:TimeStorage ;
+      default:correspondsTo
+              default:Storage_T101 ;
+      default:isImmediatelyBefore
+              default:T101CleaningTaskTime .
+
+default:hasEquipmentSpecifications
+      a       owl:ObjectProperty ;
+      rdfs:domain default:Equipment ;
+      rdfs:range default:EquipmentSpecification .
+
+default:Valve
+      a       owl:Class ;
+      rdfs:label "valve"^^xsd:string ;
+      rdfs:subClassOf default:FlowEquipment ;
+      owl:disjointWith default:Pipe , default:Pump .
+
+default:FlowEquipment
+      a       owl:Class ;
+      rdfs:label "flow_equipment"^^xsd:string ;
+      rdfs:subClassOf default:Equipment ;
+      owl:disjointWith default:ThermalEquipment , default:StorageEquipment , default:AnalyticalEquipment , default:ProcessingEquipment , default:ActuatingEquipment .
+
+default:WritingIndividual101
+      a       default:Writing ;
+      rdfs:label "write"^^xsd:string .
+
+default:hasAction
+      a       owl:ObjectProperty ;
+      rdfs:domain default:ValidationTask .
+
+default:PharmaSupplier
+      a       owl:Class ;
+      rdfs:label "pharma_supplier, supplier, distributor, dealer"^^xsd:string ;
+      rdfs:subClassOf default:ThirdParty ;
+      rdfs:subClassOf
+              [ a       owl:Class ;
+                owl:unionOf (default:ApprovedSupplier default:DisapprovedSupplier default:UnknownSupplier)
+              ] .
+
+default:Supervising
+      a       owl:Class ;
+      rdfs:label "supervise"^^xsd:string ;
+      rdfs:subClassOf default:Action .
+
+default:isBefore
+      a       owl:TransitiveProperty , owl:ObjectProperty ;
+      rdfs:domain default:Time ;
+      rdfs:range default:Time ;
+      owl:inverseOf default:isAfter .
+
+default:TimeStoichReaction
+      a       owl:Class ;
+      rdfs:subClassOf default:OperationTime ;
+      owl:disjointWith default:TimeStorage , default:TimeFiltering , default:TimeCentrifuging , default:TimeWashing , default:TimeDrying , default:TimeDelaying , default:TimeCrystallization .
+
+default:StartingMaterial
+      a       owl:Class ;
+      rdfs:subClassOf default:Substance ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:cardinality "2"^^xsd:int ;
+                owl:onProperty default:isPatientOf
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:cardinality "1"^^xsd:int ;
+                owl:onProperty default:hasLabelName
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:cardinality "1"^^xsd:int ;
+                owl:onProperty default:hasLabelBatchNumber
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:cardinality "1"^^xsd:int ;
+                owl:onProperty default:hasLabelExpiryDate
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:hasMaterialStatus ;
+                owl:someValuesFrom default:MaterialStatus
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:cardinality "1"^^xsd:int ;
+                owl:onProperty default:isTestedBy
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:isSuppliedBy ;
+                owl:someValuesFrom
+                        [ a       owl:Class ;
+                          owl:intersectionOf (default:PharmaSupplier [ a       owl:Restriction ;
+                                      owl:hasValue default:Approved ;
+                                      owl:onProperty default:hasVendorAssessment
+                                    ])
+                        ]
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:isPatientOf ;
+                owl:someValuesFrom default:StartingMaterialTestTask
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:isTestedBy ;
+                owl:someValuesFrom
+                        [ a       owl:Class ;
+                          owl:intersectionOf (default:MaterialEvaluationTest [ a       owl:Restriction ;
+                                      owl:hasValue default:Approved ;
+                                      owl:onProperty default:hasValidationStatus
+                                    ])
+                        ]
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:isPatientOf ;
+                owl:someValuesFrom default:StartingMaterialPurchaseTask
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:cardinality "1"^^xsd:int ;
+                owl:onProperty default:isSuppliedBy
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:cardinality "1"^^xsd:int ;
+                owl:onProperty default:hasLabelStatus
+              ] .
+
+default:ReinforcingIndividual101
+      a       default:Reinforcing ;
+      rdfs:label "reinforce"^^xsd:string .
+
+default:Storage
+      a       owl:Class ;
+      rdfs:subClassOf default:Operation ;
+      owl:disjointWith default:Drying , default:Classifying , default:Milling , default:Heating , default:Washing , default:Filtering , default:Charging , default:Sinking , default:Crystallization , default:Centrifuging , default:StoichReaction , default:Extraction , default:Delaying , default:Distillation , default:Purging , default:Cooling .
+
+default:IsobaricReactionProcedure
+      a       default:StandardOperatingProcedure .
+
+default:DeviationRecordTask101
+      a       default:RecordingTask ;
+      default:hasAction default:RecordingIndividual101 ;
+      default:hasPatient default:deviation .
+
+default:AceticSalicylicAcid
+      a       default:IntermediateMaterial , default:ActivePharmaceuticalIngredient ;
+      default:isPatientOf default:QuarantiningTask_101 .
+
+default:ApprovalStatus
+      a       owl:Class ;
+      rdfs:subClassOf default:Attribute ;
+      owl:equivalentClass
+              [ a       owl:Class ;
+                owl:oneOf (default:Approved default:Disapproved)
+              ] .
+
+default:hasReport
+      a       owl:ObjectProperty ;
+      rdfs:domain default:ValidationTask ;
+      rdfs:range default:Document ;
+      owl:inverseOf default:isReportOf .
+
+default:Extraction
+      a       owl:Class ;
+      rdfs:subClassOf default:Operation ;
+      owl:disjointWith default:Drying , default:Classifying , default:Milling , default:Washing , default:Heating , default:Charging , default:Filtering , default:Sinking , default:Centrifuging , default:Crystallization , default:StoichReaction , default:Delaying , default:Distillation , default:Storage , default:Purging , default:Cooling .
+
+default:hasUnitProcedure
+      a       owl:ObjectProperty ;
+      rdfs:domain default:Process ;
+      rdfs:range default:UnitProcedure ;
+      owl:inverseOf default:isUnitProcedureOf .
+
+default:EquipmentCleanlinessTest
+      a       owl:Class ;
+      rdfs:subClassOf default:ValidationTest ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:cardinality "1"^^xsd:int ;
+                owl:onProperty default:tests
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:tests ;
+                owl:someValuesFrom default:Equipment
+              ] .
+
+default:InvestigationReport
+      a       owl:Class ;
+      rdfs:subClassOf default:TaskReport ;
+      owl:disjointWith default:SupplierAssessmentReport , default:EquipmentCleanlinessReport , default:YieldDeviationReport , default:MaterialEvaluationReport , default:MaterialPurchaseReport .
+
+default:InQuarantine
+      a       default:MaterialStatus .
+
+default:TimeFiltering_F101
+      a       default:TimeFiltering ;
+      default:correspondsTo
+              default:Filtering_F101 ;
+      default:isImmediatelyBefore
+              default:FilterCleaningTaskTime_15 .
+
+default:Dryer
+      a       owl:Class ;
+      rdfs:label "dryer"^^xsd:string ;
+      rdfs:subClassOf default:ProcessingEquipment ;
+      owl:disjointWith default:DistillationColumn , default:Centrifuge , default:Crystallizer , default:Mill , default:Blender , default:Filter , default:Reactor , default:ExtractionColumn .
+
+default:TimeCrystallization
+      a       owl:Class ;
+      rdfs:subClassOf default:OperationTime ;
+      owl:disjointWith default:TimeStoichReaction , default:TimeStorage , default:TimeFiltering , default:TimeCentrifuging , default:TimeWashing , default:TimeDrying , default:TimeDelaying .
+
+default:Identifying
+      a       owl:Class ;
+      rdfs:label "identify"^^xsd:string ;
+      rdfs:subClassOf default:Action .
+
+default:Name
+      a       owl:Class ;
+      rdfs:comment "The designated name of the product and internal code reference where applicable."^^xsd:string ;
+      rdfs:subClassOf default:MaterialLabel .
+
+default:tests
+      a       owl:ObjectProperty ;
+      rdfs:domain default:ValidationTest ;
+      owl:inverseOf default:isTestedBy .
+
+default:AspirinStorageTask101
+      a       default:StoringTask ;
+      default:hasPatient default:AspirinTablet50g .
+
+default:QuarantiningIndividual101
+      a       default:Quarantining ;
+      rdfs:label "quarantine"^^xsd:string .
+
+default:PackagingPaper
+      a       default:PackagingMaterial ;
+      default:isPatientOf default:PaperDisposeTask101 .
+
+default:isAuthorOf
+      a       owl:ObjectProperty ;
+      rdfs:domain default:Personnel ;
+      rdfs:range default:Document ;
+      owl:inverseOf default:hasAuthor .
+
+default:PurchasingDepartment
+      a       owl:Class ;
+      rdfs:comment "Purchasing Staff who have a particular and through knowledge of the suppliers."^^xsd:string ;
+      rdfs:subClassOf default:Personnel ;
+      owl:disjointWith default:QualityControlLaboratory .
+
+default:DisapprovedSupplier
+      a       owl:Class ;
+      rdfs:subClassOf default:PharmaSupplier ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:isPatientOf ;
+                owl:someValuesFrom default:PharmaSupplierAssessTask
+              ] ;
+      owl:disjointWith default:UnknownSupplier , default:ApprovedSupplier ;
+      owl:equivalentClass
+              [ a       owl:Restriction ;
+                owl:hasValue default:Disapproved ;
+                owl:onProperty default:hasVendorAssessment
+              ] .
+
+default:Stream3AcetylSalicylicAcidSolution
+      a       default:PhysicalComponent ;
+      default:hasState default:Liquid ;
+      default:hasSubstance
+              default:AceticSalicylicAcid .
+
+default:InvestigatingIndividual101
+      a       default:Investigating ;
+      rdfs:label "investigate"^^xsd:string .
+
+default:IdentifyingTask
+      a       owl:Class ;
+      rdfs:subClassOf default:IrrelavantTask ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom default:Identifying ;
+                owl:onProperty default:hasAction
+              ] ;
+      owl:disjointWith default:ReturningTask , default:TransportingTask , default:RestrictingTask , default:QuarantiningTask , default:SupervisingTask , default:WritingTask , default:ReinforcingTask , default:AllowingTask , default:reportingTask .
+
+default:RestrictingTask_101
+      a       default:RestrictingTask ;
+      default:hasAction default:RectrictingIndividual101 ;
+      default:hasPatient default:Washing_Ce101 .
+
+default:Crystallization
+      a       owl:Class ;
+      rdfs:label ""^^xsd:string ;
+      rdfs:subClassOf default:Operation ;
+      owl:disjointWith default:Drying , default:Classifying , default:Milling , default:Washing , default:Heating , default:Charging , default:Filtering , default:Sinking , default:Centrifuging , default:StoichReaction , default:Extraction , default:Delaying , default:Distillation , default:Storage , default:Purging , default:Cooling .
+
+default:DryingProcedure
+      a       default:StandardOperatingProcedure ;
+      default:isPatientOf default:SupervisingTask_101 .
+
+default:RangeValue
+      a       owl:Class ;
+      rdfs:subClassOf default:NumericalValue ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:cardinality "1"^^xsd:int ;
+                owl:onProperty default:hasMinimum
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:cardinality "1"^^xsd:int ;
+                owl:onProperty default:hasMaximum
+              ] .
+
+default:Sensor
+      a       owl:Class ;
+      rdfs:label "sensor"^^xsd:string ;
+      rdfs:subClassOf default:AnalyticalEquipment ;
+      owl:disjointWith default:Chromotograph , default:Spectroscopy , default:Controller .
+
+default:Stream3ExtraneousParticle
+      a       default:PhysicalComponent ;
+      default:hasState default:Solid ;
+      default:hasSubstance
+              default:Impurities .
+
+default:PerformanceQualification
+      a       owl:Class ;
+      rdfs:subClassOf default:Qualification ;
+      owl:disjointWith default:ProcessValidationReport , default:DesignQualification , default:ComputerValidationPlan , default:ValidationReport , default:InstallationQualification , default:TaskReport , default:OperationalQualification , default:CleaningValidationPlan , default:ProcessValidationPlan , default:MaterialLabel , default:WrittenProcedure .
+
+default:MaterialPurchaseReport_4
+      a       default:MaterialPurchaseReport ;
+      default:hasAuthor default:AssistantPurchasingOfficer_11 ;
+      default:isReportOf default:StartingMaterialPurchase_1 .
+
+default:hasMaterialOfConstruction
+      a       owl:ObjectProperty ;
+      rdfs:domain default:MaterialofConstructionSpecification ;
+      rdfs:range default:Substance .
+
+default:Attribute
+      a       owl:Class ;
+      rdfs:subClassOf default:AbstractConcepts .
+
+default:Crystallizer
+      a       owl:Class ;
+      rdfs:label "crystallizer"^^xsd:string ;
+      rdfs:subClassOf default:ProcessingEquipment ;
+      owl:disjointWith default:DistillationColumn , default:Centrifuge , default:Mill , default:Blender , default:Filter , default:Dryer , default:Reactor , default:ExtractionColumn .
+
+default:PortD101_In1
+      a       default:Port ;
+      default:isDownstreamPortOf
+              default:Stream9 ;
+      default:isportOf default:Dryer101 .
+
+default:TimeWashing
+      a       owl:Class ;
+      rdfs:subClassOf default:OperationTime ;
+      owl:disjointWith default:TimeStoichReaction , default:TimeStorage , default:TimeFiltering , default:TimeCentrifuging , default:TimeDrying , default:TimeCrystallization , default:TimeDelaying .
+
+default:MaterialPurchaseReport
+      a       owl:Class ;
+      rdfs:subClassOf default:TaskReport ;
+      owl:disjointWith default:SupplierAssessmentReport , default:EquipmentCleanlinessReport , default:InvestigationReport , default:YieldDeviationReport , default:MaterialEvaluationReport .
+
+default:TankInvestigationTask101
+      a       default:CheckingTask ;
+      default:hasAction default:InvestigatingIndividual101 .
+
+default:R101YieldTestTaskTime
+      a       default:YieldTestTaskTime ;
+      default:correspondsTo
+              default:ReactionYieldTestTask_1 ;
+      default:isImmediatelyAfter
+              default:TimeStoichReaction_R101 .
+
+default:AspirinTabletMarkTask101
+      a       default:MarkingTask ;
+      default:hasPatient default:AspirinTablet50g .
+
+default:Classifying
+      a       owl:Class ;
+      rdfs:label ""^^xsd:string ;
+      rdfs:subClassOf default:Operation ;
+      owl:disjointWith default:Drying , default:Milling , default:Washing , default:Heating , default:Filtering , default:Charging , default:Sinking , default:Centrifuging , default:Crystallization , default:StoichReaction , default:Extraction , default:Delaying , default:Distillation , default:Storage , default:Purging , default:Cooling .
+
+default:hasVendorAssessment
+      a       owl:ObjectProperty ;
+      rdfs:domain default:PharmaSupplier ;
+      rdfs:range default:ApprovalStatus .
+
+default:CleaningValidationReport
+      a       owl:Class ;
+      rdfs:subClassOf default:ValidationReport .
+
+default:Stream7AceticAcid
+      a       default:PhysicalComponent ;
+      default:hasState default:Solid ;
+      default:hasSubstance
+              default:AceticAcidGlacial .
+
+default:ProcedureDislpayTask101
+      a       default:ShowingTask ;
+      default:hasPatient default:TankStorageProcedure .
+
+default:FinalProduct
+      a       owl:Class ;
+      rdfs:subClassOf default:Substance .
+
+default:TankStorageProcedure
+      a       default:StandardOperatingProcedure ;
+      default:isPatientOf default:ProcedureDislpayTask101 .
+
+default:ActuatingEquipment
+      a       owl:Class ;
+      rdfs:label "actuating_equipment"^^xsd:string ;
+      rdfs:subClassOf default:Equipment ;
+      owl:disjointWith default:ThermalEquipment , default:StorageEquipment , default:AnalyticalEquipment , default:ProcessingEquipment , default:FlowEquipment .
+
+default:ReactorProcedureTime
+      a       owl:Class ;
+      rdfs:subClassOf default:UnitProcedureTime ;
+      owl:disjointWith default:CentrifugeProcedureTime , default:DryerProcedureTime , default:CrystallizerProcedureTime , default:TankProcedureTime , default:FilterProcedureTime .
+
+default:AssistantPurchasingOfficer
+      a       owl:Class ;
+      rdfs:subClassOf default:PurchasingDepartment ;
+      owl:disjointWith default:PurchasingOfficer , default:PurchasingClericalAssistant .
+
+default:StoringIndividual101
+      a       default:Storing ;
+      rdfs:label "store, accumulate, store,"^^xsd:string .
+
+default:QCCoordinator
+      a       owl:Class ;
+      rdfs:label "qc_coordinator, quality_control_coordinator"^^xsd:string ;
+      rdfs:subClassOf default:QualityControlDepartment .
+
+default:needsInvestigation
+      a       owl:FunctionalProperty , owl:DatatypeProperty ;
+      rdfs:domain default:ReactionYieldTest ;
+      rdfs:range xsd:boolean .
+
+default:YieldingIndividual101
+      a       default:Yielding ;
+      rdfs:label "yield, produce"^^xsd:string .
+
+default:isImmediatelyAfter
+      a       owl:TransitiveProperty , owl:ObjectProperty ;
+      rdfs:subPropertyOf default:isAfter ;
+      owl:inverseOf default:isImmediatelyBefore .
+
+default:Stream6AcetylsalicylicAcidCrystal
+      a       default:PhysicalComponent ;
+      default:hasState default:Solid ;
+      default:hasSubstance
+              default:AceticSalicylicAcid .
+
+default:Action
+      a       owl:Class ;
+      rdfs:label "action"^^xsd:string ;
+      rdfs:subClassOf default:RegulatoryDomain ;
+      owl:disjointWith default:Stream , default:Regulation , default:Process , default:ValidationPlan , default:Substance , default:Port , default:Document , default:UnitProcedure , default:Operation , default:Position , default:PhysicalComponent , default:EquipmentModule , default:InvestigatoryEntity , default:ValidationTest , default:ValidationTask .
+
+default:Centrifuging
+      a       owl:Class ;
+      rdfs:label ""^^xsd:string ;
+      rdfs:subClassOf default:Operation ;
+      owl:disjointWith default:Drying , default:Classifying , default:Milling , default:Heating , default:Washing , default:Filtering , default:Charging , default:Sinking , default:Crystallization , default:StoichReaction , default:Extraction , default:Delaying , default:Distillation , default:Storage , default:Purging , default:Cooling .
+
+default:StoichReaction
+      a       owl:Class ;
+      rdfs:label "stoich_reaction, reaction"^^xsd:string ;
+      rdfs:subClassOf default:Operation ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:minCardinality "1"^^xsd:int ;
+                owl:onProperty default:isPatientOf
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:isPatientOf ;
+                owl:someValuesFrom default:ReactionYieldTestTask
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom
+                        [ a       owl:Class ;
+                          owl:unionOf (default:ReactionYieldTestTask default:InvestigationTask)
+                        ] ;
+                owl:onProperty default:isPatientOf
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:isTestedBy ;
+                owl:someValuesFrom default:ValidationTest
+              ] ;
+      owl:disjointWith default:Drying , default:Classifying , default:Milling , default:Washing , default:Heating , default:Filtering , default:Charging , default:Sinking , default:Centrifuging , default:Crystallization , default:Extraction , default:Delaying , default:Distillation , default:Storage , default:Purging , default:Cooling .
+
+default:MaterialEvaluationReport_3
+      a       default:MaterialEvaluationReport ;
+      default:isReportOf default:StartingMaterialTestTask_7 .
+
+default:TaskProcedure
+      a       owl:Class ;
+      rdfs:subClassOf default:WrittenProcedure .
+
+default:Stream4ExtraneousParticle
+      a       default:PhysicalComponent ;
+      default:hasState default:Solid ;
+      default:hasSubstance
+              default:Impurities .
+
+default:ValidationManager
+      a       owl:Class ;
+      rdfs:subClassOf default:QualityAssuranceDepartment ;
+      owl:disjointWith default:QACoordinator , default:ValidationRepresentative .
+
+default:Tank102Procedure
+      a       default:UnitProcedure ;
+      default:hasEquipment
+              default:Tank102 ;
+      default:hasOperation
+              default:Storage_T102 ;
+      default:hasOutletStream
+              default:Stream2 ;
+      default:hasTime default:TimeTank102Procedure ;
+      default:isUnitProcedureOf
+              default:AspirinProcess .
+
+<http://www.owl-ontologies.com/2008/6/17/Ontology1213712768.owl#EUGuidanceGMP-5.21>
+      a       default:Regulation ;
+      rdfs:comment """5.21 Written procedures should be established for cleaning of equipment and its subsequent release for use in the manufacture of intermediates and APIs. Cleaning procedures should contain sufficient details to enable operators to clean each type of equipment in a reproducible and effective manner. These procedures should include:
+- Assignment of responsibility for cleaning of equipment;
+- Cleaning schedules, including, where appropriate, sanitizing schedules;
+- A complete description of the methods and materials, including dilution of cleaning agents used to clean equipment;
+- When appropriate, instructions for disassembling and reassembling each article of equipment to ensure proper cleaning;
+- Instructions for the removal or obliteration of previous batch identification;
+- Instructions for the protection of clean equipment from contamination prior to use;
+- Inspection of equipment for cleanliness immediately before use, if practical;
+and
+- Establishing the maximum time that may elapse between the completion of processing and equipment cleaning, when appropriate."""^^xsd:string ;
+      default:necessitatesTask
+              default:T102CleanlinessTestTask , default:FilterCleanlinessTestTask , default:FilterCleaningTask , default:T101CleanlinessTestTask , default:T101CleaningTask , default:T102CleaningTask .
+
+default:Dispensing
+      a       owl:Class ;
+      rdfs:subClassOf default:Action .
+
+default:act
+      a       swrl:Variable .
+
+default:test
+      a       swrl:Variable .
+
+default:PortF101_In1
+      a       default:Port ;
+      default:isDownstreamPortOf
+              default:Stream3 ;
+      default:isportOf default:Filter101 .
+
+default:isReportOf
+      a       owl:ObjectProperty ;
+      rdfs:domain default:Document ;
+      rdfs:range default:ValidationTask ;
+      owl:inverseOf default:hasReport .
+
+default:CriticalYieldDeviation
+      a       owl:DatatypeProperty ;
+      rdfs:domain default:ReactionYieldTest ;
+      rdfs:range xsd:float .
+
+default:hasDownstreamPort
+      a       owl:FunctionalProperty , owl:InverseFunctionalProperty , owl:ObjectProperty ;
+      rdfs:domain default:Stream ;
+      rdfs:range default:Port ;
+      owl:inverseOf default:isDownstreamPortOf .
+
+default:TimeIntPostProcess
+      a       default:PostProcessTaskTime .
+
+default:Document
+      a       owl:Class ;
+      rdfs:label "document"^^xsd:string ;
+      rdfs:subClassOf default:RegulatoryDomain ;
+      owl:disjointWith default:Stream , default:Regulation , default:Process , default:ValidationPlan , default:Substance , default:Port , default:UnitProcedure , default:Action , default:Operation , default:Position , default:PhysicalComponent , default:EquipmentModule , default:InvestigatoryEntity , default:ValidationTest , default:ValidationTask .
+
+default:PortCe101_Out2
+      a       default:Port ;
+      default:isUpstreamPortOf
+              default:Stream7 ;
+      default:isportOf default:Centrifuge101 .
+
+default:Centrifuge101Procedure
+      a       default:UnitProcedure ;
+      default:hasEquipment
+              default:Centrifuge101 ;
+      default:hasInletStream
+              default:Stream6 , default:Stream8 ;
+      default:hasOperation
+              default:Centrifuging_Ce101 , default:Washing_Ce101 ;
+      default:hasOutletStream
+              default:Stream9 , default:Stream7 ;
+      default:hasTime default:TimeCentrifuge101Process ;
+      default:isUnitProcedureOf
+              default:AspirinProcess .
+
+default:resultsin
+      a       owl:ObjectProperty ;
+      rdfs:domain default:ValidationTask ;
+      rdfs:range default:ValidationTest .
+
+default:MaterialPurchasingProcedure
+      a       default:TaskProcedure .
+
+default:Investigating
+      a       owl:Class ;
+      rdfs:subClassOf default:Action .
+
+default:task
+      a       swrl:Variable .
+
+default:TemperatureRangeDelaying_R101
+      a       default:RangeValue ;
+      default:hasMaximum "90"^^xsd:int ;
+      default:hasMinimum "85"^^xsd:int .
+
+default:PortCe101_Out1
+      a       default:Port ;
+      default:isUpstreamPortOf
+              default:Stream9 ;
+      default:isportOf default:Centrifuge101 .
+
+default:PurchasingTask
+      a       owl:Class ;
+      rdfs:label "purchase"^^xsd:string ;
+      rdfs:subClassOf default:GenericTask ;
+      owl:disjointWith default:DisposingTask , default:ShowingTask , default:CheckingTask , default:StoringTask , default:ProtectingTask , default:DisplayingTask , default:MarkingTask , default:RecordingTask , default:CleaningTask .
+
+default:hasDuration-h
+      a       owl:FunctionalProperty , owl:ObjectProperty ;
+      rdfs:subPropertyOf default:hasParameter .
+
+default:isResponsibilityOf
+      a       owl:TransitiveProperty , owl:ObjectProperty ;
+      rdfs:domain default:ValidationTask ;
+      rdfs:range default:Personnel ;
+      owl:inverseOf default:isResponsibleFor .
+
+default:Pipe
+      a       owl:Class ;
+      rdfs:label "pipe"^^xsd:string ;
+      rdfs:subClassOf default:FlowEquipment ;
+      owl:disjointWith default:Valve , default:Pump .
+
+default:MaterialTestingProcedure
+      a       default:TaskProcedure ;
+      default:isPatientOf default:AllowingTask_101 .
+
+default:hasPressure-Atm
+      a       owl:FunctionalProperty , owl:ObjectProperty ;
+      rdfs:domain
+              [ a       owl:Class ;
+                owl:unionOf (default:Stream default:Operation)
+              ] ;
+      rdfs:subPropertyOf default:hasParameter .
+
+default:Transporting
+      a       owl:Class ;
+      rdfs:label "transport"^^xsd:string ;
+      rdfs:subClassOf default:Action .
+
+default:UnitProcedureTime
+      a       owl:Class ;
+      rdfs:subClassOf default:Time ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom
+                        [ a       owl:Class ;
+                          owl:unionOf (default:UnitProcedureTime default:TaskTime)
+                        ] ;
+                owl:onProperty default:isImmediatelyAfter
+              ] .
+
+default:T102CleanlinessTestTaskTime
+      a       default:CleanlinessTestTaskTime ;
+      default:correspondsTo
+              default:T102CleanlinessTestTask ;
+      default:isImmediatelyAfter
+              default:T102CleaningTaskTime .
+
+default:Controller
+      a       owl:Class ;
+      rdfs:label "controller"^^xsd:string ;
+      rdfs:subClassOf default:AnalyticalEquipment ;
+      owl:disjointWith default:Chromotograph , default:Sensor , default:Spectroscopy .
+
+default:TimeFiltering
+      a       owl:Class ;
+      rdfs:subClassOf default:OperationTime ;
+      owl:disjointWith default:TimeStoichReaction , default:TimeStorage , default:TimeCentrifuging , default:TimeWashing , default:TimeDrying , default:TimeCrystallization , default:TimeDelaying .
+
+default:TransportingTask
+      a       owl:Class ;
+      rdfs:subClassOf default:IrrelavantTask ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom default:Transporting ;
+                owl:onProperty default:hasAction
+              ] ;
+      owl:disjointWith default:RestrictingTask , default:ReturningTask , default:QuarantiningTask , default:SupervisingTask , default:IdentifyingTask , default:WritingTask , default:ReinforcingTask , default:reportingTask , default:AllowingTask .
+
+default:Stream2SalisylicAcidSolution
+      a       default:PhysicalComponent ;
+      default:hasState default:Liquid ;
+      default:hasSubstance
+              default:Salicylic_Acid .
+
+default:isEquipmentOf
+      a       owl:ObjectProperty ;
+      rdfs:domain default:Equipment ;
+      rdfs:range default:UnitProcedure ;
+      owl:inverseOf default:hasEquipment .
+
+default:PortT102-Out1
+      a       default:Port ;
+      default:isUpstreamPortOf
+              default:Stream2 ;
+      default:isportOf default:Tank102 .
+
+default:Liquid
+      a       default:State .
+
+default:ReactionYieldTest_1
+      a       default:ReactionYieldTest ;
+      default:ActualYieldDeviation
+              "6.0"^^xsd:float ;
+      default:CriticalYieldDeviation
+              "5.0"^^xsd:float ;
+      default:needsInvestigation
+              "true"^^xsd:boolean ;
+      default:testResult "The actual deviation is greater than the critical deviation"^^xsd:string ;
+      default:tests default:StoichReaction_R101 .
+
+default:RegulatoryDomain
+      a       owl:Class ;
+      rdfs:label "regulatory_domain"^^xsd:string ;
+      rdfs:subClassOf default:PhysicalConcepts .
+
+default:Pradeep_Suresh
+      a       default:MaintenanceOperator ;
+      default:performs default:CleaningIndividual101 .
+
+default:QualityControlLaboratory
+      a       owl:Class ;
+      rdfs:label "qc_laboratory, qyality_control_laboratory"^^xsd:string ;
+      rdfs:subClassOf default:QualityControlDepartment ;
+      owl:disjointWith default:QualityAssuranceDepartment , default:PurchasingDepartment , default:MaintenanceDepartment , default:ProductionDepartment .
+
+default:supplies
+      a       owl:ObjectProperty ;
+      rdfs:domain default:PharmaSupplier ;
+      rdfs:range default:Substance ;
+      owl:inverseOf default:isSuppliedBy .
+
+default:ReinforcingTask
+      a       owl:Class ;
+      rdfs:subClassOf default:IrrelavantTask ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom default:Reinforcing ;
+                owl:onProperty default:hasAction
+              ] ;
+      owl:disjointWith default:ReturningTask , default:RestrictingTask , default:TransportingTask , default:QuarantiningTask , default:SupervisingTask , default:IdentifyingTask , default:WritingTask , default:AllowingTask , default:reportingTask .
+
+default:ingIndividual101alidatingIndividual101
+      a       default:Validating ;
+      rdfs:label "validate, authorize, authenticate, legalize, certify, confirm, accord"^^xsd:string .
+
+default:ReactionInvestigationReport
+      a       default:InvestigationReport ;
+      default:isReportOf default:InvestigationTask_1 .
+
+default:AspirinPakageName
+      a       default:Name ;
+      default:isPatientOf default:LablelDisplayTask101 .
+
+default:Delaying_R101
+      a       default:Delaying ;
+      default:hasTime default:TimeDelaying_R101 ;
+      default:hasWrittenProcedure
+              default:DelayingProcedure ;
+      default:isOperationOfUnitProcedure
+              default:Reactor101Procedure .
+
+default:TimeWashing_Ce101
+      a       default:TimeWashing ;
+      default:correspondsTo
+              default:Washing_Ce101 ;
+      default:isImmediatelyAfter
+              default:TimeCentrifuging_Ce101- .
+
+default:Dryer101Procedure
+      a       default:UnitProcedure ;
+      default:hasEquipment
+              default:Dryer101 ;
+      default:hasInletStream
+              default:Stream9 ;
+      default:hasOperation
+              default:Drying_D101 ;
+      default:hasOutletStream
+              default:Stream10 ;
+      default:hasTime default:TimeDryer101Process ;
+      default:isUnitProcedureOf
+              default:AspirinProcess .
+
+default:MaxCardTest101
+      a       default:MaxCard ;
+      default:hasLabel default:Approved , default:MaxCardTest101 , default:Stream11Water .
+
+default:Released
+      a       default:MaterialStatus .
+
+default:hasLabelExpiryDate
+      a       owl:ObjectProperty ;
+      rdfs:domain default:Substance ;
+      rdfs:subPropertyOf default:hasLabel .
+
+default:DocumentationStatus
+      a       owl:Class ;
+      rdfs:subClassOf default:PharmaValidationStatus .
+
+default:AbstractConcepts
+      a       owl:Class .
+
+default:CheckingTask
+      a       owl:Class ;
+      rdfs:label "check"^^xsd:string ;
+      rdfs:subClassOf default:GenericTask ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:hasValue default:InvestigatingIndividual101 ;
+                owl:onProperty default:hasAction
+              ] ;
+      owl:disjointWith default:DisposingTask , default:ShowingTask , default:PurchasingTask , default:StoringTask , default:ProtectingTask , default:DisplayingTask , default:MarkingTask , default:RecordingTask , default:CleaningTask .
+
+default:ProductionCoordinator
+      a       owl:Class ;
+      rdfs:subClassOf default:ProductionDepartment ;
+      owl:disjointWith default:ProductionTechnician , default:ProductionEngineer .
+
+default:AdministrationsDepartment
+      a       owl:Class ;
+      rdfs:label "administration_department, department"^^xsd:string ;
+      rdfs:subClassOf default:Personnel .
+
+default:Chromotograph
+      a       owl:Class ;
+      rdfs:label "chromatograph"^^xsd:string ;
+      rdfs:subClassOf default:AnalyticalEquipment ;
+      owl:disjointWith default:Sensor , default:Spectroscopy , default:Controller .
+
+default:ComputerValidationPlan
+      a       owl:Class ;
+      rdfs:subClassOf default:ValidationPlan ;
+      owl:disjointWith default:DesignQualification , default:ProcessValidationReport , default:Qualification , default:InstallationQualification , default:OperationalQualification , default:CleaningValidationPlan , default:ProcessValidationPlan , default:PerformanceQualification , default:MaterialLabel .
+
+default:StoringTask
+      a       owl:Class ;
+      rdfs:label "store"^^xsd:string ;
+      rdfs:subClassOf default:GenericTask ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:hasValue default:StoringIndividual101 ;
+                owl:onProperty default:hasAction
+              ] ;
+      owl:disjointWith default:DisposingTask , default:ShowingTask , default:CheckingTask , default:PurchasingTask , default:ProtectingTask , default:DisplayingTask , default:MarkingTask , default:RecordingTask , default:CleaningTask .
+
+default:Tank102CleanlinessReport
+      a       default:EquipmentCleanlinessReport ;
+      default:hasAuthor default:Berkan_Sesen , default:Yetkin_Sesen ;
+      default:isReportOf default:T102CleanlinessTestTask , default:T102CleaningTask .
+
+default:deviation
+      a       default:IregularIncidence .
+
+default:TimeTank101Procedure
+      a       default:TankProcedureTime ;
+      default:correspondsTo
+              default:Tank101Procedure .
+
+default:LabTechnician
+      a       owl:Class ;
+      rdfs:label "lab_technician"^^xsd:string ;
+      rdfs:subClassOf default:QualityControlLaboratory ;
+      owl:disjointWith default:LabEngineer .
+
+default:MaterialofConstructionSpecification
+      a       owl:Class ;
+      rdfs:label "material_of_construction_specification, construction_material_specification"^^xsd:string ;
+      rdfs:subClassOf default:EquipmentSpecification .
+
+[]    a       owl:AllDifferent ;
+      owl:distinctMembers (default:Approved default:Disapproved) .
+
+default:Allowing
+      a       owl:Class ;
+      rdfs:label "allow"^^xsd:string ;
+      rdfs:subClassOf default:Action .
+
+default:CleanlinessTestTaskTime
+      a       owl:Class ;
+      rdfs:subClassOf default:IntraProcessTaskTime ;
+      owl:disjointWith default:YieldTestTaskTime , default:CleaningTaskTime .
+
+default:test101
+      a       default:ReactionYieldTestTask .
+
+default:PhysicalComponent
+      a       owl:Class ;
+      rdfs:label "physical_component"^^xsd:string ;
+      rdfs:subClassOf default:ProcessDomain ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:cardinality "1"^^xsd:int ;
+                owl:onProperty default:hasState
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom default:State ;
+                owl:onProperty default:hasState
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:minCardinality "1"^^xsd:int ;
+                owl:onProperty default:hasSubstance
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom default:Substance ;
+                owl:onProperty default:hasSubstance
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:hasState ;
+                owl:someValuesFrom default:State
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:hasSubstance ;
+                owl:someValuesFrom default:Substance
+              ] ;
+      owl:disjointWith default:UnitProcedure , default:Action , default:Stream , default:Operation , default:Regulation , default:Process , default:Substance , default:Position , default:Port , default:EquipmentModule , default:Document , default:ValidationTask .
+
+default:ReactionYieldTest_x
+      a       default:ReactionYieldTest ;
+      default:ActualYieldDeviation
+              "12.0"^^xsd:float .
+
+default:Tank101Procedure
+      a       default:UnitProcedure ;
+      default:hasEquipment
+              default:Tank101 ;
+      default:hasOperation
+              default:Storage_T101 ;
+      default:hasOutletStream
+              default:Stream1 ;
+      default:hasTime default:TimeTank101Procedure ;
+      default:isUnitProcedureOf
+              default:AspirinProcess .
+
+default:Testing
+      a       owl:Class ;
+      rdfs:subClassOf default:Action .
+
+default:hasConcentration-MolperL
+      a       owl:FunctionalProperty , owl:ObjectProperty ;
+      rdfs:domain default:PhysicalComponent ;
+      rdfs:subPropertyOf default:hasParameter .
+
+default:TimeDrying_D101
+      a       default:TimeDrying ;
+      default:correspondsTo
+              default:Drying_D101 .
+
+default:Centrifuge
+      a       owl:Class ;
+      rdfs:label "centrifuge"^^xsd:string ;
+      rdfs:subClassOf default:ProcessingEquipment ;
+      owl:disjointWith default:DistillationColumn , default:Crystallizer , default:Mill , default:Blender , default:Filter , default:Dryer , default:Reactor , default:ExtractionColumn .
+
+default:CentrifugeProcedureTime
+      a       owl:Class ;
+      rdfs:subClassOf default:UnitProcedureTime ;
+      owl:disjointWith default:ReactorProcedureTime , default:DryerProcedureTime , default:CrystallizerProcedureTime , default:TankProcedureTime , default:FilterProcedureTime .
+
+default:T101CleaningTaskTime
+      a       default:CleaningTaskTime ;
+      default:correspondsTo
+              default:T101CleaningTask ;
+      default:isImmediatelyAfter
+              default:TimeStorage_T101 ;
+      default:isImmediatelyBefore
+              default:T101CleanlinessTestTaskTime .
+
+default:CleaningIndividual101
+      a       default:Cleaning ;
+      rdfs:label "clean"^^xsd:string ;
+      default:isPerformedBy
+              default:Pradeep_Suresh , default:Berkan_Sesen .
+
+default:Returning
+      a       owl:Class ;
+      rdfs:label "return"^^xsd:string ;
+      rdfs:subClassOf default:Action .
+
+default:IregularIncidence
+      a       owl:Class ;
+      rdfs:label "irregular_incidence"^^xsd:string ;
+      rdfs:subClassOf default:RegulatoryDomain .
+
+default:Stream8Water
+      a       default:PhysicalComponent ;
+      default:hasState default:Liquid ;
+      default:hasSubstance
+              default:Water .
+
+default:AspirinTablet050g
+      a       default:FinalProduct .
+
+default:Quarantining
+      a       owl:Class ;
+      rdfs:label "quarantine"^^xsd:string ;
+      rdfs:subClassOf default:Action .
+
+default:TimeCentrifuge101Process
+      a       default:CentrifugeProcedureTime ;
+      default:correspondsTo
+              default:Centrifuge101Procedure .
+
+default:ActionFinder
+      a       swrl:Imp ;
+      swrla:isRuleEnabled "false"^^xsd:boolean ;
+      swrl:body
+              [ a       swrl:AtomList ;
+                rdf:first
+                        [ a       swrl:ClassAtom ;
+                          swrl:argument1 default:task ;
+                          swrl:classPredicate default:ValidationTask
+                        ] ;
+                rdf:rest
+                        [ a       swrl:AtomList ;
+                          rdf:first
+                                  [ a       swrl:ClassAtom ;
+                                    swrl:argument1 default:act ;
+                                    swrl:classPredicate default:Action
+                                  ] ;
+                          rdf:rest
+                                  [ a       swrl:AtomList ;
+                                    rdf:first
+                                            [ a       swrl:ClassAtom ;
+                                              swrl:argument1 default:pos ;
+                                              swrl:classPredicate default:Position
+                                            ] ;
+                                    rdf:rest
+                                            [ a       swrl:AtomList ;
+                                              rdf:first
+                                                      [ a       swrl:IndividualPropertyAtom ;
+                                                        swrl:argument1 default:task ;
+                                                        swrl:argument2 default:pos ;
+                                                        swrl:propertyPredicate
+                                                                default:isResponsibilityOf
+                                                      ] ;
+                                              rdf:rest
+                                                      [ a       swrl:AtomList ;
+                                                        rdf:first
+                                                                [ a       swrl:IndividualPropertyAtom ;
+                                                                  swrl:argument1 default:pos ;
+                                                                  swrl:argument2 default:act ;
+                                                                  swrl:propertyPredicate
+                                                                          default:performs
+                                                                ] ;
+                                                        rdf:rest ()
+                                                      ]
+                                            ]
+                                  ]
+                        ]
+              ] ;
+      swrl:head
+              [ a       swrl:AtomList ;
+                rdf:first
+                        [ a       swrl:IndividualPropertyAtom ;
+                          swrl:argument1 default:task ;
+                          swrl:argument2 default:act ;
+                          swrl:propertyPredicate
+                                  default:hasAction
+                        ] ;
+                rdf:rest ()
+              ] .
+
+default:QuarantiningTask_101
+      a       default:QuarantiningTask ;
+      default:hasAction default:QuarantiningIndividual101 ;
+      default:hasPatient default:AceticSalicylicAcid .
+
+default:MaintenanceDepartment
+      a       owl:Class ;
+      rdfs:label "maintainance_department"^^xsd:string ;
+      rdfs:subClassOf default:Personnel ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:isResponsibleFor ;
+                owl:someValuesFrom default:EquipmentCleaningTask
+              ] ;
+      owl:disjointWith default:QualityControlLaboratory .
+
+default:EquipmentSettings
+      a       owl:Class ;
+      rdfs:label "equipment_settings"^^xsd:string ;
+      rdfs:subClassOf default:EquipmentModule ;
+      owl:disjointWith default:EquipmentSpecification , default:Equipment .
+
+default:Stream11Water
+      a       default:PhysicalComponent ;
+      default:hasState default:Gas ;
+      default:hasSubstance
+              default:Water .
+
+default:ValidationRepresentative
+      a       owl:Class ;
+      rdfs:subClassOf default:QualityAssuranceDepartment ;
+      owl:disjointWith default:QACoordinator , default:ValidationManager .
+
+default:T101CleanlinessTestTask
+      a       default:EquipmentCleanlinessTestTask ;
+      default:hasAction default:TestingIndividual101 ;
+      default:hasPatient default:Tank101 ;
+      default:hasReport default:Tank101CleanlinessReport ;
+      default:hasTime default:T101CleanlinessTestTaskTime ;
+      default:hasWrittenProcedure
+              default:TankCleanlinessTestingProcedure ;
+      default:isBasedOnRegulation
+              <http://www.owl-ontologies.com/2008/6/17/Ontology1213712768.owl#EUGuidanceGMP-5.21> ;
+      default:isResponsibilityOf
+              default:Yetkin_Sesen ;
+      default:isTaskOf default:AspirinProcess_CleaningValidationPlan ;
+      default:resultsin default:T101CleanlinessTest .
+
+default:hasState
+      a       owl:FunctionalProperty , owl:ObjectProperty ;
+      rdfs:domain default:PhysicalComponent ;
+      rdfs:range default:State .
+
+[]    a       owl:AllDifferent ;
+      owl:distinctMembers (default:Rejected default:Released default:InQuarantine) .
+
+default:PortCr101_Out1
+      a       default:Port ;
+      default:isUpstreamPortOf
+              default:Stream6 ;
+      default:isportOf default:Crystallizer101 .
+
+default:ValidationTask
+      a       owl:Class ;
+      rdfs:label "validation_task, task"^^xsd:string ;
+      rdfs:subClassOf default:RegulatoryDomain ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:cardinality "1"^^xsd:int ;
+                owl:onProperty default:isResponsibilityOf
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:isTaskOf ;
+                owl:someValuesFrom default:ValidationPlan
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom default:Action ;
+                owl:onProperty default:hasAction
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom default:Regulation ;
+                owl:onProperty default:isBasedOnRegulation
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:hasWrittenProcedure ;
+                owl:someValuesFrom
+                        [ a       owl:Class ;
+                          owl:intersectionOf (default:TaskProcedure [ a       owl:Restriction ;
+                                      owl:hasValue default:Approved ;
+                                      owl:onProperty default:hasValidationStatus
+                                    ])
+                        ]
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom default:TaskTime ;
+                owl:onProperty default:hasTime
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:isBasedOnRegulation ;
+                owl:someValuesFrom default:Regulation
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:cardinality "1"^^xsd:int ;
+                owl:onProperty default:hasWrittenProcedure
+              ] ;
+      owl:disjointWith default:Stream , default:Regulation , default:ValidationPlan , default:Process , default:Substance , default:Port , default:Document , default:UnitProcedure , default:Action , default:Operation , default:Position , default:PhysicalComponent , default:InvestigatoryEntity , default:ValidationTest , default:EquipmentModule .
+
+default:NoEmployee
+      a       swrl:Imp ;
+      swrla:isRuleEnabled "false"^^xsd:boolean ;
+      swrl:body
+              [ a       swrl:AtomList ;
+                rdf:first
+                        [ a       swrl:IndividualPropertyAtom ;
+                          swrl:argument1 default:task ;
+                          swrl:argument2 default:person ;
+                          swrl:propertyPredicate
+                                  default:isResponsibilityOf
+                        ] ;
+                rdf:rest
+                        [ a       swrl:AtomList ;
+                          rdf:first
+                                  [ a       swrl:BuiltinAtom ;
+                                    swrl:arguments ("0"^^xsd:long default:person) ;
+                                    swrl:builtin swrlb:equal
+                                  ] ;
+                          rdf:rest ()
+                        ]
+              ] ;
+      swrl:head
+              [ a       swrl:AtomList ;
+                rdf:first
+                        [ a       swrl:ClassAtom ;
+                          swrl:argument1 default:task ;
+                          swrl:classPredicate default:InvalidEntity
+                        ] ;
+                rdf:rest ()
+              ] .
+
+default:QCOfficer
+      a       owl:Class ;
+      rdfs:label "qc_officer, quality_control_officer"^^xsd:string ;
+      rdfs:subClassOf default:QualityControlDepartment .
+
+default:EquipmentSpecification
+      a       owl:Class ;
+      rdfs:label "equipment_specification"^^xsd:string ;
+      rdfs:subClassOf default:EquipmentModule ;
+      owl:disjointWith default:Equipment , default:EquipmentSettings .
+
+default:isUpstreamPortOf
+      a       owl:FunctionalProperty , owl:InverseFunctionalProperty , owl:ObjectProperty ;
+      rdfs:domain default:Port ;
+      rdfs:range default:Stream ;
+      owl:inverseOf default:hasUpstreamPort .
+
+default:Port
+      a       owl:Class ;
+      rdfs:subClassOf default:ProcessDomain ;
+      owl:disjointWith default:UnitProcedure , default:Action , default:Stream , default:Operation , default:Regulation , default:Process , default:Substance , default:Position , default:PhysicalComponent , default:EquipmentModule , default:Document , default:ValidationTask ;
+      owl:equivalentClass
+              [ a       owl:Class ;
+                owl:intersectionOf ([ a       owl:Restriction ;
+                            owl:allValuesFrom default:Equipment ;
+                            owl:onProperty default:isportOf
+                          ] [ a       owl:Restriction ;
+                            owl:onProperty default:isportOf ;
+                            owl:someValuesFrom default:Equipment
+                          ])
+              ] .
+
+default:Stream10AcetylSalisylicAcidCrystal
+      a       default:PhysicalComponent ;
+      default:hasState default:Solid ;
+      default:hasSubstance
+              default:AceticSalicylicAcid .
+
+default:ProductionEngineer
+      a       owl:Class ;
+      rdfs:subClassOf default:ProductionDepartment ;
+      owl:disjointWith default:ProductionCoordinator , default:ProductionTechnician .
+
+default:AllowingTask
+      a       owl:Class ;
+      rdfs:subClassOf default:IrrelavantTask ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom default:Allowing ;
+                owl:onProperty default:hasAction
+              ] ;
+      owl:disjointWith default:ReturningTask , default:RestrictingTask , default:TransportingTask , default:QuarantiningTask , default:SupervisingTask , default:IdentifyingTask , default:WritingTask , default:ReinforcingTask , default:reportingTask .
+
+default:Water
+      a       default:IntermediateMaterial .
+
+default:ValidationReport
+      a       owl:Class ;
+      rdfs:subClassOf default:Document ;
+      owl:disjointWith default:DesignQualification , default:InstallationQualification , default:TaskReport , default:OperationalQualification , default:PerformanceQualification , default:MaterialLabel , default:WrittenProcedure .
+
+default:SupervisingTask_101
+      a       default:SupervisingTask ;
+      default:hasAction default:SupervisingIndividual101 ;
+      default:hasPatient default:DryingProcedure .
+
+default:IntermediateMaterial
+      a       owl:Class ;
+      rdfs:subClassOf default:Substance .
+
+default:isPatientOf
+      a       owl:InverseFunctionalProperty , owl:ObjectProperty ;
+      rdfs:domain
+              [ a       owl:Class ;
+                owl:unionOf (default:Equipment default:Substance default:Operation default:Document default:ThirdParty)
+              ] ;
+      rdfs:range default:ValidationTask ;
+      owl:inverseOf default:hasPatient .
+
+default:PortCe101_In1
+      a       default:Port ;
+      default:isDownstreamPortOf
+              default:Stream6 ;
+      default:isportOf default:Centrifuge101 .
+
+default:LabEngineer_2
+      a       default:LabEngineer ;
+      default:isAuthorOf default:YieldDeviationReport_6 ;
+      default:isResponsibleFor
+              default:ReactionYieldTestTask_1 .
+
+default:DisplayingIndividual101
+      a       default:Displaying ;
+      rdfs:label "display, show"^^xsd:string .
+
+default:Yielding
+      a       owl:Class ;
+      rdfs:label "yield"^^xsd:string ;
+      rdfs:subClassOf default:Action .
+
+default:necessitatesTaskCandidates
+      a       owl:ObjectProperty ;
+      rdfs:domain default:Regulation ;
+      rdfs:range default:ValidationTask .
+
+default:QuarantiningTask
+      a       owl:Class ;
+      rdfs:subClassOf default:IrrelavantTask ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom default:Quarantining ;
+                owl:onProperty default:hasAction
+              ] ;
+      owl:disjointWith default:RestrictingTask , default:ReturningTask , default:TransportingTask , default:SupervisingTask , default:IdentifyingTask , default:WritingTask , default:ReinforcingTask , default:reportingTask , default:AllowingTask .
+
+default:Packaging
+      a       owl:Class ;
+      rdfs:label "package"^^xsd:string ;
+      rdfs:subClassOf default:Action .
+
+default:ThirdParty
+      a       owl:Class ;
+      rdfs:label "third_party"^^xsd:string ;
+      rdfs:subClassOf default:Position ;
+      owl:disjointWith default:Personnel .
+
+default:FilterProcedureTime
+      a       owl:Class ;
+      rdfs:subClassOf default:UnitProcedureTime ;
+      owl:disjointWith default:ReactorProcedureTime , default:CentrifugeProcedureTime , default:DryerProcedureTime , default:CrystallizerProcedureTime , default:TankProcedureTime .
+
+default:RecordingIndividual101
+      a       default:Recording .
+
+default:Personnel
+      a       owl:Class ;
+      rdfs:label "personnel, person"^^xsd:string ;
+      rdfs:subClassOf default:Position ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:performs ;
+                owl:someValuesFrom default:Action
+              ] ;
+      owl:disjointWith default:ThirdParty .
+
+default:AllowingTask_101
+      a       default:AllowingTask ;
+      default:hasAction default:AllowingIndividual101 ;
+      default:hasPatient default:MaterialTestingProcedure .
+
+default:CentrifugeProcedure
+      a       default:StandardOperatingProcedure .
+
+default:reason
+      a       owl:DatatypeProperty ;
+      rdfs:range xsd:string .
+
+default:SupplierAssessmentReport_5
+      a       default:SupplierAssessmentReport ;
+      default:hasAuthor default:PurchasingOfficer_10 ;
+      default:isReportOf default:PharmaSupplierAssess_1 .
+
+default:TimeDelaying_R101
+      a       default:TimeDelaying ;
+      default:correspondsTo
+              default:Delaying_R101 ;
+      default:isImmediatelyBefore
+              default:TimeStoichReaction_R101 .
+
+default:AllCard_1
+      a       default:AllCard ;
+      default:hasLabel default:Approved , default:AspirinProcess .
+
+default:Stream7AcetylSalicylicAcidCrystal
+      a       default:PhysicalComponent ;
+      default:hasState default:Solid ;
+      default:hasSubstance
+              default:AceticSalicylicAcid .
+
+default:TimeStorage
+      a       owl:Class ;
+      rdfs:subClassOf default:OperationTime ;
+      owl:disjointWith default:TimeFiltering , default:TimeStoichReaction , default:TimeCentrifuging , default:TimeWashing , default:TimeDrying , default:TimeCrystallization , default:TimeDelaying .
+
+default:CBAChemicals
+      a       default:DisapprovedSupplier .
+
+default:Washing_Ce101
+      a       default:Washing ;
+      default:hasTime default:TimeWashing_Ce101 ;
+      default:hasWrittenProcedure
+              default:WashingProcedure ;
+      default:isOperationOfUnitProcedure
+              default:Centrifuge101Procedure ;
+      default:isPatientOf default:RestrictingTask_101 .
+
+default:TimeIntPreProcess
+      a       default:PreProcessTaskTime .
+
+default:MaterialLabel
+      a       owl:Class ;
+      rdfs:comment "Starting materials in the storage area should be appropriately labeled."^^xsd:string ;
+      rdfs:subClassOf default:Document ;
+      owl:disjointWith default:DesignQualification , default:ProcessValidationReport , default:ComputerValidationPlan , default:ValidationReport , default:InstallationQualification , default:TaskReport , default:CleaningValidationPlan , default:OperationalQualification , default:ProcessValidationPlan , default:PerformanceQualification , default:WrittenProcedure .
+
+default:WritingTask_101
+      a       default:WritingTask ;
+      default:hasAction default:WritingIndividual101 ;
+      default:hasPatient default:YieldDeviationReport_6 .
+
+default:CleaningTask
+      a       owl:Class ;
+      rdfs:label "clean"^^xsd:string ;
+      rdfs:subClassOf default:GenericTask ;
+      owl:disjointWith default:DisposingTask , default:ShowingTask , default:StoringTask , default:PurchasingTask , default:CheckingTask , default:ProtectingTask , default:DisplayingTask , default:MarkingTask , default:RecordingTask .
+
+default:isImmediatelyBefore
+      a       owl:TransitiveProperty , owl:ObjectProperty ;
+      rdfs:subPropertyOf default:isBefore ;
+      owl:inverseOf default:isImmediatelyAfter .
+
+default:ProcessingEquipment
+      a       owl:Class ;
+      rdfs:label "processing_equipment"^^xsd:string ;
+      rdfs:subClassOf default:Equipment ;
+      owl:disjointWith default:ThermalEquipment , default:StorageEquipment , default:AnalyticalEquipment , default:ActuatingEquipment , default:FlowEquipment .
+
+default:Filter101Procedure
+      a       default:UnitProcedure ;
+      default:hasEquipment
+              default:Filter101 ;
+      default:hasInletStream
+              default:Stream3 ;
+      default:hasOperation
+              default:Filtering_F101 ;
+      default:hasOutletStream
+              default:Stream5 , default:Stream4 ;
+      default:hasTime default:TimeFilter101Process ;
+      default:isUnitProcedureOf
+              default:AspirinProcess .
+
+default:DimensionSpecification
+      a       owl:Class ;
+      rdfs:label "dimension_specification"^^xsd:string ;
+      rdfs:subClassOf default:EquipmentSpecification .
+
+default:T101CleanlinessTestTaskTime
+      a       default:CleanlinessTestTaskTime ;
+      default:correspondsTo
+              default:T101CleanlinessTestTask ;
+      default:isImmediatelyAfter
+              default:T101CleaningTaskTime .
+
+default:FilterCleaningProcedure
+      a       default:TaskProcedure .
+
+default:Substance
+      a       owl:Class ;
+      rdfs:label "substance, material"^^xsd:string ;
+      rdfs:subClassOf default:ProcessDomain , default:RegulatoryDomain ;
+      owl:disjointWith default:Stream , default:Regulation , default:Process , default:ValidationPlan , default:Port , default:Document , default:UnitProcedure , default:Action , default:Operation , default:Position , default:PhysicalComponent , default:EquipmentModule , default:InvestigatoryEntity , default:ValidationTest , default:ValidationTask .
+
+default:Approved
+      a       default:ApprovalStatus .
+
+default:Stream_4
+      a       default:Stream .
+
+default:performs
+      a       owl:ObjectProperty ;
+      rdfs:domain default:Position ;
+      rdfs:range default:Action ;
+      owl:inverseOf default:isPerformedBy .
+
+default:SupplierAssessmentProcedure
+      a       default:TaskProcedure .
+
+default:TemperatureRangeStoichReaction_R101
+      a       default:RangeValue ;
+      default:hasMaximum "90"^^xsd:int ;
+      default:hasMinimum "85"^^xsd:int .
+
+default:ProductionDepartment
+      a       owl:Class ;
+      rdfs:label "production_department"^^xsd:string ;
+      rdfs:subClassOf default:Personnel ;
+      owl:disjointWith default:QualityControlLaboratory .
+
+default:EvaluatingIndividual
+      a       default:Evaluating ;
+      rdfs:label "evaluate"^^xsd:string .
+
+default:EquipmentModule
+      a       owl:Class ;
+      rdfs:label "equipment_module"^^xsd:string ;
+      rdfs:subClassOf default:ProcessDomain , default:RegulatoryDomain ;
+      owl:disjointWith default:Stream , default:Regulation , default:ValidationPlan , default:Process , default:Substance , default:Port , default:Document , default:UnitProcedure , default:Action , default:Operation , default:Position , default:PhysicalComponent , default:ValidationTest , default:ValidationTask .
+
+default:T102CleaningTaskTime
+      a       default:CleaningTaskTime ;
+      default:correspondsTo
+              default:T102CleaningTask ;
+      default:isImmediatelyAfter
+              default:TimeStorage_T102 ;
+      default:isImmediatelyBefore
+              default:T102CleanlinessTestTaskTime .
+
+default:DelayingProcedure
+      a       default:StandardOperatingProcedure ;
+      default:isPatientOf default:IdentifyingTask_101 .
+
+default:SupervisingIndividual101
+      a       default:Supervising ;
+      rdfs:label "supervise, oversee"^^xsd:string .
+
+default:crit
+      a       swrl:Variable .
+
+default:PortCe101_In2
+      a       default:Port ;
+      default:isDownstreamPortOf
+              default:Stream8 ;
+      default:isportOf default:Centrifuge101 .
+
+default:PharmaCustomer
+      a       owl:Class ;
+      rdfs:label "pharma_customer, customer, consumer"^^xsd:string ;
+      rdfs:subClassOf default:ThirdParty .
+
+default:CrystallizationProcedure
+      a       default:StandardOperatingProcedure .
+
+default:isComposedOf
+      a       owl:ObjectProperty ;
+      rdfs:domain default:Stream ;
+      rdfs:range default:PhysicalComponent .
+
+default:Filtering
+      a       owl:Class ;
+      rdfs:subClassOf default:Operation ;
+      owl:disjointWith default:Drying , default:Classifying , default:Milling , default:Heating , default:Washing , default:Charging , default:Sinking , default:Crystallization , default:Centrifuging , default:StoichReaction , default:Extraction , default:Delaying , default:Distillation , default:Storage , default:Purging , default:Cooling .
+
+default:PortR101_Out1
+      a       default:Port ;
+      default:isUpstreamPortOf
+              default:Stream3 ;
+      default:isportOf default:Reactor101 .
+
+default:TimeDelaying_R101Range
+      a       default:RangeValue ;
+      default:hasMaximum "1"^^xsd:int ;
+      default:hasMinimum "2"^^xsd:int .
+
+default:person
+      a       swrl:Variable .
+
+default:isDownstreamPortOf
+      a       owl:FunctionalProperty , owl:InverseFunctionalProperty , owl:ObjectProperty ;
+      rdfs:domain default:Port ;
+      rdfs:range default:Stream ;
+      owl:inverseOf default:hasDownstreamPort .
+
+default:AcidProtectionTask101
+      a       default:ProtectingTask ;
+      default:hasPatient default:Salicylic_Acid .
+
+default:includesTask
+      a       owl:ObjectProperty ;
+      rdfs:domain default:ValidationPlan ;
+      rdfs:range default:ValidationTask ;
+      owl:inverseOf default:isTaskOf .
+
+default:ShowingTask
+      a       owl:Class ;
+      rdfs:label "show"^^xsd:string ;
+      rdfs:subClassOf default:GenericTask ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:hasValue default:DisplayingIndividual101 ;
+                owl:onProperty default:hasAction
+              ] ;
+      owl:disjointWith default:DisposingTask , default:PurchasingTask , default:StoringTask , default:CheckingTask , default:ProtectingTask , default:MarkingTask , default:DisplayingTask , default:RecordingTask , default:CleaningTask .
+
+default:Storing
+      a       owl:Class ;
+      rdfs:label "store"^^xsd:string ;
+      rdfs:subClassOf default:Action .
+
+default:InvestigatoryEntity
+      a       owl:Class ;
+      rdfs:label "investigatory_entity"^^xsd:string ;
+      rdfs:subClassOf default:RegulatoryDomain ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:isPatientOf ;
+                owl:someValuesFrom
+                        [ a       owl:Class ;
+                          owl:intersectionOf (default:InvestigationTask [ a       owl:Restriction ;
+                                      owl:allValuesFrom default:QAInspector ;
+                                      owl:onProperty default:isResponsibilityOf
+                                    ])
+                        ]
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:cardinality "2"^^xsd:int ;
+                owl:onProperty default:isPatientOf
+              ] ;
+      owl:disjointWith default:Action , default:Regulation , default:ValidationPlan , default:Position , default:Substance , default:ValidationTest , default:Document , default:ValidationTask ;
+      owl:equivalentClass
+              [ a       owl:Restriction ;
+                owl:onProperty default:isPatientOf ;
+                owl:someValuesFrom default:InvestigationTask
+              ] .
+
+default:regulationNumber
+      a       owl:FunctionalProperty , owl:DatatypeProperty ;
+      rdfs:domain default:Regulation ;
+      rdfs:range xsd:string .
+
+default:NumericalValue
+      a       owl:Class ;
+      rdfs:subClassOf default:Quantity .
+
+default:ProcessValidationReport
+      a       owl:Class ;
+      rdfs:subClassOf default:ValidationReport ;
+      owl:disjointWith default:DesignQualification , default:ComputerValidationPlan , default:InstallationQualification , default:CleaningValidationPlan , default:OperationalQualification , default:ProcessValidationPlan , default:PerformanceQualification , default:MaterialLabel .
+
+default:QualityControlDepartment
+      a       owl:Class ;
+      rdfs:comment "Quality Control Staff"^^xsd:string ;
+      rdfs:label "quality_control_department, qc_department, quality_control, qc"^^xsd:string ;
+      rdfs:subClassOf default:Personnel ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:isResponsibleFor ;
+                owl:someValuesFrom default:StartingMaterialTestTask
+              ] .
+
+default:StatusOfTheContents
+      a       owl:Class ;
+      rdfs:comment "The status of the contents (eg. in quarantine, released, rejected)."^^xsd:string ;
+      rdfs:subClassOf default:MaterialLabel .
+
+default:MaterialEvaluationReport
+      a       owl:Class ;
+      rdfs:subClassOf default:TaskReport ;
+      owl:disjointWith default:SupplierAssessmentReport , default:EquipmentCleanlinessReport , default:InvestigationReport , default:YieldDeviationReport , default:MaterialPurchaseReport .
+
+default:GenericTask
+      a       owl:Class ;
+      rdfs:subClassOf default:ValidationTask .
+
+default:ActualYieldDeviation
+      a       owl:DatatypeProperty ;
+      rdfs:domain default:ValidationTest ;
+      rdfs:range xsd:float .
+
+default:Purging
+      a       owl:Class ;
+      rdfs:subClassOf default:Operation ;
+      owl:disjointWith default:Drying , default:Classifying , default:Milling , default:Heating , default:Washing , default:Filtering , default:Charging , default:Sinking , default:Centrifuging , default:Crystallization , default:StoichReaction , default:Extraction , default:Delaying , default:Distillation , default:Storage , default:Cooling .
+
+default:ReinforcingTask_101
+      a       default:ReinforcingTask ;
+      default:hasAction default:ReinforcingIndividual101 ;
+      default:hasPatient default:Drying_D101 .
+
+default:Displaying
+      a       owl:Class ;
+      rdfs:label "display"^^xsd:string ;
+      rdfs:subClassOf default:Action .
+
+<http://www.owl-ontologies.com/2008/6/17/String-Rule>
+      a       swrl:Imp .
+
+default:Charging
+      a       owl:Class ;
+      rdfs:label ""^^xsd:string ;
+      rdfs:subClassOf default:Operation ;
+      owl:disjointWith default:Drying , default:Classifying , default:Milling , default:Washing , default:Heating , default:Filtering , default:Sinking , default:Centrifuging , default:Crystallization , default:StoichReaction , default:Extraction , default:Delaying , default:Distillation , default:Storage , default:Purging , default:Cooling .
+
+default:hasLabelStatus
+      a       owl:ObjectProperty ;
+      rdfs:domain default:Substance ;
+      rdfs:subPropertyOf default:hasLabel .
+
+default:Equipment
+      a       owl:Class ;
+      rdfs:label "equipment"^^xsd:string ;
+      rdfs:subClassOf default:EquipmentModule ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:hasPort ;
+                owl:someValuesFrom default:Port
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:minCardinality "1"^^xsd:int ;
+                owl:onProperty default:hasPort
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom default:Port ;
+                owl:onProperty default:hasPort
+              ] ;
+      owl:disjointWith default:EquipmentSpecification , default:EquipmentSettings .
+
+default:DistillationColumn
+      a       owl:Class ;
+      rdfs:label "distillation_column"^^xsd:string ;
+      rdfs:subClassOf default:ProcessingEquipment ;
+      owl:disjointWith default:Crystallizer , default:Mill , default:Centrifuge , default:Blender , default:Filter , default:Dryer , default:Reactor , default:ExtractionColumn .
+
+<http://www.owl-ontologies.com/2008/6/17/Ontology1213712768.owl#EUGuidanceonGMP_8.14>
+      a       default:Regulation ;
+      rdfs:comment "8.14 Actual yields should be compared with expeected yieldsat designated steps in the production process. Expected yields should be established on previous laboratory, pilot scale, or manufacturing data. Deviations in yield associated witj designated process steps should be investigated to determine their impact or potential impact on the resulting quality of affected batches."^^xsd:string ;
+      default:necessitatesTask
+              default:ReactionYieldTestTask_1 , default:InvestigationTask_1 .
+
+default:EquipmentCleanlinessReport
+      a       owl:Class ;
+      rdfs:subClassOf default:TaskReport ;
+      owl:disjointWith default:SupplierAssessmentReport , default:InvestigationReport , default:MaterialEvaluationReport , default:YieldDeviationReport , default:MaterialPurchaseReport .
+
+default:pos
+      a       swrl:Variable .
+
+default:TestingIndividual101
+      a       default:Testing ;
+      rdfs:label "test"^^xsd:string ;
+      default:isPerformedBy
+              default:Yetkin_Sesen .
+
+default:TankProcedureTime
+      a       owl:Class ;
+      rdfs:subClassOf default:UnitProcedureTime ;
+      owl:disjointWith default:ReactorProcedureTime , default:CentrifugeProcedureTime , default:DryerProcedureTime , default:CrystallizerProcedureTime , default:FilterProcedureTime .
+
+default:hasValidationStatus
+      a       owl:FunctionalProperty , owl:ObjectProperty ;
+      rdfs:range default:ApprovalStatus .
+
+default:AceticAcidGlacial
+      a       default:IntermediateMaterial .
+
+default:T101CleanlinessTest
+      a       default:EquipmentCleanlinessTest ;
+      default:tests default:Tank101 .
+
+default:YieldDeviationReport
+      a       owl:Class ;
+      rdfs:subClassOf default:TaskReport ;
+      owl:disjointWith default:SupplierAssessmentReport , default:EquipmentCleanlinessReport , default:InvestigationReport , default:MaterialEvaluationReport , default:MaterialPurchaseReport .
+
+default:DisposingIndividual101
+      a       default:Disposing ;
+      rdfs:label "dispose, destroy, demolish"^^xsd:string .
+
+default:Operation
+      a       owl:Class ;
+      rdfs:label "operation"^^xsd:string ;
+      rdfs:subClassOf default:ProcessDomain ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom default:OperationTime ;
+                owl:onProperty default:hasTime
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:cardinality "1"^^xsd:int ;
+                owl:onProperty default:hasWrittenProcedure
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:hasWrittenProcedure ;
+                owl:someValuesFrom
+                        [ a       owl:Class ;
+                          owl:intersectionOf (default:StandardOperatingProcedure [ a       owl:Restriction ;
+                                      owl:hasValue default:Approved ;
+                                      owl:onProperty default:hasValidationStatus
+                                    ])
+                        ]
+              ] ;
+      owl:disjointWith default:UnitProcedure , default:Stream , default:Action , default:Regulation , default:Process , default:Substance , default:Position , default:PhysicalComponent , default:Port , default:EquipmentModule , default:Document , default:ValidationTask .
+
+default:OperationalQualification
+      a       owl:Class ;
+      rdfs:subClassOf default:Qualification ;
+      owl:disjointWith default:DesignQualification , default:ProcessValidationReport , default:ComputerValidationPlan , default:ValidationReport , default:InstallationQualification , default:TaskReport , default:CleaningValidationPlan , default:ProcessValidationPlan , default:PerformanceQualification , default:MaterialLabel , default:WrittenProcedure .
+
+default:isResponsibleFor
+      a       owl:TransitiveProperty , owl:ObjectProperty ;
+      rdfs:domain default:Personnel ;
+      rdfs:range default:ValidationTask ;
+      owl:inverseOf default:isResponsibilityOf .
+
+default:hasExact
+      a       owl:DatatypeProperty ;
+      rdfs:domain default:SingleValue ;
+      rdfs:range xsd:int .
+
+[]    a       owl:AllDifferent ;
+      owl:distinctMembers (default:Solid default:Liquid default:Gas) .
+
+default:hasEquipment
+      a       owl:ObjectProperty ;
+      rdfs:domain default:UnitProcedure ;
+      rdfs:range default:Equipment ;
+      owl:inverseOf default:isEquipmentOf .
+
+default:hasMaterialStatus
+      a       owl:FunctionalProperty , owl:ObjectProperty ;
+      rdfs:domain default:Substance ;
+      rdfs:range default:MaterialStatus .
+
+default:StartingMaterialTestTask
+      a       owl:Class ;
+      rdfs:subClassOf default:PreProcessTask ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:minCardinality "1"^^xsd:int ;
+                owl:onProperty default:resultsin
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:cardinality "1"^^xsd:int ;
+                owl:onProperty default:hasReport
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:isTaskOf ;
+                owl:someValuesFrom default:Qualification
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:isResponsibilityOf ;
+                owl:someValuesFrom
+                        [ a       owl:Class ;
+                          owl:intersectionOf (default:QCOfficer [ a       owl:Restriction ;
+                                      owl:allValuesFrom default:Testing ;
+                                      owl:onProperty default:performs
+                                    ])
+                        ]
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:resultsin ;
+                owl:someValuesFrom default:MaterialEvaluationTest
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:hasReport ;
+                owl:someValuesFrom default:MaterialEvaluationReport
+              ] ;
+      owl:disjointWith default:StartingMaterialPurchaseTask , default:PharmaSupplierAssessTask .
+
+default:FilterCleanlinessTest
+      a       default:EquipmentCleanlinessTest ;
+      default:tests default:Filter101 .
+
+default:Stream5AcetylsalicylicAcidSolution
+      a       default:PhysicalComponent ;
+      default:hasState default:Liquid ;
+      default:hasSubstance
+              default:AceticSalicylicAcid .
+
+default:DispensingIndividual101
+      a       default:Dispensing ;
+      rdfs:label "dispense"^^xsd:string .
+
+default:PortT101_Out1
+      a       default:Port ;
+      default:isUpstreamPortOf
+              default:Stream1 ;
+      default:isportOf default:Tank101 .
+
+default:isContainedIn
+      a       owl:ObjectProperty ;
+      rdfs:domain default:TaskReport ;
+      rdfs:range default:ValidationReport ;
+      owl:inverseOf default:contains .
+
+default:isOperationOfUnitProcedure
+      a       owl:FunctionalProperty , owl:ObjectProperty ;
+      rdfs:domain default:Operation ;
+      rdfs:range default:UnitProcedure ;
+      owl:inverseOf default:hasOperation .
+
+default:QAInspector
+      a       owl:Class ;
+      rdfs:label "qa_inspector, quality_assurance_inspector"^^xsd:string ;
+      rdfs:subClassOf default:QualityAssuranceDepartment .
+
+default:Stream6AcetylsalicylicAcidSolution
+      a       default:PhysicalComponent ;
+      default:hasState default:Liquid ;
+      default:hasSubstance
+              default:AceticSalicylicAcid .
+
+default:ReactionYieldTestTask
+      a       owl:Class ;
+      rdfs:subClassOf default:IntraProcessTask ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:isResponsibilityOf ;
+                owl:someValuesFrom
+                        [ a       owl:Class ;
+                          owl:intersectionOf (default:LabEngineer [ a       owl:Restriction ;
+                                      owl:allValuesFrom default:Testing ;
+                                      owl:onProperty default:performs
+                                    ])
+                        ]
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:hasReport ;
+                owl:someValuesFrom default:YieldDeviationReport
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:cardinality "1"^^xsd:int ;
+                owl:onProperty default:hasReport
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:isTaskOf ;
+                owl:someValuesFrom default:ProcessValidationPlan
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:minCardinality "1"^^xsd:int ;
+                owl:onProperty default:resultsin
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:resultsin ;
+                owl:someValuesFrom default:ReactionYieldTest
+              ] ;
+      owl:disjointWith default:EquipmentCleanlinessTestTask , default:EquipmentCleaningTask .
+
+default:contains
+      a       owl:ObjectProperty ;
+      rdfs:domain default:ValidationReport ;
+      rdfs:range default:TaskReport ;
+      owl:inverseOf default:isContainedIn .
+
+default:ProtectingIndividual101
+      a       default:Protecting ;
+      rdfs:label "protect, save"^^xsd:string .
+
+default:Delaying
+      a       owl:Class ;
+      rdfs:subClassOf default:Operation ;
+      owl:disjointWith default:Drying , default:Classifying , default:Milling , default:Washing , default:Heating , default:Charging , default:Filtering , default:Sinking , default:Crystallization , default:Centrifuging , default:StoichReaction , default:Extraction , default:Distillation , default:Storage , default:Purging , default:Cooling .
+
+default:Crystallizer101Procedure
+      a       default:UnitProcedure ;
+      default:hasEquipment
+              default:Crystallizer101 ;
+      default:hasInletStream
+              default:Stream5 ;
+      default:hasOperation
+              default:Crystallization_Cr101 ;
+      default:hasOutletStream
+              default:Stream6 ;
+      default:hasTime default:TimeCrystallizer101Process ;
+      default:isUnitProcedureOf
+              default:AspirinProcess .
+
+default:Filtering_F101
+      a       default:Filtering ;
+      default:hasTime default:TimeFiltering_F101 ;
+      default:hasWrittenProcedure
+              default:FilterProcedure ;
+      default:isOperationOfUnitProcedure
+              default:Filter101Procedure .
+
+default:WashingProcedure
+      a       default:StandardOperatingProcedure .
+
+swrl:argument2
+      a       owl:ObjectProperty .
+
+default:Stream5
+      a       default:Stream ;
+      default:hasDownstreamPort
+              default:PortCr101_In1 ;
+      default:hasUpstreamPort
+              default:PortF101-Out1 ;
+      default:isComposedOf
+              default:Stream5AcetylsalicylicAcidSolution .
+
+default:RestrictingTask
+      a       owl:Class ;
+      rdfs:subClassOf default:IrrelavantTask ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom default:Restricting ;
+                owl:onProperty default:hasAction
+              ] ;
+      owl:disjointWith default:ReturningTask , default:TransportingTask , default:QuarantiningTask , default:SupervisingTask , default:IdentifyingTask , default:WritingTask , default:ReinforcingTask , default:AllowingTask , default:reportingTask .
+
+default:ProcessDomain
+      a       owl:Class ;
+      rdfs:label "process_domain"^^xsd:string ;
+      rdfs:subClassOf default:PhysicalConcepts .
+
+default:TaskReport
+      a       owl:Class ;
+      rdfs:subClassOf default:Document ;
+      owl:disjointWith default:DesignQualification , default:ValidationReport , default:InstallationQualification , default:OperationalQualification , default:MaterialLabel , default:PerformanceQualification , default:WrittenProcedure .
+
+default:TimeCrystallizer101Process
+      a       default:CrystallizerProcedureTime ;
+      default:correspondsTo
+              default:Crystallizer101Procedure .
+
+default:PortD101_Out1
+      a       default:Port ;
+      default:isUpstreamPortOf
+              default:Stream10 ;
+      default:isportOf default:Dryer101 .
+
+default:Quantity
+      a       owl:Class ;
+      rdfs:subClassOf default:AbstractConcepts .
+
+default:Pump
+      a       owl:Class ;
+      rdfs:label "pump"^^xsd:string ;
+      rdfs:subClassOf default:FlowEquipment ;
+      owl:disjointWith default:Valve , default:Pipe .
+
+default:AcidPurchaseTask101
+      a       default:PurchasingTask ;
+      default:hasAction default:Purchasing_1 ;
+      default:hasPatient default:Salicylic_Acid .
+
+default:AssessingIndividual101
+      a       default:Assessing ;
+      rdfs:label "assess"^^xsd:string ;
+      default:isPerformedBy
+              default:PurchasingOfficer_10 .
+
+default:ProcessValidationPlan
+      a       owl:Class ;
+      rdfs:subClassOf default:ValidationPlan ;
+      owl:disjointWith default:DesignQualification , default:ProcessValidationReport , default:ComputerValidationPlan , default:Qualification , default:InstallationQualification , default:OperationalQualification , default:CleaningValidationPlan , default:PerformanceQualification , default:MaterialLabel .
+
+default:Stream1AceticAnhydradeSolution
+      a       default:PhysicalComponent ;
+      default:hasState default:Liquid ;
+      default:hasSubstance
+              default:Acetic_Anhydrade .
+
+default:Stream6
+      a       default:Stream ;
+      default:hasDownstreamPort
+              default:PortCe101_In1 ;
+      default:hasUpstreamPort
+              default:PortCr101_Out1 ;
+      default:isComposedOf
+              default:Stream6AcetylsalicylicAcidSolution , default:Stream6AcetylsalicylicAcidCrystal .
+
+default:PackagingMaterial
+      a       owl:Class ;
+      rdfs:subClassOf default:Substance .
+
+default:BatchNumber
+      a       owl:Class ;
+      rdfs:comment "A batch number, given at receipt."^^xsd:string ;
+      rdfs:subClassOf default:MaterialLabel .
+
+default:QAAuditor
+      a       owl:Class ;
+      rdfs:label "qa_auditor, quality_assurance_auditor"^^xsd:string ;
+      rdfs:subClassOf default:QualityAssuranceDepartment .
+
+default:Mill
+      a       owl:Class ;
+      rdfs:label "mill"^^xsd:string ;
+      rdfs:subClassOf default:ProcessingEquipment ;
+      owl:disjointWith default:DistillationColumn , default:Crystallizer , default:Centrifuge , default:Blender , default:Filter , default:Dryer , default:Reactor , default:ExtractionColumn .
+
+default:hasWrittenProcedure
+      a       owl:ObjectProperty ;
+      rdfs:domain
+              [ a       owl:Class ;
+                owl:unionOf (default:ValidationTask default:Operation)
+              ] ;
+      rdfs:range default:WrittenProcedure .
+
+default:TimeCrystallization_Cr101
+      a       default:TimeCrystallization ;
+      default:correspondsTo
+              default:Crystallization_Cr101 .
+
+default:PharmaSupplierAssess_1
+      a       default:PharmaSupplierAssessTask ;
+      default:hasAction default:AssessingIndividual101 ;
+      default:hasPatient default:ABCChemicals ;
+      default:hasReport default:SupplierAssessmentReport_5 ;
+      default:hasWrittenProcedure
+              default:SupplierAssessmentProcedure ;
+      default:isBasedOnRegulation
+              <http://www.owl-ontologies.com/2008/6/17/Ontology1213712768.owl#EUGuidanceGMP_5.26> ;
+      default:isResponsibilityOf
+              default:PurchasingOfficer_10 .
+
+default:DisplayingTask
+      a       owl:Class ;
+      rdfs:label "display"^^xsd:string ;
+      rdfs:subClassOf default:GenericTask ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:hasValue default:DisplayingIndividual101 ;
+                owl:onProperty default:hasAction
+              ] ;
+      owl:disjointWith default:DisposingTask , default:ShowingTask , default:CheckingTask , default:StoringTask , default:PurchasingTask , default:ProtectingTask , default:MarkingTask , default:RecordingTask , default:CleaningTask .
+
+default:PreProcessTask
+      a       owl:Class ;
+      rdfs:subClassOf default:ValidationTask ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:hasTime ;
+                owl:someValuesFrom default:PreProcessTaskTime
+              ] ;
+      owl:disjointWith default:IntraProcessTask , default:PostProcessTask .
+
+default:Stream7
+      a       default:Stream ;
+      default:hasDownstreamPort
+              default:PortR101_In3 ;
+      default:hasUpstreamPort
+              default:PortCe101_Out2 ;
+      default:isComposedOf
+              default:Stream7AcetylSalicylicAcidCrystal , default:Stream7Water , default:Stream7AceticAcid , default:Stream7AcetylSalicylicAcidSolution .
+
+default:Disapproved
+      a       default:ApprovalStatus .
+
+default:Drying_D101
+      a       default:Drying ;
+      default:hasTime default:TimeDrying_D101 ;
+      default:hasWrittenProcedure
+              default:DryingProcedure ;
+      default:isOperationOfUnitProcedure
+              default:Dryer101Procedure ;
+      default:isPatientOf default:ReinforcingTask_101 .
+
+default:correspondsTo
+      a       owl:FunctionalProperty , owl:ObjectProperty ;
+      rdfs:domain default:Time ;
+      rdfs:range
+              [ a       owl:Class ;
+                owl:unionOf (default:UnitProcedure default:Operation default:ValidationTask)
+              ] ;
+      owl:inverseOf default:hasTime .
+
+default:FilterCleanlinessTestTaskTime
+      a       default:CleanlinessTestTaskTime ;
+      default:correspondsTo
+              default:FilterCleanlinessTestTask ;
+      default:isImmediatelyAfter
+              default:FilterCleaningTaskTime_15 .
+
+default:AspirinTablet50g
+      a       default:FinalProduct ;
+      default:isPatientOf default:AspirinTabletMarkTask101 , default:AspirinStorageTask101 .
+
+default:Regulation
+      a       owl:Class ;
+      rdfs:label "regulation"^^xsd:string ;
+      rdfs:subClassOf default:RegulatoryDomain ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:necessitatesTaskCandidates ;
+                owl:someValuesFrom default:ValidationTask
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom default:ValidationTask ;
+                owl:onProperty default:necessitatesTaskCandidates
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:necessitatesTask ;
+                owl:someValuesFrom default:ValidationTask
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom default:ValidationTask ;
+                owl:onProperty default:necessitatesTask
+              ] ;
+      owl:disjointWith default:Stream , default:ValidationPlan , default:Process , default:Substance , default:Port , default:Document , default:UnitProcedure , default:Action , default:Operation , default:Position , default:PhysicalComponent , default:EquipmentModule , default:InvestigatoryEntity , default:ValidationTest , default:ValidationTask .
+
+default:Process
+      a       owl:Class ;
+      rdfs:subClassOf default:ProcessDomain ;
+      owl:disjointWith default:UnitProcedure , default:Action , default:Stream , default:Operation , default:Regulation , default:Position , default:Substance , default:Port , default:PhysicalComponent , default:EquipmentModule , default:Document , default:ValidationTask ;
+      owl:equivalentClass
+              [ a       owl:Class ;
+                owl:intersectionOf ([ a       owl:Restriction ;
+                            owl:onProperty default:hasUnitProcedure ;
+                            owl:someValuesFrom default:UnitProcedure
+                          ] [ a       owl:Restriction ;
+                            owl:allValuesFrom default:UnitProcedure ;
+                            owl:onProperty default:hasUnitProcedure
+                          ])
+              ] .
+
+default:Filter
+      a       owl:Class ;
+      rdfs:label "filter"^^xsd:string ;
+      rdfs:subClassOf default:ProcessingEquipment ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:cardinality "2"^^xsd:int ;
+                owl:onProperty default:isPatientOf
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:isPatientOf ;
+                owl:someValuesFrom
+                        [ a       owl:Class ;
+                          owl:intersectionOf (default:EquipmentCleanlinessTestTask [ a       owl:Restriction ;
+                                      owl:allValuesFrom
+                                              [ a       owl:Class ;
+                                                owl:intersectionOf (default:CleanlinessTestTaskTime [ a       owl:Restriction ;
+                                                            owl:allValuesFrom default:CleaningTaskTime ;
+                                                            owl:onProperty default:isImmediatelyAfter
+                                                          ])
+                                              ] ;
+                                      owl:onProperty default:hasTime
+                                    ])
+                        ]
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:isPatientOf ;
+                owl:someValuesFrom
+                        [ a       owl:Class ;
+                          owl:intersectionOf (default:EquipmentCleaningTask [ a       owl:Restriction ;
+                                      owl:allValuesFrom
+                                              [ a       owl:Class ;
+                                                owl:intersectionOf (default:CleaningTaskTime [ a       owl:Restriction ;
+                                                            owl:allValuesFrom default:FilterProcedureTime ;
+                                                            owl:onProperty default:isImmediatelyAfter
+                                                          ])
+                                              ] ;
+                                      owl:onProperty default:hasTime
+                                    ])
+                        ]
+              ] ;
+      owl:disjointWith default:DistillationColumn , default:Crystallizer , default:Mill , default:Centrifuge , default:Blender , default:Dryer , default:Reactor , default:ExtractionColumn .
+
+default:StartingMaterialPurchaseTask
+      a       owl:Class ;
+      rdfs:subClassOf default:PreProcessTask ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:isTaskOf ;
+                owl:someValuesFrom default:Qualification
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:hasReport ;
+                owl:someValuesFrom default:MaterialPurchaseReport
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:cardinality "1"^^xsd:int ;
+                owl:onProperty default:hasReport
+              ] ;
+      owl:disjointWith default:StartingMaterialTestTask , default:PharmaSupplierAssessTask .
+
+default:hasParameter
+      a       owl:ObjectProperty .
+
+default:Time
+      a       owl:Class ;
+      rdfs:subClassOf default:Quantity .
+
+default:TankCleanTask101
+      a       default:CleaningTask ;
+      default:hasAction default:CleaningIndividual101 .
+
+default:Distillation
+      a       owl:Class ;
+      rdfs:subClassOf default:Operation ;
+      owl:disjointWith default:Drying , default:Classifying , default:Milling , default:Washing , default:Heating , default:Filtering , default:Charging , default:Sinking , default:Centrifuging , default:Crystallization , default:StoichReaction , default:Extraction , default:Delaying , default:Storage , default:Purging , default:Cooling .
+
+default:ValidationTest
+      a       owl:Class ;
+      rdfs:subClassOf default:RegulatoryDomain ;
+      owl:disjointWith default:Action , default:Regulation , default:ValidationPlan , default:Position , default:Substance , default:InvestigatoryEntity , default:EquipmentModule , default:Document , default:ValidationTask .
+
+default:Stream8
+      a       default:Stream ;
+      default:hasDownstreamPort
+              default:PortCe101_In2 ;
+      default:isComposedOf
+              default:Stream8Water , default:Stream8AceticAcidGlacial .
+
+default:Stream7Water
+      a       default:PhysicalComponent ;
+      default:hasState default:Liquid ;
+      default:hasSubstance
+              default:Water .
+
+default:TransportingTask_101
+      a       default:TransportingTask ;
+      default:hasAction default:TransportingIndividual101 .
+
+default:Assessing
+      a       owl:Class ;
+      rdfs:label "assess"^^xsd:string ;
+      rdfs:subClassOf default:Action .
+
+default:PortD101_Out2
+      a       default:Port ;
+      default:isUpstreamPortOf
+              default:Stream11 ;
+      default:isportOf default:Dryer101 .
+
+default:Reactor101Procedure
+      a       default:UnitProcedure ;
+      default:hasEquipment
+              default:Reactor101 ;
+      default:hasInletStream
+              default:Stream7 , default:Stream1 , default:Stream2 ;
+      default:hasOperation
+              default:StoichReaction_R101 , default:Delaying_R101 ;
+      default:hasOutletStream
+              default:Stream3 ;
+      default:hasTime default:TimeReactor101Procedure ;
+      default:isUnitProcedureOf
+              default:AspirinProcess .
+
+default:RecordingTask
+      a       owl:Class ;
+      rdfs:label "record"^^xsd:string ;
+      rdfs:subClassOf default:GenericTask ;
+      owl:disjointWith default:DisposingTask , default:ShowingTask , default:PurchasingTask , default:CheckingTask , default:StoringTask , default:ProtectingTask , default:DisplayingTask , default:MarkingTask , default:CleaningTask .
+
+default:IntraProcessTask
+      a       owl:Class ;
+      rdfs:label "Intra Process Task"^^xsd:string ;
+      rdfs:subClassOf default:ValidationTask ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:hasTime ;
+                owl:someValuesFrom default:IntraProcessTaskTime
+              ] ;
+      owl:disjointWith default:PostProcessTask , default:PreProcessTask .
+
+default:ReportingTask_101
+      a       default:reportingTask ;
+      default:hasAction default:ReportingIndividual101 ;
+      default:hasPatient default:deviation .
+
+default:Stream9
+      a       default:Stream ;
+      default:hasDownstreamPort
+              default:PortD101_In1 ;
+      default:hasUpstreamPort
+              default:PortCe101_Out1 ;
+      default:isComposedOf
+              default:Stream9AcetylSAlicylicAcidSolution .
+
+default:Acetic_Anhydrade
+      a       default:StartingMaterial ;
+      default:isPatientOf default:StartingMaterialTestTask_7 ;
+      default:isTestedBy default:Acetic_AnhydradeEvaluationTest .
+
+default:PortR101_In1
+      a       default:Port ;
+      default:isDownstreamPortOf
+              default:Stream1 ;
+      default:isportOf default:Reactor101 .
+
+default:QualityAssuranceDepartment
+      a       owl:Class ;
+      rdfs:subClassOf default:Personnel ;
+      owl:disjointWith default:QualityControlLaboratory .
+
+default:ExactCard_2
+      a       default:ExactCard ;
+      default:hasLabel default:PortCe101_Out2 , default:Stream3AcetylSalicylicAcidSolution , default:Approved , default:PortCr101_In1 .
+
+default:Purchasing_1
+      a       default:Purchasing .
+
+default:T102CleaningTask
+      a       default:EquipmentCleaningTask ;
+      default:hasAction default:CleaningIndividual101 ;
+      default:hasPatient default:Tank102 ;
+      default:hasReport default:Tank102CleanlinessReport ;
+      default:hasTime default:T102CleaningTaskTime ;
+      default:hasWrittenProcedure
+              default:TankCleaningProcedure ;
+      default:isBasedOnRegulation
+              <http://www.owl-ontologies.com/2008/6/17/Ontology1213712768.owl#EUGuidanceGMP-5.21> ;
+      default:isResponsibilityOf
+              default:Berkan_Sesen ;
+      default:isTaskOf default:AspirinProcess_CleaningValidationPlan .
+
+default:Stream1
+      a       default:Stream ;
+      default:hasDownstreamPort
+              default:PortR101_In1 ;
+      default:hasUpstreamPort
+              default:PortT101_Out1 ;
+      default:isComposedOf
+              default:Stream1AceticAnhydradeSolution .
+
+default:AspirinProcess_ProcessValidationPlan
+      a       default:ProcessValidationPlan ;
+      default:includesTask
+              default:InvestigationTask_1 .
+
+default:InvalidEntity
+      a       owl:Class .
+
+default:PreProcessTaskTime
+      a       owl:Class ;
+      rdfs:subClassOf default:TaskTime ;
+      owl:disjointWith default:IntraProcessTaskTime , default:PostProcessTaskTime .
+
+default:T102CleanlinessTestTask
+      a       default:EquipmentCleanlinessTestTask ;
+      default:hasAction default:TestingIndividual101 ;
+      default:hasPatient default:Tank102 ;
+      default:hasReport default:Tank102CleanlinessReport ;
+      default:hasTime default:T102CleanlinessTestTaskTime ;
+      default:hasWrittenProcedure
+              default:TankCleanlinessTestingProcedure ;
+      default:isBasedOnRegulation
+              <http://www.owl-ontologies.com/2008/6/17/Ontology1213712768.owl#EUGuidanceGMP-5.21> ;
+      default:isResponsibilityOf
+              default:Yetkin_Sesen ;
+      default:isTaskOf default:AspirinProcess_CleaningValidationPlan ;
+      default:resultsin default:T102CleanlinessTest .
+
+default:State
+      a       owl:Class ;
+      rdfs:subClassOf default:Attribute ;
+      owl:equivalentClass
+              [ a       owl:Class ;
+                owl:oneOf (default:Solid default:Liquid default:Gas)
+              ] .
+
+default:MaintenanceOperator
+      a       owl:Class ;
+      rdfs:label "maintainance_operator, maintainance_person"^^xsd:string ;
+      rdfs:subClassOf default:MaintenanceDepartment .
+
+default:Milling
+      a       owl:Class ;
+      rdfs:subClassOf default:Operation ;
+      owl:disjointWith default:Drying , default:Classifying , default:Heating , default:Washing , default:Charging , default:Filtering , default:Sinking , default:Centrifuging , default:Crystallization , default:StoichReaction , default:Extraction , default:Delaying , default:Distillation , default:Storage , default:Purging , default:Cooling .
+
+default:Reactor101
+      a       default:Reactor ;
+      default:hasPort default:PortR101_In1 , default:PortR101_In2 , default:PortR101_In3 , default:PortR101_Out1 ;
+      default:isEquipmentOf
+              default:Reactor101Procedure .
+
+default:isPerformedBy
+      a       owl:ObjectProperty ;
+      rdfs:domain default:Action ;
+      rdfs:range default:Position ;
+      owl:inverseOf default:performs .
+
+default:Washing
+      a       owl:Class ;
+      rdfs:subClassOf default:Operation ;
+      owl:disjointWith default:Drying , default:Classifying , default:Milling , default:Heating , default:Filtering , default:Charging , default:Sinking , default:Crystallization , default:Centrifuging , default:StoichReaction , default:Extraction , default:Delaying , default:Distillation , default:Storage , default:Purging , default:Cooling .
+
+default:ExactCard_1
+      a       default:ExactCard ;
+      default:hasLabel <http://www.owl-ontologies.com/2008/6/17/Ontology1213712768.owl#EUGuidanceonGMP_8.14> .
+
+default:ActivePharmaceuticalIngredient
+      a       owl:Class ;
+      rdfs:subClassOf default:Substance .
+
+default:isAfter
+      a       owl:TransitiveProperty , owl:ObjectProperty ;
+      rdfs:domain default:Time ;
+      rdfs:range default:Time ;
+      owl:inverseOf default:isBefore .
+
+default:Stream2
+      a       default:Stream ;
+      default:hasDownstreamPort
+              default:PortR101_In2 ;
+      default:hasUpstreamPort
+              default:PortT102-Out1 ;
+      default:isComposedOf
+              default:Stream2SalisylicAcidSolution .
+
+default:AllowingIndividual101
+      a       default:Allowing ;
+      rdfs:label "allow"^^xsd:string .
+
+default:IntraProcessTaskTime
+      a       owl:Class ;
+      rdfs:subClassOf default:TaskTime ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:hasValue default:TimeIntPreProcess ;
+                owl:onProperty default:isAfter
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:hasValue default:TimeIntPostProcess ;
+                owl:onProperty default:isBefore
+              ] ;
+      owl:disjointWith default:PreProcessTaskTime , default:PostProcessTaskTime .
+
+default:hasLabelName
+      a       owl:ObjectProperty ;
+      rdfs:domain default:Substance ;
+      rdfs:subPropertyOf default:hasLabel .
+
+default:ReactionYieldTestTask_1
+      a       default:ReactionYieldTestTask ;
+      default:hasAction default:YieldingIndividual101 ;
+      default:hasPatient default:StoichReaction_R101 ;
+      default:hasReport default:YieldDeviationReport_6 ;
+      default:hasTime default:R101YieldTestTaskTime ;
+      default:hasWrittenProcedure
+              default:ReactionYieldTestingProcedure ;
+      default:isBasedOnRegulation
+              <http://www.owl-ontologies.com/2008/6/17/Ontology1213712768.owl#EUGuidanceonGMP_8.14> ;
+      default:isResponsibilityOf
+              default:LabEngineer_2 ;
+      default:resultsin default:ReactionYieldTest_1 .
+
+default:PharmaValidationStatus
+      a       owl:Class ;
+      rdfs:subClassOf default:Attribute .
+
+default:ComputerValidationReport
+      a       owl:Class ;
+      rdfs:subClassOf default:ValidationReport .
+
+default:ReportingIndividual101
+      a       default:Reporting ;
+      rdfs:label "report"^^xsd:string .
+
+default:Filter101
+      a       default:Filter ;
+      default:hasPort default:PortF101-Out1 , default:PortF101_In1 , default:PortF101_Out2 ;
+      default:isEquipmentOf
+              default:Filter101Procedure ;
+      default:isPatientOf default:FilterCleanlinessTestTask , default:FilterCleaningTask ;
+      default:isTestedBy default:FilterCleanlinessTest .
+
+default:PortR101_In3
+      a       default:Port ;
+      default:isDownstreamPortOf
+              default:Stream7 ;
+      default:isportOf default:Reactor101 .
+
+default:Stream3
+      a       default:Stream ;
+      default:hasDownstreamPort
+              default:PortF101_In1 ;
+      default:hasUpstreamPort
+              default:PortR101_Out1 ;
+      default:isComposedOf
+              default:Stream3AcetylSalicylicAcidSolution , default:Stream3ExtraneousParticle .
+
+default:Tank101
+      a       default:StorageTank ;
+      default:hasPort default:PortT101_Out1 ;
+      default:isEquipmentOf
+              default:Tank101Procedure ;
+      default:isPatientOf default:T101CleanlinessTestTask , default:T101CleaningTask ;
+      default:isTestedBy default:T101CleanlinessTest .
+
+default:MaxCard
+      a       owl:Class ;
+      rdfs:subClassOf default:InvalidEntity ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:hasValue default:TestingIndividual101 ;
+                owl:onProperty default:hasAction
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:maxCardinality "2"^^xsd:int ;
+                owl:onProperty default:hasLabel
+              ] .
+
+default:AspirinProcess_CleaningValidationPlan
+      a       default:CleaningValidationPlan ;
+      default:includesTask
+              default:T102CleanlinessTestTask , default:FilterCleanlinessTestTask , default:FilterCleaningTask , default:T101CleanlinessTestTask , default:T101CleaningTask , default:T102CleaningTask .
+
+default:TemperatureRangeDrying_D101
+      a       default:RangeValue ;
+      default:hasMaximum "70"^^xsd:int ;
+      default:hasMinimum "60"^^xsd:int .
+
+default:EquipmentCleaningTask
+      a       owl:Class ;
+      rdfs:label "Equipment Cleaning Task"^^xsd:string ;
+      rdfs:subClassOf default:IntraProcessTask ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:hasTime ;
+                owl:someValuesFrom default:CleaningTaskTime
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:cardinality "1"^^xsd:int ;
+                owl:onProperty default:hasReport
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:hasReport ;
+                owl:someValuesFrom default:EquipmentCleanlinessReport
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:isTaskOf ;
+                owl:someValuesFrom default:CleaningValidationPlan
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:isResponsibilityOf ;
+                owl:someValuesFrom
+                        [ a       owl:Class ;
+                          owl:intersectionOf (default:MaintenanceOperator [ a       owl:Restriction ;
+                                      owl:allValuesFrom default:Cleaning ;
+                                      owl:onProperty default:performs
+                                    ])
+                        ]
+              ] ;
+      owl:disjointWith default:ReactionYieldTestTask , default:EquipmentCleanlinessTestTask .
+
+default:ReturningIndividual101
+      a       default:Returning ;
+      rdfs:label "return"^^xsd:string .
+
+default:PortR101_In2
+      a       default:Port ;
+      default:isDownstreamPortOf
+              default:Stream2 ;
+      default:isportOf default:Reactor101 .
+
+default:Stream4
+      a       default:Stream ;
+      default:hasUpstreamPort
+              default:PortF101_Out2 ;
+      default:isComposedOf
+              default:Stream4ExtraneousParticle .
+
+default:PortF101_Out2
+      a       default:Port ;
+      default:isUpstreamPortOf
+              default:Stream4 ;
+      default:isportOf default:Filter101 .
+
+default:TimeCentrifuging_Ce101-
+      a       default:TimeCentrifuging ;
+      default:correspondsTo
+              default:Centrifuging_Ce101 ;
+      default:isImmediatelyBefore
+              default:TimeWashing_Ce101 .
+
+default:PostProcessTask
+      a       owl:Class ;
+      rdfs:subClassOf default:ValidationTask ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:hasTime ;
+                owl:someValuesFrom default:PostProcessTaskTime
+              ] ;
+      owl:disjointWith default:IntraProcessTask , default:PreProcessTask .
+
+default:Crystallization_Cr101
+      a       default:Crystallization ;
+      default:hasTime default:TimeCrystallization_Cr101 ;
+      default:hasWrittenProcedure
+              default:CrystallizationProcedure ;
+      default:isOperationOfUnitProcedure
+              default:Crystallizer101Procedure ;
+      default:isPatientOf default:InvestigationTask_1 .
+
+default:Tank102
+      a       default:StorageTank ;
+      default:hasPort default:PortT102-Out1 ;
+      default:isEquipmentOf
+              default:Tank102Procedure ;
+      default:isPatientOf default:T102CleanlinessTestTask , default:T102CleaningTask ;
+      default:isTestedBy default:T102CleanlinessTest .
+
+default:RectrictingIndividual101
+      a       default:Restricting ;
+      rdfs:label "restrict, prevent, forbid, prohibit, avoid"^^xsd:string .
+
+default:ReactionYieldTest
+      a       owl:Class ;
+      rdfs:subClassOf default:ValidationTest ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:tests ;
+                owl:someValuesFrom default:StoichReaction
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:minCardinality "1"^^xsd:int ;
+                owl:onProperty default:hasAcceptanceCriteria
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:hasValue "The deviation between the actual yield and expected yield of the reaction should not be greater than the critical deviation set by the user."^^xsd:string ;
+                owl:onProperty default:hasAcceptanceCriteria
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:cardinality "1"^^xsd:int ;
+                owl:onProperty default:tests
+              ] .
+
+default:PortCr101_In1
+      a       default:Port ;
+      default:isDownstreamPortOf
+              default:Stream5 ;
+      default:isportOf default:Crystallizer101 .
+
+default:Evaluating
+      a       owl:Class ;
+      rdfs:subClassOf default:Action .
+
+default:StartingMaterialTestTask_7
+      a       default:StartingMaterialTestTask ;
+      default:hasPatient default:Acetic_Anhydrade ;
+      default:hasReport default:MaterialEvaluationReport_3 ;
+      default:hasWrittenProcedure
+              default:MaterialPurchasingProcedure ;
+      default:isBasedOnRegulation
+              <http://www.owl-ontologies.com/2008/6/17/Ontology1213712768.owl#EUGuidanceonGMP_5.31> ;
+      default:isResponsibilityOf
+              default:Yetkin_Sesen ;
+      default:resultsin default:Acetic_AnhydradeEvaluationTest .
+
+default:T101CleaningTask
+      a       default:EquipmentCleaningTask ;
+      default:hasAction default:CleaningIndividual101 ;
+      default:hasPatient default:Tank101 ;
+      default:hasReport default:Tank101CleanlinessReport ;
+      default:hasTime default:T101CleaningTaskTime ;
+      default:hasWrittenProcedure
+              default:TankCleaningProcedure ;
+      default:isBasedOnRegulation
+              <http://www.owl-ontologies.com/2008/6/17/Ontology1213712768.owl#EUGuidanceGMP-5.21> ;
+      default:isResponsibilityOf
+              default:Berkan_Sesen ;
+      default:isTaskOf default:AspirinProcess_CleaningValidationPlan .
+
+default:CrystallizerProcedureTime
+      a       owl:Class ;
+      rdfs:subClassOf default:UnitProcedureTime ;
+      owl:disjointWith default:ReactorProcedureTime , default:CentrifugeProcedureTime , default:DryerProcedureTime , default:TankProcedureTime , default:FilterProcedureTime .
+
+default:DisposingTask
+      a       owl:Class ;
+      rdfs:label "dispose"^^xsd:string ;
+      rdfs:subClassOf default:GenericTask ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:hasValue default:DisposingIndividual101 ;
+                owl:onProperty default:hasAction
+              ] ;
+      owl:disjointWith default:ShowingTask , default:CheckingTask , default:PurchasingTask , default:StoringTask , default:ProtectingTask , default:DisplayingTask , default:MarkingTask , default:RecordingTask , default:CleaningTask .
+
+default:ReturningTask
+      a       owl:Class ;
+      rdfs:subClassOf default:IrrelavantTask ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom default:Returning ;
+                owl:onProperty default:hasAction
+              ] ;
+      owl:disjointWith default:TransportingTask , default:RestrictingTask , default:QuarantiningTask , default:SupervisingTask , default:IdentifyingTask , default:WritingTask , default:ReinforcingTask , default:AllowingTask , default:reportingTask .
+
+default:Impurities
+      a       default:IntermediateMaterial .
+
+<http://www.owl-ontologies.com/2008/6/17/Ontology1213712768.owl>
+      a       owl:Ontology ;
+      owl:imports <http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl> , <http://swrl.stanford.edu/ontologies/3.3/swrla.owl> .
+
+default:Centrifuging_Ce101
+      a       default:Centrifuging ;
+      default:hasTime default:TimeCentrifuging_Ce101- ;
+      default:hasWrittenProcedure
+              default:CentrifugeProcedure ;
+      default:isOperationOfUnitProcedure
+              default:Centrifuge101Procedure .
+
+default:Labelling
+      a       owl:Class ;
+      rdfs:label "label"^^xsd:string ;
+      rdfs:subClassOf default:Action .
+
+default:TimeDryer101Process
+      a       default:DryerProcedureTime ;
+      default:correspondsTo
+              default:Dryer101Procedure .
+
+default:hasInletStream
+      a       owl:ObjectProperty ;
+      rdfs:domain default:UnitProcedure ;
+      rdfs:range default:Stream .
+
+default:SupervisingTask
+      a       owl:Class ;
+      rdfs:subClassOf default:IrrelavantTask ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom default:Supervising ;
+                owl:onProperty default:hasAction
+              ] ;
+      owl:disjointWith default:TransportingTask , default:ReturningTask , default:RestrictingTask , default:QuarantiningTask , default:IdentifyingTask , default:WritingTask , default:ReinforcingTask , default:AllowingTask , default:reportingTask .
+
+default:Cooling
+      a       owl:Class ;
+      rdfs:label ""^^xsd:string ;
+      rdfs:subClassOf default:Operation ;
+      owl:disjointWith default:Drying , default:Classifying , default:Milling , default:Washing , default:Heating , default:Filtering , default:Charging , default:Sinking , default:Crystallization , default:Centrifuging , default:StoichReaction , default:Extraction , default:Delaying , default:Distillation , default:Storage , default:Purging .
+
+default:Dryer101
+      a       default:Dryer ;
+      default:hasPort default:PortD101_In1 , default:PortD101_Out1 , default:PortD101_Out2 ;
+      default:isEquipmentOf
+              default:Dryer101Procedure .
+
+<http://www.owl-ontologies.com/2008/6/17/Ontology1213712768.owl#EUGuidanceGMP_5.22>
+      a       default:Regulation ;
+      rdfs:comment """Equipment and utensils should be cleaned, stored, and, where appropriate, 
+sanitized or sterilized to prevent contamination or carry-over of a material that would 
+alter the quality of the intermediate or API beyond the official or other established 
+specifications."""^^xsd:string .
+
+default:inverse_of_hasOperation
+      a       owl:FunctionalProperty .
+
+default:PhysicalConcepts
+      a       owl:Class ;
+      rdfs:label "physical_concepts"^^xsd:string .
+
+default:Stream11
+      a       default:Stream ;
+      default:hasUpstreamPort
+              default:PortD101_Out2 ;
+      default:isComposedOf
+              default:Stream11Water .
+
+default:hasSubstance
+      a       owl:ObjectProperty ;
+      rdfs:domain default:PhysicalComponent ;
+      rdfs:range default:Substance .
+
+default:StorageEquipment
+      a       owl:Class ;
+      rdfs:label "storage_equipment"^^xsd:string ;
+      rdfs:subClassOf default:Equipment ;
+      owl:disjointWith default:ThermalEquipment , default:ProcessingEquipment , default:AnalyticalEquipment , default:ActuatingEquipment , default:FlowEquipment .
+
+default:Filter101CleanlinessReport_2
+      a       default:EquipmentCleanlinessReport ;
+      default:hasAuthor default:Yetkin_Sesen ;
+      default:isReportOf default:FilterCleanlinessTestTask , default:FilterCleaningTask .
+
+default:TaskTime
+      a       owl:Class ;
+      rdfs:subClassOf default:Time ;
+      owl:disjointWith default:OperationTime .
+
+default:SomeCard_1
+      a       default:SomeCard ;
+      default:hasLabel <http://www.owl-ontologies.com/2008/6/17/Ontology1213712768.owl#EUGuidanceonGMP_5.31> , default:Stream11Water .
+
+default:Gas
+      a       default:State .
+
+default:ApprovedSupplier
+      a       owl:Class ;
+      rdfs:subClassOf default:PharmaSupplier ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:isPatientOf ;
+                owl:someValuesFrom default:PharmaSupplierAssessTask
+              ] ;
+      owl:disjointWith default:UnknownSupplier , default:DisapprovedSupplier ;
+      owl:equivalentClass
+              [ a       owl:Restriction ;
+                owl:hasValue default:Approved ;
+                owl:onProperty default:hasVendorAssessment
+              ] .
+
+default:isTaskOf
+      a       owl:ObjectProperty ;
+      rdfs:domain default:ValidationTask ;
+      rdfs:range default:ValidationPlan ;
+      owl:inverseOf default:includesTask .
+
+default:LabellingIndividual101
+      a       default:Labelling ;
+      rdfs:label "label, tag, mark"^^xsd:string .
+
+default:ValidationPlan
+      a       owl:Class ;
+      rdfs:comment "Haider Chp2 - pg.10"^^xsd:string ;
+      rdfs:label "Validation Plan"^^xsd:string ;
+      rdfs:subClassOf default:RegulatoryDomain ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:includesTask ;
+                owl:someValuesFrom default:ValidationTask
+              ] ;
+      owl:disjointWith default:Action , default:Regulation , default:Substance , default:Position , default:EquipmentModule , default:InvestigatoryEntity , default:ValidationTest , default:Document , default:ValidationTask .
+
+default:Acetic_AnhydradeEvaluationTest
+      a       default:MaterialEvaluationTest ;
+      default:tests default:Acetic_Anhydrade .
+
+default:EquipmentCleanlinessTestTask
+      a       owl:Class ;
+      rdfs:label "Equipment Cleaniness Test Task"^^xsd:string ;
+      rdfs:subClassOf default:IntraProcessTask ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:hasReport ;
+                owl:someValuesFrom default:EquipmentCleanlinessReport
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:cardinality "1"^^xsd:int ;
+                owl:onProperty default:resultsin
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:hasTime ;
+                owl:someValuesFrom default:CleanlinessTestTaskTime
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:isTaskOf ;
+                owl:someValuesFrom default:CleaningValidationPlan
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:isResponsibilityOf ;
+                owl:someValuesFrom
+                        [ a       owl:Class ;
+                          owl:intersectionOf (default:QCOfficer [ a       owl:Restriction ;
+                                      owl:allValuesFrom default:Testing ;
+                                      owl:onProperty default:performs
+                                    ])
+                        ]
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:cardinality "1"^^xsd:int ;
+                owl:onProperty default:hasReport
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:resultsin ;
+                owl:someValuesFrom
+                        [ a       owl:Class ;
+                          owl:intersectionOf (default:EquipmentCleanlinessTest [ a       owl:Restriction ;
+                                      owl:allValuesFrom default:Equipment ;
+                                      owl:onProperty default:tests
+                                    ])
+                        ]
+              ] ;
+      owl:disjointWith default:ReactionYieldTestTask , default:EquipmentCleaningTask .
+
+default:ThermalEquipment
+      a       owl:Class ;
+      rdfs:label "tharmal_equipment"^^xsd:string ;
+      rdfs:subClassOf default:Equipment ;
+      owl:disjointWith default:StorageEquipment , default:ProcessingEquipment , default:AnalyticalEquipment , default:ActuatingEquipment , default:FlowEquipment .
+
+default:x
+      a       swrl:Variable .
+
+default:Recording
+      a       owl:Class ;
+      rdfs:subClassOf default:Action .
+
+default:ProductionTechnician
+      a       owl:Class ;
+      rdfs:subClassOf default:ProductionDepartment ;
+      owl:disjointWith default:ProductionCoordinator , default:ProductionEngineer .
+
+default:TimeFilter101Process
+      a       default:FilterProcedureTime ;
+      default:correspondsTo
+              default:Filter101Procedure .
+
+default:isTestedBy
+      a       owl:ObjectProperty ;
+      rdfs:range default:ValidationTest ;
+      owl:inverseOf default:tests .
+
+default:TemperatureRangeCrystallization_Cr101
+      a       default:RangeValue ;
+      default:hasMaximum "25"^^xsd:int ;
+      default:hasMinimum "10"^^xsd:int .
+
+default:TankCleanlinessTestingProcedure
+      a       default:TaskProcedure .
+
+default:PurchasingClericalAssistant
+      a       owl:Class ;
+      rdfs:subClassOf default:PurchasingDepartment ;
+      owl:disjointWith default:PurchasingOfficer , default:AssistantPurchasingOfficer .
+
+default:Stream10
+      a       default:Stream ;
+      default:hasUpstreamPort
+              default:PortD101_Out1 ;
+      default:isComposedOf
+              default:Stream10AcetylSalisylicAcidCrystal .
+
+default:Purchasing
+      a       owl:Class ;
+      rdfs:label "purchase"^^xsd:string ;
+      rdfs:subClassOf default:Action .
+
+default:PurchasingOfficer_10
+      a       default:PurchasingOfficer ;
+      default:isAuthorOf default:SupplierAssessmentReport_5 ;
+      default:isResponsibleFor
+              default:PharmaSupplierAssess_1 ;
+      default:performs default:AssessingIndividual101 .
+
+default:AnalyticalEquipment
+      a       owl:Class ;
+      rdfs:label "analytical_equipment"^^xsd:string ;
+      rdfs:subClassOf default:Equipment ;
+      owl:disjointWith default:StorageEquipment , default:ThermalEquipment , default:ProcessingEquipment , default:ActuatingEquipment , default:FlowEquipment .
+
+default:YieldDeviationReport_6
+      a       default:YieldDeviationReport ;
+      default:hasAuthor default:LabEngineer_2 ;
+      default:isPatientOf default:WritingTask_101 ;
+      default:isReportOf default:ReactionYieldTestTask_1 .
+
+default:StorageTank
+      a       owl:Class ;
+      rdfs:label "storage_tank"^^xsd:string ;
+      rdfs:subClassOf default:StorageEquipment ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:isPatientOf ;
+                owl:someValuesFrom
+                        [ a       owl:Class ;
+                          owl:intersectionOf (default:EquipmentCleanlinessTestTask [ a       owl:Restriction ;
+                                      owl:allValuesFrom
+                                              [ a       owl:Class ;
+                                                owl:intersectionOf (default:CleanlinessTestTaskTime [ a       owl:Restriction ;
+                                                            owl:allValuesFrom default:CleaningTaskTime ;
+                                                            owl:onProperty default:isImmediatelyAfter
+                                                          ])
+                                              ] ;
+                                      owl:onProperty default:hasTime
+                                    ])
+                        ]
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:isPatientOf ;
+                owl:someValuesFrom
+                        [ a       owl:Class ;
+                          owl:intersectionOf (default:EquipmentCleaningTask [ a       owl:Restriction ;
+                                      owl:allValuesFrom
+                                              [ a       owl:Class ;
+                                                owl:intersectionOf (default:CleaningTaskTime [ a       owl:Restriction ;
+                                                            owl:allValuesFrom default:TankProcedureTime ;
+                                                            owl:onProperty default:isImmediatelyAfter
+                                                          ])
+                                              ] ;
+                                      owl:onProperty default:hasTime
+                                    ])
+                        ]
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:cardinality "2"^^xsd:int ;
+                owl:onProperty default:isPatientOf
+              ] .
+
+default:Reactor
+      a       owl:Class ;
+      rdfs:label "reactor"^^xsd:string ;
+      rdfs:subClassOf default:ProcessingEquipment ;
+      owl:disjointWith default:DistillationColumn , default:Mill , default:Crystallizer , default:Centrifuge , default:Blender , default:Filter , default:Dryer , default:ExtractionColumn .
+
+default:UnitProcedure
+      a       owl:Class ;
+      rdfs:subClassOf default:ProcessDomain ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:hasOutletStream ;
+                owl:someValuesFrom default:Stream
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:minCardinality "1"^^xsd:int ;
+                owl:onProperty default:hasOperation
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:hasInletStream ;
+                owl:someValuesFrom default:Stream
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom default:Stream ;
+                owl:onProperty default:hasOutletStream
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:cardinality "1"^^xsd:int ;
+                owl:onProperty default:hasEquipment
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom default:Stream ;
+                owl:onProperty default:hasInletStream
+              ] ;
+      owl:disjointWith default:Action , default:Stream , default:Regulation , default:Operation , default:Process , default:Position , default:Substance , default:PhysicalComponent , default:Port , default:EquipmentModule , default:Document , default:ValidationTask .
+
+default:necessitatesTask
+      a       owl:ObjectProperty ;
+      rdfs:domain default:Regulation ;
+      rdfs:range default:ValidationTask ;
+      owl:inverseOf default:isBasedOnRegulation .
+
+default:InvestigationTask
+      a       owl:Class ;
+      rdfs:subClassOf default:PostProcessTask ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:cardinality "1"^^xsd:int ;
+                owl:onProperty default:hasReport
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:isResponsibilityOf ;
+                owl:someValuesFrom
+                        [ a       owl:Class ;
+                          owl:intersectionOf (default:QAInspector [ a       owl:Restriction ;
+                                      owl:allValuesFrom default:Investigating ;
+                                      owl:onProperty default:performs
+                                    ])
+                        ]
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:hasReport ;
+                owl:someValuesFrom default:InvestigationReport
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:isTaskOf ;
+                owl:someValuesFrom default:ProcessValidationPlan
+              ] .
+
+default:PaperDisposeTask101
+      a       default:DisposingTask ;
+      default:hasPatient default:PackagingPaper .
+
+default:Yetkin_Sesen
+      a       default:QCOfficer ;
+      default:isAuthorOf default:Filter101CleanlinessReport_2 , default:Tank101CleanlinessReport , default:Tank102CleanlinessReport ;
+      default:isResponsibleFor
+              default:T102CleanlinessTestTask , default:FilterCleanlinessTestTask , default:StartingMaterialTestTask_7 , default:T101CleanlinessTestTask , default:InvestigationTask_1 ;
+      default:performs default:TestingIndividual101 .
+
+default:TimeStoichReaction_R101
+      a       default:TimeStoichReaction ;
+      default:correspondsTo
+              default:StoichReaction_R101 ;
+      default:isImmediatelyAfter
+              default:TimeDelaying_R101 ;
+      default:isImmediatelyBefore
+              default:R101YieldTestTaskTime .
+
+default:Disposing
+      a       owl:Class ;
+      rdfs:label "dispose"^^xsd:string ;
+      rdfs:subClassOf default:Action .
+
+default:PharmaSupplierAssessTask
+      a       owl:Class ;
+      rdfs:subClassOf default:PreProcessTask ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:cardinality "1"^^xsd:int ;
+                owl:onProperty default:hasReport
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:isTaskOf ;
+                owl:someValuesFrom default:Qualification
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:hasReport ;
+                owl:someValuesFrom default:SupplierAssessmentReport
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:isResponsibilityOf ;
+                owl:someValuesFrom
+                        [ a       owl:Class ;
+                          owl:intersectionOf (default:PurchasingOfficer [ a       owl:Restriction ;
+                                      owl:allValuesFrom default:Assessing ;
+                                      owl:onProperty default:performs
+                                    ])
+                        ]
+              ] ;
+      owl:disjointWith default:StartingMaterialTestTask , default:StartingMaterialPurchaseTask .
+
+default:SomeCard
+      a       owl:Class ;
+      rdfs:subClassOf default:InvalidEntity ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:hasLabel ;
+                owl:someValuesFrom default:ApprovalStatus
+              ] .
+
+<http://www.owl-ontologies.com/2008/6/17/Ontology1213712768.owl#EUGuidanceonGMP_5.31>
+      a       default:Regulation ;
+      rdfs:comment "5.31 Only starting materials which have been released by the Quality Control Department and which are within their shelf life should be used."^^xsd:string ;
+      default:necessitatesTask
+              default:StartingMaterialTestTask_7 .
+
+default:ProtectingTask
+      a       owl:Class ;
+      rdfs:label "protect"^^xsd:string ;
+      rdfs:subClassOf default:GenericTask ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:hasValue default:ProtectingIndividual101 ;
+                owl:onProperty default:hasAction
+              ] ;
+      owl:disjointWith default:DisposingTask , default:ShowingTask , default:PurchasingTask , default:StoringTask , default:CheckingTask , default:MarkingTask , default:DisplayingTask , default:CleaningTask , default:RecordingTask .
+
+default:StartingMaterialPurchase_1
+      a       default:StartingMaterialPurchaseTask ;
+      default:hasPatient default:Salicylic_Acid ;
+      default:hasReport default:MaterialPurchaseReport_4 ;
+      default:hasWrittenProcedure
+              default:MaterialPurchasingProcedure ;
+      default:isBasedOnRegulation
+              <http://www.owl-ontologies.com/2008/6/17/Ontology1213712768.owl#EUGuidanceGMP_5.26> ;
+      default:isResponsibilityOf
+              default:AssistantPurchasingOfficer_11 .
+
+default:testResult
+      a       owl:DatatypeProperty ;
+      rdfs:domain default:ReactionYieldTest ;
+      rdfs:range xsd:string .
+
+default:hasEquipmentSettings
+      a       owl:ObjectProperty ;
+      rdfs:domain default:Equipment ;
+      rdfs:range default:EquipmentSettings .
+
+default:Position
+      a       owl:Class ;
+      rdfs:label "position, role"^^xsd:string ;
+      rdfs:subClassOf default:ProcessDomain , default:RegulatoryDomain ;
+      owl:disjointWith default:Stream , default:Regulation , default:ValidationPlan , default:Process , default:Substance , default:Port , default:Document , default:UnitProcedure , default:Action , default:Operation , default:PhysicalComponent , default:EquipmentModule , default:InvestigatoryEntity , default:ValidationTest , default:ValidationTask .
+
+default:isportOf
+      a       owl:FunctionalProperty , owl:ObjectProperty ;
+      rdfs:domain default:Port ;
+      rdfs:range default:Equipment ;
+      owl:inverseOf default:hasPort .
+
+default:Crystallizer101
+      a       default:Crystallizer ;
+      default:hasPort default:PortCr101_Out1 , default:PortCr101_In1 ;
+      default:isEquipmentOf
+              default:Crystallizer101Procedure .
+
+default:LabEngineer
+      a       owl:Class ;
+      rdfs:label "lab_engineer"^^xsd:string ;
+      rdfs:subClassOf default:QualityControlLaboratory ;
+      owl:disjointWith default:LabTechnician .
+
+default:Validating
+      a       owl:Class ;
+      rdfs:label "validate"^^xsd:string ;
+      rdfs:subClassOf default:Action .
+
+default:IdentifyingTask_101
+      a       default:IdentifyingTask ;
+      default:hasAction default:IdentifingIndividual101 ;
+      default:hasPatient default:DelayingProcedure .
+
+default:QACoordinator
+      a       owl:Class ;
+      rdfs:label "qa_coordinator, quality_assurance_coordinator"^^xsd:string ;
+      rdfs:subClassOf default:QualityAssuranceDepartment ;
+      owl:disjointWith default:ValidationManager , default:ValidationRepresentative .
+
+default:TimeDelaying
+      a       owl:Class ;
+      rdfs:subClassOf default:OperationTime ;
+      owl:disjointWith default:TimeStorage , default:TimeFiltering , default:TimeStoichReaction , default:TimeCentrifuging , default:TimeWashing , default:TimeDrying , default:TimeCrystallization .
+
+default:Writing
+      a       owl:Class ;
+      rdfs:subClassOf default:Action .
+
+default:Storage_T102
+      a       default:Storage ;
+      default:hasTime default:TimeStorage_T102 ;
+      default:hasWrittenProcedure
+              default:TankStorageProcedure ;
+      default:isOperationOfUnitProcedure
+              default:Tank102Procedure .
+
+default:hasAcceptanceCriteria
+      a       owl:DatatypeProperty ;
+      rdfs:domain default:ValidationTest ;
+      rdfs:range xsd:string .
+
+default:PurchasingOfficer
+      a       owl:Class ;
+      rdfs:subClassOf default:PurchasingDepartment ;
+      owl:disjointWith default:PurchasingClericalAssistant , default:AssistantPurchasingOfficer .
+
+default:l
+      a       swrl:Variable .
+
+default:isUnitProcedureOf
+      a       owl:ObjectProperty ;
+      rdfs:domain default:UnitProcedure ;
+      rdfs:range default:Process ;
+      owl:inverseOf default:hasUnitProcedure .
+
+default:MaterialEvaluationTest
+      a       owl:Class ;
+      rdfs:subClassOf default:ValidationTest ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:hasValidationStatus ;
+                owl:someValuesFrom default:ApprovalStatus
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:tests ;
+                owl:someValuesFrom default:StartingMaterial
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:cardinality "1"^^xsd:int ;
+                owl:onProperty default:tests
+              ] .
+
+default:ReactionYieldTestingProcedure
+      a       default:TaskProcedure .
+
+default:TimeTank102Procedure
+      a       default:TankProcedureTime ;
+      default:correspondsTo
+              default:Tank102Procedure .
+
+default:hasUpstreamPort
+      a       owl:FunctionalProperty , owl:InverseFunctionalProperty , owl:ObjectProperty ;
+      rdfs:domain default:Stream ;
+      rdfs:range default:Port ;
+      owl:inverseOf default:isUpstreamPortOf .
+
+default:hasLabelBatchNumber
+      a       owl:ObjectProperty ;
+      rdfs:domain default:Substance ;
+      rdfs:subPropertyOf default:hasLabel .
+
+default:Storage_T101
+      a       default:Storage ;
+      default:hasTime default:TimeStorage_T101 ;
+      default:hasWrittenProcedure
+              default:TankStorageProcedure ;
+      default:isOperationOfUnitProcedure
+              default:Tank101Procedure .
+
+default:Restricting
+      a       owl:Class ;
+      rdfs:label "restrict"^^xsd:string ;
+      rdfs:subClassOf default:Action .
+
+default:Spectroscopy
+      a       owl:Class ;
+      rdfs:label "spectroscopy"^^xsd:string ;
+      rdfs:subClassOf default:AnalyticalEquipment ;
+      owl:disjointWith default:Chromotograph , default:Sensor , default:Controller .
+
+default:hasOperation
+      a       owl:InverseFunctionalProperty , owl:ObjectProperty ;
+      rdfs:domain default:UnitProcedure ;
+      rdfs:range default:Operation ;
+      owl:inverseOf default:isOperationOfUnitProcedure .
+
+default:WritingTask
+      a       owl:Class ;
+      rdfs:subClassOf default:IrrelavantTask ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom default:Writing ;
+                owl:onProperty default:hasAction
+              ] ;
+      owl:disjointWith default:RestrictingTask , default:ReturningTask , default:TransportingTask , default:QuarantiningTask , default:SupervisingTask , default:IdentifyingTask , default:ReinforcingTask , default:reportingTask , default:AllowingTask .
+
+default:SupplierAssessmentReport
+      a       owl:Class ;
+      rdfs:subClassOf default:TaskReport ;
+      owl:disjointWith default:EquipmentCleanlinessReport , default:InvestigationReport , default:MaterialEvaluationReport , default:YieldDeviationReport , default:MaterialPurchaseReport .
+
+default:MarkingTask
+      a       owl:Class ;
+      rdfs:label "mark"^^xsd:string ;
+      rdfs:subClassOf default:GenericTask ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:hasValue default:LabellingIndividual101 ;
+                owl:onProperty default:hasAction
+              ] ;
+      owl:disjointWith default:DisposingTask , default:ShowingTask , default:CheckingTask , default:StoringTask , default:PurchasingTask , default:ProtectingTask , default:DisplayingTask , default:RecordingTask , default:CleaningTask .
+
+default:hasValue
+      a       owl:FunctionalProperty , owl:ObjectProperty ;
+      rdfs:domain default:Parameter ;
+      rdfs:range default:NumericalValue .
+
+default:Stream9AcetylSAlicylicAcidSolution
+      a       default:PhysicalComponent ;
+      default:hasState default:Liquid ;
+      default:hasSubstance
+              default:AceticSalicylicAcid .
+
+default:InvestigationTask_1
+      a       default:InvestigationTask ;
+      default:hasPatient default:Crystallization_Cr101 ;
+      default:hasReport default:ReactionInvestigationReport ;
+      default:hasWrittenProcedure
+              default:ReactionInvestigationProcedure ;
+      default:isBasedOnRegulation
+              <http://www.owl-ontologies.com/2008/6/17/Ontology1213712768.owl#EUGuidanceonGMP_8.14> ;
+      default:isResponsibilityOf
+              default:Yetkin_Sesen ;
+      default:isTaskOf default:AspirinProcess_ProcessValidationPlan .
+
+default:Stream8AceticAcidGlacial
+      a       default:PhysicalComponent ;
+      default:hasState default:Solid ;
+      default:hasSubstance
+              default:AceticAcidGlacial .
+
+default:Complying
+      a       owl:Class ;
+      rdfs:label "comply"^^xsd:string ;
+      rdfs:subClassOf default:Action .
+
+default:hasOutletStream
+      a       owl:ObjectProperty ;
+      rdfs:domain default:UnitProcedure ;
+      rdfs:range default:Stream .
+
+default:AssistantPurchasingOfficer_11
+      a       default:AssistantPurchasingOfficer ;
+      default:isAuthorOf default:MaterialPurchaseReport_4 ;
+      default:isResponsibleFor
+              default:StartingMaterialPurchase_1 .
+
+default:Solid
+      a       default:State .
+
+default:WrittenProcedure
+      a       owl:Class ;
+      rdfs:subClassOf default:Document ;
+      owl:disjointWith default:DesignQualification , default:ValidationReport , default:InstallationQualification , default:TaskReport , default:OperationalQualification , default:MaterialLabel , default:PerformanceQualification .
+
+default:UnknownSupplier
+      a       owl:Class ;
+      rdfs:subClassOf default:PharmaSupplier ;
+      rdfs:subClassOf
+              [ a       owl:Class ;
+                owl:complementOf
+                        [ a       owl:Class ;
+                          owl:unionOf (default:ApprovedSupplier default:DisapprovedSupplier)
+                        ]
+              ] ;
+      owl:disjointWith default:ApprovedSupplier , default:DisapprovedSupplier .
+
+default:Heating
+      a       owl:Class ;
+      rdfs:subClassOf default:Operation ;
+      owl:disjointWith default:Drying , default:Classifying , default:Milling , default:Washing , default:Charging , default:Filtering , default:Sinking , default:Crystallization , default:Centrifuging , default:StoichReaction , default:Extraction , default:Delaying , default:Distillation , default:Storage , default:Purging , default:Cooling .
+
+default:Stream7AcetylSalicylicAcidSolution
+      a       default:PhysicalComponent ;
+      default:hasState default:Liquid ;
+      default:hasSubstance
+              default:AceticSalicylicAcid .
+
+default:hasTime
+      a       owl:FunctionalProperty , owl:InverseFunctionalProperty , owl:ObjectProperty ;
+      rdfs:domain
+              [ a       owl:Class ;
+                owl:unionOf (default:ValidationTask default:UnitProcedure default:Operation)
+              ] ;
+      rdfs:range default:Time ;
+      owl:inverseOf default:correspondsTo .
+
+default:ReactionInvestigationProcedure
+      a       default:TaskProcedure .
+
+default:MaterialOfConstruction
+      a       owl:Class ;
+      rdfs:subClassOf default:Substance .
+
+default:ComplyingIndividual101
+      a       default:Complying ;
+      rdfs:label "comply, conform"^^xsd:string .
+
+default:AspirinProcess
+      a       default:Process ;
+      default:hasUnitProcedure
+              default:Tank102Procedure , default:Crystallizer101Procedure , default:Filter101Procedure , default:Tank101Procedure , default:Dryer101Procedure , default:Centrifuge101Procedure , default:Reactor101Procedure .
+
+default:isBasedOnRegulation
+      a       owl:ObjectProperty ;
+      rdfs:domain default:ValidationTask ;
+      rdfs:range default:Regulation ;
+      owl:inverseOf default:necessitatesTask .
+
+default:Reinforcing
+      a       owl:Class ;
+      rdfs:label "reinforce"^^xsd:string ;
+      rdfs:subClassOf default:Action .
+
+default:ExtractionColumn
+      a       owl:Class ;
+      rdfs:label "extraction_column"^^xsd:string ;
+      rdfs:subClassOf default:ProcessingEquipment ;
+      owl:disjointWith default:DistillationColumn , default:Crystallizer , default:Mill , default:Centrifuge , default:Blender , default:Filter , default:Dryer , default:Reactor .
+
+default:StandardOperatingProcedure
+      a       owl:Class ;
+      rdfs:subClassOf default:WrittenProcedure .
+
+default:ABCChemicals
+      a       default:ApprovedSupplier ;
+      default:isPatientOf default:PharmaSupplierAssess_1 .
+
+default:FilterCleanlinessTestTask
+      a       default:EquipmentCleanlinessTestTask ;
+      default:hasAction default:TestingIndividual101 ;
+      default:hasPatient default:Filter101 ;
+      default:hasReport default:Filter101CleanlinessReport_2 ;
+      default:hasTime default:FilterCleanlinessTestTaskTime ;
+      default:hasWrittenProcedure
+              default:FilterCleanlinessTestingProcedure ;
+      default:isBasedOnRegulation
+              <http://www.owl-ontologies.com/2008/6/17/Ontology1213712768.owl#EUGuidanceGMP-5.21> ;
+      default:isResponsibilityOf
+              default:Yetkin_Sesen ;
+      default:isTaskOf default:AspirinProcess_CleaningValidationPlan ;
+      default:resultsin default:FilterCleanlinessTest .
+
+default:Centrifuge101
+      a       default:Centrifuge ;
+      default:hasPort default:PortCe101_Out2 , default:PortCe101_Out1 , default:PortCe101_In2 , default:PortCe101_In1 ;
+      default:isEquipmentOf
+              default:Centrifuge101Procedure .
+
+default:TransportingIndividual101
+      a       default:Transporting ;
+      rdfs:label "transport, deliver, transfer, ship, carry, bring, move"^^xsd:string .
+
+default:FilterCleaningTask
+      a       default:EquipmentCleaningTask ;
+      default:hasPatient default:Filter101 ;
+      default:hasReport default:Filter101CleanlinessReport_2 ;
+      default:hasTime default:FilterCleaningTaskTime_15 ;
+      default:hasWrittenProcedure
+              default:FilterCleaningProcedure ;
+      default:isBasedOnRegulation
+              <http://www.owl-ontologies.com/2008/6/17/Ontology1213712768.owl#EUGuidanceGMP-5.21> ;
+      default:isResponsibilityOf
+              default:Berkan_Sesen ;
+      default:isTaskOf default:AspirinProcess_CleaningValidationPlan , default:AspirinProcess_Qualification .
+
+default:AspirinProcess_Qualification
+      a       default:OperationalQualification ;
+      default:includesTask
+              default:FilterCleaningTask .
+
+default:Protecting
+      a       owl:Class ;
+      rdfs:label "protect"^^xsd:string ;
+      rdfs:subClassOf default:Action .
+
+default:hasMaximum
+      a       owl:DatatypeProperty ;
+      rdfs:domain default:RangeValue ;
+      rdfs:range xsd:int .
+
+default:PortF101-Out1
+      a       default:Port ;
+      default:isUpstreamPortOf
+              default:Stream5 ;
+      default:isportOf default:Filter101 .
+
+default:ReturningTask_101
+      a       default:ReturningTask ;
+      default:hasAction default:ReturningIndividual101 ;
+      default:hasPatient default:Salicylic_Acid .
+
+default:PackagingIndividual101
+      a       default:Packaging ;
+      rdfs:label "package, enclose"^^xsd:string .
+
+default:Drying
+      a       owl:Class ;
+      rdfs:subClassOf default:Operation ;
+      owl:disjointWith default:Classifying , default:Milling , default:Washing , default:Heating , default:Filtering , default:Charging , default:Sinking , default:Crystallization , default:Centrifuging , default:StoichReaction , default:Extraction , default:Delaying , default:Distillation , default:Storage , default:Purging , default:Cooling .
+
+default:InstallationQualification
+      a       owl:Class ;
+      rdfs:subClassOf default:Qualification ;
+      owl:disjointWith default:DesignQualification , default:ProcessValidationReport , default:ComputerValidationPlan , default:ValidationReport , default:TaskReport , default:CleaningValidationPlan , default:OperationalQualification , default:ProcessValidationPlan , default:MaterialLabel , default:PerformanceQualification , default:WrittenProcedure .
+
+default:Reporting
+      a       owl:Class ;
+      rdfs:label "report"^^xsd:string ;
+      rdfs:subClassOf default:Action .
+
+default:SingleValue
+      a       owl:Class ;
+      rdfs:subClassOf default:NumericalValue ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:cardinality "1"^^xsd:int ;
+                owl:onProperty default:hasExact
+              ] .
+
+default:Cleaning
+      a       owl:Class ;
+      rdfs:subClassOf default:Action .
+
+default:TimeCentrifuging
+      a       owl:Class ;
+      rdfs:subClassOf default:OperationTime ;
+      owl:disjointWith default:TimeStorage , default:TimeFiltering , default:TimeStoichReaction , default:TimeWashing , default:TimeDrying , default:TimeCrystallization , default:TimeDelaying .
+
+default:TimeDrying
+      a       owl:Class ;
+      rdfs:subClassOf default:OperationTime ;
+      owl:disjointWith default:TimeStorage , default:TimeFiltering , default:TimeStoichReaction , default:TimeCentrifuging , default:TimeWashing , default:TimeCrystallization , default:TimeDelaying .
+
+default:r
+      a       swrl:Variable .
+
+<http://www.owl-ontologies.com/2008/6/17/Ontology1213712768.owl#EUGuidanceGMP_5.26>
+      a       default:Regulation ;
+      rdfs:comment "5.26 Starting materials should only be purchased from approved suppliers named in the relevant specification, and where possible, directly from the producer.It is recommended that the specifications established by the manufacturer for starting materials be discussed with the suppliers."^^xsd:string ;
+      default:necessitatesTask
+              default:PharmaSupplierAssess_1 , default:StartingMaterialPurchase_1 .
+
+default:FilterCleanlinessTestingProcedure
+      a       default:TaskProcedure .
+
+default:IrrelavantTask
+      a       owl:Class ;
+      rdfs:subClassOf default:ValidationTask .
+
+default:PostProcessTaskTime
+      a       owl:Class ;
+      rdfs:subClassOf default:TaskTime ;
+      owl:disjointWith default:PreProcessTaskTime , default:IntraProcessTaskTime .
+
+default:hasTemperature-C
+      a       owl:FunctionalProperty , owl:ObjectProperty ;
+      rdfs:domain
+              [ a       owl:Class ;
+                owl:unionOf (default:Stream default:Operation)
+              ] ;
+      rdfs:subPropertyOf default:hasParameter .
+
+default:IdentifingIndividual101
+      a       default:Identifying ;
+      rdfs:label "identify, recognize"^^xsd:string .
+
+<http://www.owl-ontologies.com/2008/6/17/Test_BuiltIn>
+      a       swrl:Imp ;
+      swrla:isRuleEnabled "false"^^xsd:boolean ;
+      swrl:body
+              [ a       swrl:AtomList ;
+                rdf:first
+                        [ a       swrl:DatavaluedPropertyAtom ;
+                          swrl:argument1 default:test ;
+                          swrl:argument2 default:act ;
+                          swrl:propertyPredicate
+                                  default:ActualYieldDeviation
+                        ] ;
+                rdf:rest
+                        [ a       swrl:AtomList ;
+                          rdf:first
+                                  [ a       swrl:DatavaluedPropertyAtom ;
+                                    swrl:argument1 default:test ;
+                                    swrl:argument2 default:crit ;
+                                    swrl:propertyPredicate
+                                            default:CriticalYieldDeviation
+                                  ] ;
+                          rdf:rest
+                                  [ a       swrl:AtomList ;
+                                    rdf:first
+                                            [ a       swrl:BuiltinAtom ;
+                                              swrl:arguments (default:act default:crit) ;
+                                              swrl:builtin swrlb:greaterThan
+                                            ] ;
+                                    rdf:rest ()
+                                  ]
+                        ]
+              ] ;
+      swrl:head
+              [ a       swrl:AtomList ;
+                rdf:first
+                        [ a       swrl:DatavaluedPropertyAtom ;
+                          swrl:argument1 default:test ;
+                          swrl:argument2 "The actual deviation is greater than the critical deviation"^^xsd:string ;
+                          swrl:propertyPredicate
+                                  default:testResult
+                        ] ;
+                rdf:rest ()
+              ] .
+
+default:Stream
+      a       owl:Class ;
+      rdfs:subClassOf default:ProcessDomain ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:minCardinality "1"^^xsd:int ;
+                owl:onProperty default:isComposedOf
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:hasUpstreamPort ;
+                owl:someValuesFrom default:Port
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:isComposedOf ;
+                owl:someValuesFrom default:PhysicalComponent
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom default:PhysicalComponent ;
+                owl:onProperty default:isComposedOf
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:onProperty default:hasDownstreamPort ;
+                owl:someValuesFrom default:Port
+              ] ;
+      owl:disjointWith default:UnitProcedure , default:Action , default:Regulation , default:Operation , default:Process , default:Substance , default:Position , default:Port , default:PhysicalComponent , default:EquipmentModule , default:Document , default:ValidationTask .
+
+default:AllCard
+      a       owl:Class ;
+      rdfs:subClassOf default:InvalidEntity ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom default:ApprovalStatus ;
+                owl:onProperty default:hasLabel
+              ] .
+
+default:MaterialStatus
+      a       owl:Class ;
+      rdfs:subClassOf default:PharmaValidationStatus ;
+      owl:equivalentClass
+              [ a       owl:Class ;
+                owl:oneOf (default:Rejected default:Released default:InQuarantine)
+              ] .
+
+default:ExactCard
+      a       owl:Class ;
+      rdfs:subClassOf default:InvalidEntity ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:cardinality "2"^^xsd:int ;
+                owl:onProperty default:hasLabel
+              ] .
+
+default:TimeReactor101Procedure
+      a       default:ReactorProcedureTime ;
+      default:correspondsTo
+              default:Reactor101Procedure .
+
+default:DryerProcedureTime
+      a       owl:Class ;
+      rdfs:subClassOf default:UnitProcedureTime ;
+      owl:disjointWith default:ReactorProcedureTime , default:CentrifugeProcedureTime , default:CrystallizerProcedureTime , default:TankProcedureTime , default:FilterProcedureTime .
+
+default:Berkan_Sesen
+      a       default:MaintenanceOperator ;
+      default:isAuthorOf default:Tank101CleanlinessReport , default:Tank102CleanlinessReport ;
+      default:isResponsibleFor
+              default:FilterCleaningTask , default:T102CleaningTask , default:T101CleaningTask ;
+      default:performs default:CleaningIndividual101 .
+
+default:Parameter
+      a       owl:Class ;
+      rdfs:subClassOf default:Attribute .
+
+default:FilterProcedure
+      a       default:StandardOperatingProcedure .
+
+(default:x "5"^^xsd:int) .
+
+(default:x "5"^^xsd:int) .
+
+(default:x "5"^^xsd:int) .
+
+(default:x "5"^^xsd:int) .
+
+(default:x "5"^^xsd:int) .
+
+(default:x "5"^^xsd:int) .
+
+(default:x "5"^^xsd:int) .

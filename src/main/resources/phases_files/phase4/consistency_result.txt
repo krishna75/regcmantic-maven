@@ -1,0 +1,3 @@
+
+Inconsistencies Repaired: 0
+Congratulations!! No inconsistencies found in loaded Ontology. You may proceed to view Validation Plan.

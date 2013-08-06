@@ -1,0 +1,18 @@
+/**
+* main.jape
+* It identifies entities to populate SemReg ontology
+*/
+MultiPhase:	entity
+Phases:
+
+
+original_markups 
+obligation
+containers
+annotation
+// action
+rule_action
+action_final
+// subject
+rule_subject
+subject_final

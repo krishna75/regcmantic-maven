@@ -1,0 +1,19 @@
+/**
+*  main.jape
+* If several paragraphs are mixed in a text, it identifies individual paragraphs
+* and annotates them. It considers the regulation no as the begining of the paragraph.
+*/
+MultiPhase:	paragraph
+Phases:
+
+// 1. annotates start and end points of a document 
+start_end
+
+//  2. annotates regulation no from the paragraphs. It will be helpful to identify the beggining of a new paragraph 
+reg_no
+
+//  3. annotates the points where a paragraph ends *
+pre_reg
+
+//  4. annotates paragraphs based on the previously identified begining and end points of a paragraph.
+paragraph

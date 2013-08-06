@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<regulation_schema>
+<regulation_no>
+ 	<start> 5.1</start>
+ 	<end> 5.65 </end>
+<regulation_no>
+<regulation_paragraph>
+	<start> (regulation_no) (space)[1,4] </start>
+	<end> (regulation_no)[>]|(font_size)[>]</end>
+</regulation_paragraph>
+<not_regulation>
+	<page_no>
+		<start>43</start>
+		<end>49</end>
+	</page_no>
+</not_regulation>
+<regulatory_schema>

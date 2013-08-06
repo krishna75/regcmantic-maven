@@ -1,0 +1,57 @@
+/**
+* 4. annotates paragraphs based on the previously identified begining and end points of a paragraph.
+*/
+Phase: paragraph
+Input: Token  SpaceToken reg_no pre_reg doc_start
+Options: control = first
+
+/* macro */
+Macro: START({doc_start})
+Macro: REGNO ({reg_no })
+Macro: PREREG({pre_reg})
+Macro: TOKEN ({Token})
+Macro: SPACETOKEN ({SpaceToken})
+
+/* defines the rules for paragraph seperation, starting with reg_no */
+Rule: ParagraphSeparator
+Priority:90
+(
+	(REGNO | START):regno
+	((TOKEN|SPACETOKEN)*(PREREG)):text
+)
+-->
+{
+// obtains the annotation 
+gate.AnnotationSet textSet = (gate.AnnotationSet)bindings.get("text");
+
+// adding features to the annotation
+gate.FeatureMap features = Factory.newFeatureMap();
+features.put("rule","ParagraphSeperator");
+
+// adding string of the annotation to the fetures. It needs start and end node offsets as int values
+int sNodeText = textSet.firstNode().getOffset().intValue();
+int eNodeText = textSet.lastNode().getOffset().intValue();
+features.put("startNode",sNodeText);
+features.put("endNode", eNodeText);
+String text = doc.getContent().toString().substring(sNodeText, eNodeText);		
+features.put("text",text);
+
+/* processing reg_no */
+gate.AnnotationSet textSet1 = (gate.AnnotationSet)bindings.get("regno");
+AnnotationSet regnoSet = inputAS.
+							getContained(textSet1.firstNode().getOffset(), 
+							textSet1.lastNode().getOffset()).
+							get("reg_no");
+if (regnoSet.size()>0){
+	Annotation regAnn = regnoSet.iterator().next();
+	int sNode = regAnn.getStartNode().getOffset().intValue();
+	int eNode = regAnn.getEndNode().getOffset().intValue();
+	String reg_no = doc.getContent().toString().substring(sNode, eNode);	
+	features.put("paraNum", reg_no);
+} else {
+features.put("paraNum", "");
+}
+	
+// finally adding the feature with the annotation. 
+outputAS.add(textSet.firstNode(), textSet.lastNode(), "paragraph",features);
+}

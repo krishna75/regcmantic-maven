@@ -1,0 +1,634 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://www.owl-ontologies.com/Ontology1270374082.owl#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:sqwrl="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+  xml:base="http://www.owl-ontologies.com/Ontology1270374082.owl">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://swrl.stanford.edu/ontologies/3.3/swrla.owl"/>
+    <owl:imports rdf:resource="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl"/>
+  </owl:Ontology>
+  <owl:Class rdf:ID="Report"/>
+  <owl:Class rdf:ID="Supervisor">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Employee"/>
+    </rdfs:subClassOf>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >SUPERVISOR</owl:hasValue>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="userType"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="Task"/>
+  <owl:Class rdf:ID="FDA">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Regulation"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="isResponsibilityOfEmployee"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasTasks"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >FDA USA</owl:hasValue>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="standard"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Food and Drugs Administration USA</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Regulation">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasTasks"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#Task"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#isResponsibilityOfEmployee"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#Employee"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Analyst">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#userType"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ANALYST</owl:hasValue>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="#Employee"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Administrator">
+    <rdfs:subClassOf rdf:resource="#Employee"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ADMINISTRATOR</owl:hasValue>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#userType"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="#isResponsibilityOfEmployee">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="isResponsibleForRegulation"/>
+    </owl:inverseOf>
+    <rdfs:range rdf:resource="#Employee"/>
+    <rdfs:domain rdf:resource="#Regulation"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="prereq">
+    <rdfs:domain rdf:resource="#Task"/>
+    <rdfs:range rdf:resource="#Task"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="isPrereqOf"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="completedTaskReport">
+    <owl:inverseOf>
+      <owl:FunctionalProperty rdf:ID="compBy"/>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="#Employee"/>
+    <rdfs:range rdf:resource="#Report"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#isPrereqOf">
+    <owl:inverseOf rdf:resource="#prereq"/>
+    <rdfs:domain rdf:resource="#Task"/>
+    <rdfs:range rdf:resource="#Task"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasTasks">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="belongsToRegulation"/>
+    </owl:inverseOf>
+    <rdfs:range rdf:resource="#Task"/>
+    <rdfs:domain rdf:resource="#Regulation"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="isPerformedBy">
+    <rdfs:range rdf:resource="#Employee"/>
+    <rdfs:domain rdf:resource="#Task"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="performs"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#belongsToRegulation">
+    <rdfs:range rdf:resource="#Regulation"/>
+    <rdfs:domain rdf:resource="#Task"/>
+    <owl:inverseOf rdf:resource="#hasTasks"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#isResponsibleForRegulation">
+    <owl:inverseOf rdf:resource="#isResponsibilityOfEmployee"/>
+    <rdfs:domain rdf:resource="#Employee"/>
+    <rdfs:range rdf:resource="#Regulation"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#performs">
+    <rdfs:domain rdf:resource="#Employee"/>
+    <rdfs:range rdf:resource="#Task"/>
+    <owl:inverseOf rdf:resource="#isPerformedBy"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="supID">
+    <rdfs:domain rdf:resource="#Employee"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="upLimit">
+    <rdfs:domain rdf:resource="#Task"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="unit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#Task"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="loCritLimit">
+    <rdfs:domain rdf:resource="#Task"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="loLimit">
+    <rdfs:domain rdf:resource="#Task"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="frequency">
+    <rdfs:domain rdf:resource="#Task"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="description">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Task"/>
+          <owl:Class rdf:about="#Report"/>
+          <owl:Class rdf:about="#Employee"/>
+          <owl:Class rdf:about="#Regulation"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="email">
+    <rdfs:domain rdf:resource="#Employee"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="unitType">
+    <rdfs:domain rdf:resource="#Task"/>
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >FLOAT</rdf:first>
+            </rdf:rest>
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >INTEGER</rdf:first>
+          </rdf:rest>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >BOOLEAN</rdf:first>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="forename">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Employee"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="surname">
+    <rdfs:domain rdf:resource="#Employee"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="empID">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Employee"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#standard">
+    <rdfs:domain rdf:resource="#Regulation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="achieved">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="#Task"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="upCritLimit">
+    <rdfs:domain rdf:resource="#Task"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#userType">
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >ADMINISTRATOR</rdf:first>
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >ANALYST</rdf:first>
+              <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:rest>
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >SUPERVISOR</rdf:first>
+          </rdf:rest>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#Employee"/>
+  </owl:DatatypeProperty>
+  <owl:FunctionalProperty rdf:ID="regID">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Regulation"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="taskResult">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Report"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="dueDate">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Report"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="isAboutTask">
+    <owl:inverseOf>
+      <owl:InverseFunctionalProperty rdf:ID="hasReport"/>
+    </owl:inverseOf>
+    <rdfs:range rdf:resource="#Task"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#Report"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="name">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Regulation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#compBy">
+    <owl:inverseOf rdf:resource="#completedTaskReport"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#Employee"/>
+    <rdfs:domain rdf:resource="#Report"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="compDate">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Report"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="version">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Regulation"/>
+          <owl:Class rdf:about="#Task"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="#hasReport">
+    <rdfs:domain rdf:resource="#Task"/>
+    <owl:inverseOf rdf:resource="#isAboutTask"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#Report"/>
+  </owl:InverseFunctionalProperty>
+  <Analyst rdf:ID="Analyst_1">
+    <email rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >kribin146@yahoo.co.uk</email>
+    <empID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >kribin146</empID>
+    <supID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >krishna75</supID>
+    <userType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ANALYST</userType>
+    <performs>
+      <Task rdf:ID="Task_1">
+        <loCritLimit rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >0</loCritLimit>
+        <belongsToRegulation>
+          <FDA rdf:ID="FDA_1">
+            <isResponsibilityOfEmployee>
+              <Supervisor rdf:ID="Supervisor_1">
+                <isResponsibleForRegulation rdf:resource="#FDA_1"/>
+                <completedTaskReport>
+                  <Report rdf:ID="Report_1">
+                    <compBy rdf:resource="#Supervisor_1"/>
+                    <isAboutTask>
+                      <Task rdf:ID="Task_2">
+                        <unitType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >INTEGER</unitType>
+                        <hasReport rdf:resource="#Report_1"/>
+                        <frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        >1</frequency>
+                        <belongsToRegulation rdf:resource="#FDA_1"/>
+                        <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Verify slow motor speed is in accordance with design specifications throughout the operating range or range of intended use.</description>
+                        <achieved rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        >1</achieved>
+                        <loLimit rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                        >950</loLimit>
+                        <version rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >18-08-07</version>
+                        <upLimit rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                        >1050</upLimit>
+                      </Task>
+                    </isAboutTask>
+                    <taskResult rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                    >1080.0</taskResult>
+                    <compDate rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >03/09/2010</compDate>
+                    <dueDate rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >02/09/2010</dueDate>
+                  </Report>
+                </completedTaskReport>
+                <empID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >krishna75</empID>
+                <email rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >ks21285@gmail.com</email>
+                <userType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >SUPERVISOR</userType>
+                <forename rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Krishna</forename>
+                <surname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Sapkota</surname>
+              </Supervisor>
+            </isResponsibilityOfEmployee>
+            <version rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >16-08-07</version>
+            <standard rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Food and Drugs Administration</standard>
+            <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Production Room Commuting Mill</name>
+            <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Qualification of Commuting Mill in the Production Room</description>
+            <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >18.1</regID>
+            <hasTasks rdf:resource="#Task_2"/>
+            <hasTasks rdf:resource="#Task_1"/>
+          </FDA>
+        </belongsToRegulation>
+        <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Perform installation Qualification and verify it is installed in accordance with design specifications, manufacturer recommendations, and cGMPs.</description>
+        <loLimit rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >0</loLimit>
+        <upCritLimit rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >1</upCritLimit>
+        <achieved rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >0</achieved>
+        <unitType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >BOOLEAN</unitType>
+        <version rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >18-08-07</version>
+        <upLimit rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</upLimit>
+        <frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >10080</frequency>
+      </Task>
+    </performs>
+    <performs rdf:resource="#Task_2"/>
+    <surname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Sapkota</surname>
+    <forename rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Kribin</forename>
+  </Analyst>
+  <Administrator rdf:ID="Administrator_1">
+    <surname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Boss</surname>
+    <userType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ADMINISTRATOR</userType>
+    <email rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >boss123@gmail.com</email>
+    <empID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >boss123</empID>
+    <forename rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Billy</forename>
+  </Administrator>
+  <swrl:Imp rdf:ID="Rule-2">
+    <swrl:body>
+      <swrl:AtomList>
+        <rdf:rest>
+          <swrl:AtomList>
+            <rdf:first>
+              <swrl:IndividualPropertyAtom>
+                <swrl:propertyPredicate rdf:resource="#isPerformedBy"/>
+                <swrl:argument2>
+                  <swrl:Variable rdf:ID="E"/>
+                </swrl:argument2>
+                <swrl:argument1>
+                  <swrl:Variable rdf:ID="T"/>
+                </swrl:argument1>
+              </swrl:IndividualPropertyAtom>
+            </rdf:first>
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+          </swrl:AtomList>
+        </rdf:rest>
+        <rdf:first>
+          <swrl:ClassAtom>
+            <swrl:classPredicate rdf:resource="#Task"/>
+            <swrl:argument1 rdf:resource="#T"/>
+          </swrl:ClassAtom>
+        </rdf:first>
+      </swrl:AtomList>
+    </swrl:body>
+    <swrl:head>
+      <swrl:AtomList>
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+        <rdf:first>
+          <swrl:IndividualPropertyAtom>
+            <swrl:argument1 rdf:resource="#E"/>
+            <swrl:argument2 rdf:resource="#T"/>
+            <swrl:propertyPredicate rdf:resource="#performs"/>
+          </swrl:IndividualPropertyAtom>
+        </rdf:first>
+      </swrl:AtomList>
+    </swrl:head>
+  </swrl:Imp>
+  <swrl:Imp rdf:ID="Rule-1">
+    <swrl:body>
+      <swrl:AtomList>
+        <rdf:rest>
+          <swrl:AtomList>
+            <rdf:first>
+              <swrl:ClassAtom>
+                <swrl:argument1 rdf:resource="#E"/>
+                <swrl:classPredicate rdf:resource="#Employee"/>
+              </swrl:ClassAtom>
+            </rdf:first>
+            <rdf:rest>
+              <swrl:AtomList>
+                <rdf:first>
+                  <swrl:IndividualPropertyAtom>
+                    <swrl:argument2 rdf:resource="#T"/>
+                    <swrl:propertyPredicate rdf:resource="#hasTasks"/>
+                    <swrl:argument1>
+                      <swrl:Variable rdf:ID="R"/>
+                    </swrl:argument1>
+                  </swrl:IndividualPropertyAtom>
+                </rdf:first>
+                <rdf:rest>
+                  <swrl:AtomList>
+                    <rdf:first>
+                      <swrl:IndividualPropertyAtom>
+                        <swrl:argument1 rdf:resource="#R"/>
+                        <swrl:argument2 rdf:resource="#E"/>
+                        <swrl:propertyPredicate rdf:resource="#isResponsibilityOfEmployee"/>
+                      </swrl:IndividualPropertyAtom>
+                    </rdf:first>
+                    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                  </swrl:AtomList>
+                </rdf:rest>
+              </swrl:AtomList>
+            </rdf:rest>
+          </swrl:AtomList>
+        </rdf:rest>
+        <rdf:first>
+          <swrl:ClassAtom>
+            <swrl:classPredicate rdf:resource="#Regulation"/>
+            <swrl:argument1 rdf:resource="#R"/>
+          </swrl:ClassAtom>
+        </rdf:first>
+      </swrl:AtomList>
+    </swrl:body>
+    <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</swrla:isRuleEnabled>
+    <swrl:head>
+      <swrl:AtomList>
+        <rdf:first>
+          <swrl:IndividualPropertyAtom>
+            <swrl:propertyPredicate rdf:resource="#performs"/>
+            <swrl:argument1 rdf:resource="#E"/>
+            <swrl:argument2 rdf:resource="#T"/>
+          </swrl:IndividualPropertyAtom>
+        </rdf:first>
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+      </swrl:AtomList>
+    </swrl:head>
+  </swrl:Imp>
+  <Supervisor rdf:ID="Supervisor_2">
+    <isResponsibleForRegulation>
+      <FDA rdf:ID="FDA_4">
+        <version rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >444.44</version>
+        <hasTasks>
+          <Task rdf:ID="Task_4">
+            <hasReport>
+              <Report rdf:ID="Report_4">
+                <taskResult rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >1.0</taskResult>
+                <dueDate rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >05/05/2010</dueDate>
+                <isAboutTask rdf:resource="#Task_4"/>
+                <compDate rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >05/05/2010</compDate>
+                <compBy rdf:resource="#Supervisor_2"/>
+              </Report>
+            </hasReport>
+            <upLimit rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+            >1</upLimit>
+            <achieved rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >1</achieved>
+            <version rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >444.44</version>
+            <loLimit rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+            >0</loLimit>
+            <frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >7</frequency>
+            <belongsToRegulation rdf:resource="#FDA_4"/>
+          </Task>
+        </hasTasks>
+        <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Test: description of the regulation fda 4.</description>
+        <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >44444</regID>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Test: name of the regulation</name>
+        <isResponsibilityOfEmployee rdf:resource="#Supervisor_2"/>
+      </FDA>
+    </isResponsibleForRegulation>
+    <email rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >bd_21988@hotmail.com</email>
+    <forename rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Bindu</forename>
+    <empID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >bindu81</empID>
+    <completedTaskReport rdf:resource="#Report_4"/>
+    <userType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >SUPERVISOR</userType>
+    <surname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Sapkota</surname>
+    <supID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >krishna75</supID>
+    <performs rdf:resource="#Task_2"/>
+  </Supervisor>
+  <FDA rdf:ID="FDA_2">
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >22222</regID>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Imaginary regulation for test</name>
+    <version rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >222.22</version>
+    <hasTasks>
+      <Task rdf:ID="Task_3">
+        <version rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >333.33</version>
+        <belongsToRegulation rdf:resource="#FDA_2"/>
+        <loLimit rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >0</loLimit>
+        <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        ></description>
+        <frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >7</frequency>
+        <upLimit rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >1</upLimit>
+      </Task>
+    </hasTasks>
+    <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This is just an imaginary description for test. I need to put the actual description from the regulatory documents.</description>
+  </FDA>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.4.3, Build 572)  http://protege.stanford.edu -->

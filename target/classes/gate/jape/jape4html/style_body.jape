@@ -1,0 +1,56 @@
+/*
+*
+*/
+Phase: style
+Input: Token  SpaceToken Split Style
+Options: control = appelt
+
+//Macros
+Macro: BSLASH ({Token.string=="/"})
+Macro: GT ({Token.string==">"})
+Macro: LT ({Token.string=="<"})
+Macro: FT({Token.string=="ft"})
+Macro: CD ({Token.category==CD})
+Macro: SPACE ({SpaceToken.kind==space})
+Macro: SPAN({Token.string=="span"})
+Macro: CLASS({Token.string=="class"})
+Macro: APOS({Token.string=="\""})
+Macro: EQ({Token.string=="="})
+
+
+
+// defines the details of the styles in  a page
+Rule: StyleBody
+Priority:90
+(
+	LT SPAN SPACE
+	CLASS EQ APOS (FT CD):style APOS GT
+	({Token}|SPACE)*:text 
+	LT BSLASH SPAN GT
+	  
+)
+-->
+{
+// obtains the annotation for whole style
+gate.AnnotationSet textSet = (gate.AnnotationSet)bindings.get("text");
+// adding features to the annotation
+gate.FeatureMap features = Factory.newFeatureMap();
+features.put("rule","StyleBody");
+// adding string of the annotation to the fetures. It needs start and end node offsets as int values
+int sNodeText = textSet.firstNode().getOffset().intValue();
+int eNodeText = textSet.lastNode().getOffset().intValue();
+features.put("startNode",sNodeText);
+features.put("endNode", eNodeText);
+String text = doc.getContent().toString().substring(sNodeText, eNodeText);		
+features.put("text",text);
+	
+ 	 // ------ obtains the annotation for style name ------------------
+	gate.AnnotationSet styleSet = (gate.AnnotationSet)bindings.get("style");
+	// adding string of the annotation to the fetures. It needs start and end node offsets as int values
+	int sNodeStyle = styleSet.firstNode().getOffset().intValue();
+	int eNodeStyle = styleSet.lastNode().getOffset().intValue();
+	String style = doc.getContent().toString().substring(sNodeStyle, eNodeStyle);		
+	features.put("style-name", style);  
+// finally adding the feature with the annotation. 
+outputAS.add(textSet.firstNode(), textSet.lastNode(), "StyleBody",features);
+}

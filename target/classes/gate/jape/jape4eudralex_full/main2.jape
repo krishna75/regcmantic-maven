@@ -1,0 +1,30 @@
+/*
+*  main.jape
+*
+*/
+
+MultiPhase:	SubjectObligationAction
+Phases:
+
+/*  higher level annotation */
+pageno // identifies page numbers */
+sentence_modifier // identifies only the required sentences */
+reg_id //identifies regulation id and thier categories */
+reg_no
+para_splitter // identifies the required paragraph for a regulation */
+reg_section
+topic_no
+topic_section
+subtopic_no
+subtopic_section 
+titles
+
+/* entity level annotation */
+obligation // identifies obligation from the gazetteer */
+subject_lookup // uses gazetter based on the ontology OntoReg*/
+subject // identifies subject by jape rules */
+//ontology /* gazetteer created by ontology automatically*/
+subject_refine
+action
+remove_begining
+remove_ending 

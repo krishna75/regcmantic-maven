@@ -1,0 +1,4 @@
+Q=Quality
+A=Assurance
+C=Control
+T=Tank

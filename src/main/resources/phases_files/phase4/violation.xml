@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<violation_data size="12">
+    <violation>
+        <violation_id>vid_1</violation_id>
+        <type>Empty Value</type>
+        <domain_class></domain_class>
+        <range_class></range_class>
+        <domain_ind>TankCleanTask101</domain_ind>
+        <range_ind></range_ind>
+        <property>hasTime</property>
+        <expected_value></expected_value>
+        <actual_value></actual_value>
+        <reason>There is no propery value defined</reason>
+        <solution>Please provide appropriate value to the individual 'TankCleanTask101' on its property 'hasTime'.</solution>
+        <regulation>Eudralex_5.22_2</regulation>
+        <reg_text>When any new manufacturing formula or method of preparation is adopted, steps should be taken to demonstrate its suitability for routine processing. The defined process, using the materials and equipment specified, should be shown to yield a product consistently of the required quality.</reg_text>
+    </violation>
+    <violation>
+        <violation_id>vid_2</violation_id>
+        <type>Empty Value</type>
+        <domain_class></domain_class>
+        <range_class></range_class>
+        <domain_ind>TankCleanTask101</domain_ind>
+        <range_ind></range_ind>
+        <property>hasWrittenProcedure</property>
+        <expected_value></expected_value>
+        <actual_value></actual_value>
+        <reason>There is no propery value defined</reason>
+        <solution>Please provide appropriate value to the individual 'TankCleanTask101' on its property 'hasWrittenProcedure'.</solution>
+        <regulation>Eudralex_5.22_2</regulation>
+        <reg_text>When any new manufacturing formula or method of preparation is adopted, steps should be taken to demonstrate its suitability for routine processing. The defined process, using the materials and equipment specified, should be shown to yield a product consistently of the required quality.</reg_text>
+    </violation>
+    <violation>
+        <violation_id>vid_3</violation_id>
+        <type>Empty Value</type>
+        <domain_class></domain_class>
+        <range_class></range_class>
+        <domain_ind>TankCleanTask101</domain_ind>
+        <range_ind></range_ind>
+        <property>isResponsibilityOf</property>
+        <expected_value></expected_value>
+        <actual_value></actual_value>
+        <reason>There is no propery value defined</reason>
+        <solution>Please provide appropriate value to the individual 'TankCleanTask101' on its property 'isResponsibilityOf'.</solution>
+        <regulation>Eudralex_5.22_2</regulation>
+        <reg_text>When any new manufacturing formula or method of preparation is adopted, steps should be taken to demonstrate its suitability for routine processing. The defined process, using the materials and equipment specified, should be shown to yield a product consistently of the required quality.</reg_text>
+    </violation>
+    <violation>
+        <violation_id>vid_4</violation_id>
+        <type>Empty Value</type>
+        <domain_class></domain_class>
+        <range_class></range_class>
+        <domain_ind>TankCleanTask101</domain_ind>
+        <range_ind></range_ind>
+        <property>isTaskOf</property>
+        <expected_value></expected_value>
+        <actual_value></actual_value>
+        <reason>There is no propery value defined</reason>
+        <solution>Please provide appropriate value to the individual 'TankCleanTask101' on its property 'isTaskOf'.</solution>
+        <regulation>Eudralex_5.22_2</regulation>
+        <reg_text>When any new manufacturing formula or method of preparation is adopted, steps should be taken to demonstrate its suitability for routine processing. The defined process, using the materials and equipment specified, should be shown to yield a product consistently of the required quality.</reg_text>
+    </violation>
+    <violation>
+        <violation_id>vid_5</violation_id>
+        <type>Empty Value</type>
+        <domain_class></domain_class>
+        <range_class></range_class>
+        <domain_ind>TankCleanTask101</domain_ind>
+        <range_ind></range_ind>
+        <property>hasReport</property>
+        <expected_value></expected_value>
+        <actual_value></actual_value>
+        <reason>There is no propery value defined</reason>
+        <solution>Please provide appropriate value to the individual 'TankCleanTask101' on its property 'hasReport'.</solution>
+        <regulation>Eudralex_5.22_2</regulation>
+        <reg_text>When any new manufacturing formula or method of preparation is adopted, steps should be taken to demonstrate its suitability for routine processing. The defined process, using the materials and equipment specified, should be shown to yield a product consistently of the required quality.</reg_text>
+    </violation>
+    <violation>
+        <violation_id>vid_6</violation_id>
+        <type>Empty Value</type>
+        <domain_class></domain_class>
+        <range_class></range_class>
+        <domain_ind>TankCleanTask101</domain_ind>
+        <range_ind></range_ind>
+        <property>resultsIn</property>
+        <expected_value></expected_value>
+        <actual_value></actual_value>
+        <reason>There is no propery value defined</reason>
+        <solution>Please provide appropriate value to the individual 'TankCleanTask101' on its property 'resultsIn'.</solution>
+        <regulation>Eudralex_5.22_2</regulation>
+        <reg_text>When any new manufacturing formula or method of preparation is adopted, steps should be taken to demonstrate its suitability for routine processing. The defined process, using the materials and equipment specified, should be shown to yield a product consistently of the required quality.</reg_text>
+    </violation>
+    <violation>
+        <violation_id>vid_7</violation_id>
+        <type>Empty Value</type>
+        <domain_class></domain_class>
+        <range_class></range_class>
+        <domain_ind>RestrictingTask_101</domain_ind>
+        <range_ind></range_ind>
+        <property>hasTime</property>
+        <expected_value></expected_value>
+        <actual_value></actual_value>
+        <reason>There is no propery value defined</reason>
+        <solution>Please provide appropriate value to the individual 'RestrictingTask_101' on its property 'hasTime'.</solution>
+        <regulation>Eudralex_5.10_1</regulation>
+        <reg_text>At every stage of processing, products and materials should be protected from microbial and other contamination.</reg_text>
+    </violation>
+    <violation>
+        <violation_id>vid_8</violation_id>
+        <type>Empty Value</type>
+        <domain_class></domain_class>
+        <range_class></range_class>
+        <domain_ind>RestrictingTask_101</domain_ind>
+        <range_ind></range_ind>
+        <property>hasWrittenProcedure</property>
+        <expected_value></expected_value>
+        <actual_value></actual_value>
+        <reason>There is no propery value defined</reason>
+        <solution>Please provide appropriate value to the individual 'RestrictingTask_101' on its property 'hasWrittenProcedure'.</solution>
+        <regulation>Eudralex_5.10_1</regulation>
+        <reg_text>At every stage of processing, products and materials should be protected from microbial and other contamination.</reg_text>
+    </violation>
+    <violation>
+        <violation_id>vid_9</violation_id>
+        <type>Empty Value</type>
+        <domain_class></domain_class>
+        <range_class></range_class>
+        <domain_ind>RestrictingTask_101</domain_ind>
+        <range_ind></range_ind>
+        <property>isResponsibilityOf</property>
+        <expected_value></expected_value>
+        <actual_value></actual_value>
+        <reason>There is no propery value defined</reason>
+        <solution>Please provide appropriate value to the individual 'RestrictingTask_101' on its property 'isResponsibilityOf'.</solution>
+        <regulation>Eudralex_5.10_1</regulation>
+        <reg_text>At every stage of processing, products and materials should be protected from microbial and other contamination.</reg_text>
+    </violation>
+    <violation>
+        <violation_id>vid_10</violation_id>
+        <type>Empty Value</type>
+        <domain_class></domain_class>
+        <range_class></range_class>
+        <domain_ind>RestrictingTask_101</domain_ind>
+        <range_ind></range_ind>
+        <property>isTaskOf</property>
+        <expected_value></expected_value>
+        <actual_value></actual_value>
+        <reason>There is no propery value defined</reason>
+        <solution>Please provide appropriate value to the individual 'RestrictingTask_101' on its property 'isTaskOf'.</solution>
+        <regulation>Eudralex_5.10_1</regulation>
+        <reg_text>At every stage of processing, products and materials should be protected from microbial and other contamination.</reg_text>
+    </violation>
+    <violation>
+        <violation_id>vid_11</violation_id>
+        <type>Empty Value</type>
+        <domain_class></domain_class>
+        <range_class></range_class>
+        <domain_ind>RestrictingTask_101</domain_ind>
+        <range_ind></range_ind>
+        <property>hasReport</property>
+        <expected_value></expected_value>
+        <actual_value></actual_value>
+        <reason>There is no propery value defined</reason>
+        <solution>Please provide appropriate value to the individual 'RestrictingTask_101' on its property 'hasReport'.</solution>
+        <regulation>Eudralex_5.10_1</regulation>
+        <reg_text>At every stage of processing, products and materials should be protected from microbial and other contamination.</reg_text>
+    </violation>
+    <violation>
+        <violation_id>vid_12</violation_id>
+        <type>Empty Value</type>
+        <domain_class></domain_class>
+        <range_class></range_class>
+        <domain_ind>RestrictingTask_101</domain_ind>
+        <range_ind></range_ind>
+        <property>resultsIn</property>
+        <expected_value></expected_value>
+        <actual_value></actual_value>
+        <reason>There is no propery value defined</reason>
+        <solution>Please provide appropriate value to the individual 'RestrictingTask_101' on its property 'resultsIn'.</solution>
+        <regulation>Eudralex_5.10_1</regulation>
+        <reg_text>At every stage of processing, products and materials should be protected from microbial and other contamination.</reg_text>
+    </violation>
+</violation_data>

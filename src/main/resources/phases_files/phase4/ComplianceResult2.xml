@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<result_data>
+    <result>
+        <result_id>rd_1</result_id>
+        <complied>false</complied>
+        <regulation>Eudralex_5.22</regulation>
+        <statement>Eudralex_5.22_1</statement>
+        <task>t101CleaningTask</task>
+        <employees>
+            <employee>Krishna Sapkota</employee>
+            <employee>Berkan Sesan</employee>
+        </employees>
+        <completed>true</completed>
+        <report>report1</report>
+        <report_detail>false</report_detail>
+        <remark>There is something wrong in ther report. </remark>
+    </result>
+    <result>
+        <result_id>rd_1</result_id>
+        <complied>false</complied>
+        <regulation>Eudralex_5.22</regulation>
+        <statement>Eudralex_5.22_1</statement>
+        <task>t101CleaningTask</task>
+        <employees>
+            <employee>Krishna Sapkota</employee>
+            <employee>Berkan Sesan</employee>
+        </employees>
+        <completed>true</completed>
+        <report>report2</report>
+        <report_detail>false</report_detail>
+        <remark>There is something wrong in ther report.</remark>
+    </result>
+</result_data>

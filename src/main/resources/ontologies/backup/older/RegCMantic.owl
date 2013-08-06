@@ -1,0 +1,1513 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns="http://www.owl-ontologies.com/RegCMantic.owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" > 
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#lines">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#eu_5.11">
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#constructed"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Equipment"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.11</regID>
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A0">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:allValuesFrom rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#ComplementSubject"/>
+    <owl:onProperty rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#hasSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#storage">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#deviations">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#hasAction"/>
+    <owl:allValuesFrom rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#ComplementAction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#operational">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#eu_5.25">
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#defined"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#agents"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#procedures"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#choice"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#residues"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#criteria"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Acceptance"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.25</regID>
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#ComplexRegSubject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegulatorySubject"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">with more than two subjects</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#eu_5.40">
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#systems"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#computerized"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#GMP"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.40</regID>
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#hasAction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Complement"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#contact">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegAction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Eudralex_10.23">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#The_manufacturer"/>
+    <obligationType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">strong_obligation</obligationType>
+    <hasComplement rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Complement_10.23"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#ensure"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+    <owl:onProperty rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#actionType"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#performed">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegAction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#eu_5.12">
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#used"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#equipment"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Production"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.12</regID>
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#data">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#ComplementAction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#NonRegulatoryAction"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Action for the ComplementSubject</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A3">
+    <rdf:first rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#hasComplement">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Complement"/>
+    <rdfs:domain rdf:nodeID="A4"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The complementaray part that comes after the RegAction.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Non-dedicated">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#in_place">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegAction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#quality">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#isRegSubjectOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#hasRegSubject"/>
+    <rdfs:range rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegulatorySubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#eu_5.26">
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#identified"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Equipment"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.26</regID>
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#processing">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#constructed">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegAction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Eudralex_5.49">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Data"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.49</regID>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#recorded"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Temporal">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#coolants">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Production">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#open">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Post">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Temporal"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A5">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="A6"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Eudralex_10.22">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <hasComplement rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Complement_10.22"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#stated"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Special_transport_or_storage_conditions"/>
+    <obligationType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">strong_obligation</obligationType>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A7">
+    <rdf:rest rdf:nodeID="A8"/>
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">neg_bare_complement</rdf:first>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#made">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegAction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Closed">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#drawings">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Entity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">any thing that is noun. eg. Buildings and facilities usied in manufacture of intermediates and APIs ...</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A9">
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">neg_strong_obligation</rdf:first>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#calibration">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#label">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#ComplementObject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#at_appropriate_intervals_after_validation">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#ComplementObject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#such">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#hasObject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Complement"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#API">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#instruments">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A10">
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">full_complement</rdf:first>
+    <rdf:rest rdf:nodeID="A7"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#eu_5.10">
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#APIs"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#intermediates"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#manufacture"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Equipment"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.10</regID>
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#GMP">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#grade">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Design">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A11">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DataRange"/>
+    <owl:oneOf rdf:nodeID="A12"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Pre">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Temporal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Eudralex_10.24">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <obligationType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">strong_obligation</obligationType>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#in_place"/>
+    <hasComplement rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Complement_10.24"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#A_system"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#precautions">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Instruments">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#authorized">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegAction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#residues">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#SupportingAction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#NonRegulatoryAction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#production">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#same">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Subject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Entity"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">noun that are used in a place of subject in a sentence</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Eudralex_5.30">
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Control"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#equipment"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#test"/>
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#APIs"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.30</regID>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#quality"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#critical"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#intermediates"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#calibrated"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#permanent">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A13">
+    <rdf:first rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegulatorySubject"/>
+    <rdf:rest rdf:nodeID="A3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#eu_5.15">
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#taken"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#used"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#precautions"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#appropriate"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#open"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#equipment"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Closed"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.15</regID>
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Eudralex_5.20">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.20</regID>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#established"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Schedules"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#procedures"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#assignment"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#responsibility"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#RegulatorySubject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Subject"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A14">
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">neg_action</rdf:first>
+    <rdf:rest rdf:nodeID="A15"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#eu_5.44">
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#procedures"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.44</regID>
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#eu_5.35">
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#investigated"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#instruments"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#critical"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#calibration"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#standards"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Deviations"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.35</regID>
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A16">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="A13"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A17">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+    <owl:onProperty rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#obligationType"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#substances">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#containers">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Acceptance">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Eudralex_5.46">
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#computerized"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#results"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#APIs"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#systems"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#intermediates"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.46</regID>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#records"/>
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#quality"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#investigated"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#test"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#reliability"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#recorded"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Incidents"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#eu_5.21">
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#include"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#contain"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#established"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#procedures"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.21</regID>
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A18">
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">medium_obligation</rdf:first>
+    <rdf:rest rdf:nodeID="A19"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Maintenance">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#breakdowns">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A20">
+    <rdf:first rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Subject"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A21">
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">half_complement</rdf:first>
+    <rdf:rest rdf:nodeID="A10"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Eudralex_5.45">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#done"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#critical"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#data"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.45</regID>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#documented">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegAction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#regID">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A8">
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">neg_half_complement</rdf:first>
+    <rdf:rest rdf:nodeID="A22"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#eu_5.16">
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#maintained"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#drawings"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#current"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#set"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.16</regID>
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#eu_5.1">
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Construction"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Design"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.1</regID>
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#responsibility">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#eu_5.43">
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#have"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#systems"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Computerized"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.43</regID>
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#hasQualifier">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#ActionQualifier"/>
+    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Action"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#established">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegAction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#A_system">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+    <isRegSubjectOf rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Eudralex_10.24"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#ComplementSubject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#NonRegulatorySubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A23">
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">soft_obligation</rdf:first>
+    <rdf:rest rdf:nodeID="A24"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A25">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DataRange"/>
+    <owl:oneOf rdf:nodeID="A14"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#stated">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegAction"/>
+    <ComplementType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">bare_complement</ComplementType>
+    <hasComplement rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Complement_10.22"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A24">
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">strong_obligation</rdf:first>
+    <rdf:rest rdf:nodeID="A18"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#equipment">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#eu_5.22">
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#stored"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#cleaned"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#utensils"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Equipment"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.22</regID>
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#demonstrate">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegAction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#manufacture">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#possible">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#IntroObject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Object"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A26">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#hasComplement"/>
+    <owl:allValuesFrom rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Complement"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A12">
+    <rdf:rest rdf:nodeID="A21"/>
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">bare_complement</rdf:first>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#intermediate">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#agents">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Eudralex_5.32">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.32</regID>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#maintained"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Records"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#calibrations"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#eu_5.13">
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#identified"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#reactors"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#processing"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#intermediate"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#API"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#production"/>
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#equipment"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#containers"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.13</regID>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#storage"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#lines"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Major"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#have">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegAction"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A27">
+    <rdf:first rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Object"/>
+    <rdf:rest rdf:nodeID="A28"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#critical">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A29">
+    <rdf:first rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#NonRegulatoryAction"/>
+    <rdf:rest rdf:nodeID="A30"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#procedures">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#test">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#the_distribution_of_each_batch">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#ComplementSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A31">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:allValuesFrom rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegulatorySubject"/>
+    <owl:onProperty rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#hasRegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#affect">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#ComplementAction"/>
+    <actionType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">neg_action</actionType>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Records">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#NonRegulatoryAction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Action"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#done">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegAction"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A32">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="A33"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#hasEntityIntroducer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:nodeID="A32"/>
+    <rdfs:range rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#EntityIntroducer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#eu_5.33">
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#known"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#equipment"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#critical"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#status"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#calibration"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#current"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.33</regID>
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#eu_5.42">
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.42</regID>
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Wrapper">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">anything that help the entities or actions</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A34">
+    <rdf:first rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#system">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#eu_5.23">
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#production"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#cleaned"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#continuous"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#equipment"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#campaign"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#same"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#successive"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#intermediate"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#API"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.23</regID>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#batches"/>
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Eudralex_5.48">
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#provided"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#breakdowns"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#data"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#back-up"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.48</regID>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#failures"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#system"/>
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#permanent"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#records"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#protection"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#means"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#loss"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#established"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A35">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#hasObligation"/>
+    <owl:allValuesFrom rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegAction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Eudralex_5.31">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Equipment"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#calibrations"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.31</regID>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#performed"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Incidents">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A4">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="A36"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#status">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#eu_5.14">
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#food"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#heating"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#lubricants"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#grade"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#deviations"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#equipment"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#evaluated"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#oils"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.14</regID>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Wherever"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#fluids"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#coolants"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#contact"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#possible"/>
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#such"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#used"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#operation"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#substances"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#known">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegAction"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A37">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="A27"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Special_transport_or_storage_conditions">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#ComplexRegSubject"/>
+    <hasEntitySupporter rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#for_an_API_or_intermediate"/>
+    <isRegSubjectOf rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Eudralex_10.22"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#hasSubject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Complement"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#reactors">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A38">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DataRange"/>
+    <owl:oneOf rdf:nodeID="A23"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#eu_5.34">
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#used"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#criteria"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#calibration"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Instruments"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.34</regID>
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Wherever">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#fluids">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#continuous">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A15">
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">pos_action</rdf:first>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Action">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#eu_5.41">
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#demonstrate"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#operational"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#qualification"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#installation"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Appropriate"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.41</regID>
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A6">
+    <rdf:first rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegulatorySubject"/>
+    <rdf:rest rdf:nodeID="A34"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Eudralex_5.47">
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#tested"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#records"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#made"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#authorized"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#documented"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#kept"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#system"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.47</regID>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Records"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Changes"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#demonstrate"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#computerized"/>
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#eu_5.24">
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#cleaned"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#equipment"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Non-dedicated"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.24</regID>
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Regulation_12.76">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <obligationType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">strong_obligation</obligationType>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Cleaning_procedures"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#monitored"/>
+    <hasComplement rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Complement_12.76"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#batches">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Object">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Entity"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">noun that are used in a place of subject in a sentence</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#eu_5.31">
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#performed"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#calibrations"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Equipment"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.31</regID>
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#ActionQualifier">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Wrapper"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">expresses the HOW or Quality of the verb. usually the adverbs</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#APIs_and_intermediates">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#ComplexRegSubject"/>
+    <isRegSubjectOf rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Eudralex_10.21"/>
+    <obligationType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">strong_obligation</obligationType>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#transported"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Complement_10.23">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Complement"/>
+    <hasAction rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#knows_and_follows"/>
+    <hasSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#the_contract_acceptor"/>
+    <actionType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">pos_action</actionType>
+    <hasObject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#the_appropriate_transport_and_storage_conditions."/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#eu_5.48">
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#records"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#loss"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#established"/>
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#provided"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#system"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.48</regID>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#failures"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#permanent"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#means"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#data"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#breakdowns"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#back-up"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#protection"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A19">
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">neg_soft_obligation</rdf:first>
+    <rdf:rest rdf:nodeID="A39"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#computerized">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Eudralex_5.23">
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#same"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#successive"/>
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#cleaned"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#equipment"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#campaign"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#production"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#intermediate"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#API"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#batches"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#continuous"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.23</regID>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#provided">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegAction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#ComplementType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegAction"/>
+    <rdfs:range rdf:nodeID="A11"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A28">
+    <rdf:first rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Subject"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#food">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Eudralex_5.13">
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#API"/>
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#intermediate"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#lines"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#identified"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#processing"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#storage"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#reactors"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#production"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#equipment"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#containers"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Major"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.13</regID>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#choice">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#taken">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegAction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Eudralex_5.33">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#known"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#current"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#calibration"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#status"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#critical"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#equipment"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.33</regID>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Eudralex_5.41">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#demonstrate"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Appropriate"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#installation"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#qualification"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#operational"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.41</regID>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#their_quality">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#ComplementObject"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A36">
+    <rdf:first rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegAction"/>
+    <rdf:rest rdf:nodeID="A40"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#determined_to_permit">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#ComplementAction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#transported">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegAction"/>
+    <ComplementType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">bare_complement</ComplementType>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#assignment">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Complement_10.24">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Complement"/>
+    <actionType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">pos_action</actionType>
+    <hasAction rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#determined_to_permit"/>
+    <hasSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#the_distribution_of_each_batch"/>
+    <hasObject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#its_recall."/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#eu_5.32">
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#maintained"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#calibrations"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Records"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.32</regID>
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A33">
+    <rdf:first rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Object"/>
+    <rdf:rest rdf:nodeID="A20"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#criteria">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#lubricants">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#IntroSubject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#NonRegulatorySubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#the_contract_acceptor">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#ComplementSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A22">
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">neg_full_complement</rdf:first>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Eudralex_5.24">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#cleaned"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Non-dedicated"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#equipment"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.24</regID>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#IntroAction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#NonRegulatoryAction"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Action for the IntroSubject</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#eu_5.47">
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#demonstrate"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#documented"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#system"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.47</regID>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#tested"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Records"/>
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#kept"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#computerized"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Changes"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#authorized"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#records"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#made"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#set">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#stored">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegAction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#installation">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#hasRegSubject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegulatorySubject"/>
+    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#isRegSubjectOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#failures">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Eudralex_5.42">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.42</regID>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Eudralex_5.14">
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#operation"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Wherever"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#evaluated"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#heating"/>
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#food"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#grade"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#possible"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#equipment"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#substances"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#lubricants"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.14</regID>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#coolants"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#such"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#contact"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#deviations"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#oils"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#fluids"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#used"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#successive">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#eu_5.4">
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Systems"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Computerized"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.4</regID>
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#oils">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Regulation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:nodeID="A31"/>
+    <rdfs:subClassOf rdf:nodeID="A17"/>
+    <rdfs:subClassOf rdf:nodeID="A35"/>
+    <rdfs:subClassOf rdf:nodeID="A26"/>
+    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Entity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Eudralex_5.34">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.34</regID>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Instruments"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#calibration"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#criteria"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#used"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Eudralex_5.3">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Calibration"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.3</regID>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#systems">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Computerized">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#cleaned">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegAction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Eudralex_5.35">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#investigated"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.35</regID>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Deviations"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#standards"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#calibration"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#critical"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#instruments"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#eu_5.46">
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Incidents"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#recorded"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#systems"/>
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#quality"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#results"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#computerized"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#test"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.46</regID>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#records"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#reliability"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#APIs"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#investigated"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#intermediates"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#hasEntitySupporter">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:nodeID="A37"/>
+    <rdfs:range rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#EntitySupporter"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A41">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="A29"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#EntitySupporter">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Wrapper"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4.10 Buildings and facilities [-  used in the manufacture of intermediates and APIs  -]
+4.42 [-  Appropriate -]  measures should be established and</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Complement_10.21">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Complement"/>
+    <actionType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">neg_action</actionType>
+    <hasObject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#their_quality"/>
+    <hasAction rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#affect"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#appropriate">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#eu_5.3">
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Calibration"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.3</regID>
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Appropriate">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Construction">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Eudralex_5.21">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.21</regID>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#established"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#contain"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#include"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#procedures"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Changes">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#monitored">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegAction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Eudralex_5.15">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Closed"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#equipment"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#open"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#appropriate"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#precautions"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.15</regID>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#used"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#taken"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Eudralex_5.43">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Computerized"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#systems"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.43</regID>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#have"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#eu_5.20">
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#established"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#responsibility"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#assignment"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#procedures"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Schedules"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.20</regID>
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#ensure">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegAction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#eu_5.30">
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#APIs"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#test"/>
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#calibrated"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#critical"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.30</regID>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#equipment"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#intermediates"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Control"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#quality"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#NonRegulatorySubject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Subject"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">if there is a complement after the action</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Eudralex_5.4">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.4</regID>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Computerized"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Systems"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A40">
+    <rdf:first rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A39">
+    <rdf:rest rdf:nodeID="A9"/>
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">neg_medium_obligation</rdf:first>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Complement">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:nodeID="A2"/>
+    <rdfs:subClassOf rdf:nodeID="A0"/>
+    <rdfs:subClassOf rdf:nodeID="A42"/>
+    <rdfs:subClassOf rdf:nodeID="A1"/>
+    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Entity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#operation">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#knows_and_follows">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#ComplementAction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Complement_10.22">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Complement"/>
+    <hasObject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#label"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#eu_5.45">
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#done"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#data"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#critical"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.45</regID>
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A42">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#hasObject"/>
+    <owl:allValuesFrom rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#ComplementObject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#standards">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#evaluated">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegAction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#back-up">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#EntityIntroducer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A subject  followed by a introductory sentence</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Wrapper"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Eudralex_5.22">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Equipment"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#utensils"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.22</regID>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#cleaned"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#stored"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#used">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegAction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#eu_5.2">
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Maintenance"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Equipment"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.2</regID>
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#protection">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Eudralex_5.44">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.44</regID>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#procedures"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Eudralex_5.16">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.16</regID>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#set"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#current"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#drawings"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#maintained"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#identified">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegAction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Equipment">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Eudralex_5.1">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Design"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Construction"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.1</regID>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#tested">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegAction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#results">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Schedules">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#contain">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegAction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#records">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#defined">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegAction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#APIs">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Intra">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Temporal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Systems">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#investigated">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegAction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#reliability">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#calibrations">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#RegObject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Object"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegulatorySubject"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">subject just before obligation</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#maintained">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegAction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#the_appropriate_transport_and_storage_conditions.">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#ComplementObject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Complement_12.76">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Complement"/>
+    <hasObject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#at_appropriate_intervals_after_validation"/>
+    <actionType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">pos_action</actionType>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Eudralex_5.10">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.10</regID>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#intermediates"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Equipment"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#manufacture"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#APIs"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Calibration">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Eudralex_5.2">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.2</regID>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Equipment"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Maintenance"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#calibrated">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegAction"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A30">
+    <rdf:first rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Complement"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#include">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegAction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#its_recall.">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#ComplementObject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Deviations">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#actionType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:nodeID="A25"/>
+    <rdfs:domain rdf:nodeID="A41"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Eudralex_5.25">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Acceptance"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#criteria"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#residues"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#choice"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#procedures"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#agents"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#defined"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.25</regID>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#for_an_API_or_intermediate">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#EntitySupporter"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#loss">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Eudralex_5.11">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.11</regID>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Equipment"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#constructed"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#heating">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Eudralex_10.21">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#transported"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#APIs_and_intermediates"/>
+    <obligationType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">strong_obligation</obligationType>
+    <hasComplement rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Complement_10.21"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#obligationType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:nodeID="A16"/>
+    <rdfs:range rdf:nodeID="A38"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#The_manufacturer">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+    <isRegSubjectOf rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Eudralex_10.23"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#hasObligation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegAction"/>
+    <rdfs:domain rdf:nodeID="A5"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The words representing obligation. e.g. ..equipments [should be] cleaned..</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#RegAction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The main action which has to be performed</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Action"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#means">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#campaign">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Data">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#hasTemporal">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Temporal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#current">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#kept">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegAction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#qualification">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#utensils">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#eu_5.49">
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#recorded"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Data"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.49</regID>
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#intermediates">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Eudralex_5.26">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.26</regID>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#identified"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Equipment"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Cleaning_procedures">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+    <isRegSubjectOf rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation_12.76"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Control">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Major">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegSubject"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Eudralex_5.12">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <hasObligation rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#used"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Production"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#equipment"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.12</regID>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#recorded">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#RegAction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#Eudralex_5.40">
+    <rdf:type rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Regulation"/>
+    <regID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.40</regID>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#GMP"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#computerized"/>
+    <hasRegSubject rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#systems"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.owl-ontologies.com/RegCMantic.owl#ComplementObject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/RegCMantic.owl#Object"/>
+  </rdf:Description>
+</rdf:RDF>

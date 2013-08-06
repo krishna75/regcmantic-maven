@@ -1,0 +1,42 @@
+/*
+*
+*/
+Phase: paragraph
+Input: Token  SpaceToken paragraph
+Options: control = first
+
+
+Macro: DOT ({Token.string=="."})
+Macro: PARA({paragraph})
+
+/* 
+defines the rules for paragraph seperation
+Identifies the last paragraph
+*/
+
+Rule: ParagraphSeparator
+Priority:90
+(
+	PARA
+	(({Token}|{SpaceToken})*DOT):text
+	//((SPACE)*|(CONTROL)*)*
+	CONTROL
+)
+-->
+{
+// obtains the annotation for whole style
+gate.AnnotationSet textSet = (gate.AnnotationSet)bindings.get("text");
+// adding features to the annotation
+gate.FeatureMap features = Factory.newFeatureMap();
+features.put("rule","ParagraphSeperator");
+// adding string of the annotation to the fetures. It needs start and end node offsets as int values
+int sNodeText = textSet.firstNode().getOffset().intValue();
+int eNodeText = textSet.lastNode().getOffset().intValue();
+features.put("startNode",sNodeText);
+features.put("endNode", eNodeText);
+String text = doc.getContent().toString().substring(sNodeText, eNodeText);		
+features.put("text",text);
+	
+// finally adding the feature with the annotation. 
+outputAS.add(textSet.firstNode(), textSet.lastNode(), "paragraph",features);
+}

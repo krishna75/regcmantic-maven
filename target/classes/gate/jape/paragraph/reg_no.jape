@@ -1,0 +1,36 @@
+/**
+* 2. annotates regulation no from the paragraphs. 
+* 	It will be helpful to identify the beggining of a new paragraph 
+*/
+Phase: reg_no
+Input: Token  SpaceToken doc_end
+Options: control = brill
+
+/* macro */
+Macro: NUM ({Token.kind==number})
+Macro: DOT ({Token.string=="."})
+
+/* defines the rules for paragraph seperation */
+Rule: RegNoFinder
+Priority:90
+(NUM DOT NUM):text 	
+-->
+{
+// obtains the annotation
+gate.AnnotationSet textSet = (gate.AnnotationSet)bindings.get("text");
+
+// adding features to the annotation
+gate.FeatureMap features = Factory.newFeatureMap();
+features.put("rule","RegNoFinder");
+
+// adding string of the annotation to the fetures. It needs start and end node offsets as int values
+int sNodeText = textSet.firstNode().getOffset().intValue();
+int eNodeText = textSet.lastNode().getOffset().intValue();
+features.put("startNode",sNodeText);
+features.put("endNode", eNodeText);
+String text = doc.getContent().toString().substring(sNodeText, eNodeText);		
+features.put("text",text);
+	
+// finally adding the feature with the annotation. 
+outputAS.add(textSet.firstNode(), textSet.lastNode(), "reg_no",features);
+}

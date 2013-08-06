@@ -1,0 +1,37 @@
+/**
+* Identifies concepts .
+* uses look up (gazetteer) for the purpose.
+*/
+Phase:parsed_condition
+Input:  Lookup  
+Options: control = appelt
+
+/* rule */
+Rule: ParsedSubject
+Priority:90
+(
+ {Lookup.minorType=="parsed_condition"}
+ 
+):concept
+-->
+{
+// obtains the annotation
+gate.AnnotationSet conceptAS = (gate.AnnotationSet)bindings.get("concept");
+gate.Annotation conceptAnn = (gate.Annotation)conceptAS.iterator().next();
+
+// adding features to the annotation
+gate.FeatureMap features = Factory.newFeatureMap();
+features.put("rule","ParsedSubject");
+features.put("kind","parsed");
+
+// adding string of the annotation to the fetures. It needs start and end node offsets as int values
+int sNode = conceptAnn.getStartNode().getOffset().intValue();
+int eNode = conceptAnn.getEndNode().getOffset().intValue();
+features.put("startNode",sNode);
+features.put("endNode", eNode);
+String theWord = doc.getContent().toString().substring(sNode, eNode);		
+features.put("text",theWord);
+
+// finally adding the feature with the annotation. 
+outputAS.add(conceptAS.firstNode(), conceptAS.lastNode(), "parsed_condition",features);
+}

@@ -1,0 +1,40 @@
+/**
+* 3. annotates the points where a paragraph ends
+*/
+Phase: pre_reg
+Input: Token  SpaceToken doc_end reg_no
+Options: control = brill
+
+/* macro */
+Macro: TOKEN ({Token})
+Macro: SPACETOKEN ({SpaceToken})
+Macro: END ({doc_end})
+Macro: REGNO ( {reg_no})
+
+/* defines the rules for paragraph seperation */
+Rule: PreRegFinder
+Priority:90
+(
+	({SpaceToken} |{Token}):text
+	(REGNO|END)	
+)
+-->
+{
+// obtains the annotation 
+gate.AnnotationSet textSet = (gate.AnnotationSet)bindings.get("text");
+
+// adding features to the annotation
+gate.FeatureMap features = Factory.newFeatureMap();
+features.put("rule","PreRegFinder");
+
+// adding string of the annotation to the fetures. It needs start and end node offsets as int values
+int sNodeText = textSet.firstNode().getOffset().intValue();
+int eNodeText = textSet.lastNode().getOffset().intValue();
+features.put("startNode",sNodeText);
+features.put("endNode", eNodeText);
+String text = doc.getContent().toString().substring(sNodeText, eNodeText);		
+features.put("text",text);
+	
+// finally adding the feature with the annotation. 
+outputAS.add(textSet.firstNode(), textSet.lastNode(), "pre_reg",features);
+}

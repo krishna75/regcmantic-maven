@@ -1,0 +1,14 @@
+/**
+* main.jape
+* It identifies entities to populate SemReg ontology
+*/
+MultiPhase:	parser
+Phases:
+
+// [1]. Identifies concepts .
+parsed_subject
+parsed_object
+parsed_action
+parsed_obligation
+parsed_modifier
+parsed_condition

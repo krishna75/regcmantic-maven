@@ -1,0 +1,10 @@
+/**
+* main.jape
+* 
+*/
+MultiPhase:	parser
+Phases:
+
+concept_parsed
+concept_extracted
+concept_ontology

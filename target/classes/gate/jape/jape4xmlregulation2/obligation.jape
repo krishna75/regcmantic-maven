@@ -1,0 +1,206 @@
+Phase:obligation
+Input:  Lookup  Token
+Options: control = appelt
+/**
+ This is the bigger one.
+*/
+
+/*
+ The is the bunch of comments.
+*/
+Macro: OBL_STRONG ({Lookup.majorType == obligation,Lookup.minorType==strong})
+Macro: OBL_STRONGNEG ({Lookup.majorType == obligation,Lookup.minorType==strong_neg})
+Macro: OBL_MOD ({Lookup.majorType == obligation,Lookup.minorType==moderate})
+Macro: OBL_MODNEG ({Lookup.majorType == obligation,Lookup.minorType==moderate_neg})
+Macro: OBL_SOFT ({Lookup.majorType == obligation,Lookup.minorType==soft})
+Macro: OBL_SOFTNEG ({Lookup.majorType == obligation,Lookup.minorType==soft_neg})
+
+
+Rule: StrongObligation
+Priority:100
+(OBL_STRONG):obligation
+-->
+{
+// obtains the annotation
+gate.AnnotationSet team = (gate.AnnotationSet)bindings.get("obligation");
+gate.Annotation teamAnn = (gate.Annotation)team.iterator().next();
+
+// adding features to the annotation
+gate.FeatureMap features = Factory.newFeatureMap();
+features.put("rule","StrongObligation");
+
+// adding string of the annotation to the fetures. It needs start and end node offsets as int values
+int sNode = teamAnn.getStartNode().getOffset().intValue();
+int eNode = teamAnn.getEndNode().getOffset().intValue();
+features.put("startNode",sNode);
+features.put("endNode", eNode);
+String theWord = doc.getContent().toString().substring(sNode, eNode);		
+features.put("text",theWord);
+features.put("strength","Strong");
+features.put("type", "Positive");
+
+// finally adding the feature with the annotation. 
+outputAS.add(team.firstNode(), team.lastNode(), "Obligation",features);
+}
+
+Rule: StrongNegObligation
+Priority:90
+(
+	(OBL_STRONGNEG) 
+)  
+:obligation
+
+-->
+{
+// obtains the annotation
+gate.AnnotationSet team = (gate.AnnotationSet)bindings.get("obligation");
+gate.Annotation teamAnn = (gate.Annotation)team.iterator().next();
+
+// adding features to the annotation
+gate.FeatureMap features = Factory.newFeatureMap();
+features.put("rule","StrongNegObligation");
+
+// adding string of the annotation to the fetures. It needs start and end node offsets as int values
+int sNode = teamAnn.getStartNode().getOffset().intValue();
+int eNode = teamAnn.getEndNode().getOffset().intValue();
+features.put("startNode",sNode);
+features.put("endNode", eNode);
+String theWord = doc.getContent().toString().substring(sNode, eNode);		
+features.put("text",theWord);
+features.put("strength","Strong");
+features.put("type", "Negative");
+
+// finally adding the feature with the annotation. It needs first node, last node,
+//the name off the annotation (type) to appear and the new features
+outputAS.add(team.firstNode(), team.lastNode(), "Obligation",features);
+}
+
+Rule: ModerateObligation
+Priority:80
+(
+ // e.g. should normally be ordered
+	(OBL_MOD) 
+	//( (ADVERB) ({Token.string == "be"}) )?
+)  
+:obligation
+
+-->
+{
+// obtains the annotation
+gate.AnnotationSet team = (gate.AnnotationSet)bindings.get("obligation");
+gate.Annotation teamAnn = (gate.Annotation)team.iterator().next();
+
+// adding features to the annotation
+gate.FeatureMap features = Factory.newFeatureMap();
+features.put("rule","ModerateObligation");
+
+// adding string of the annotation to the fetures. It needs start and end node offsets as int values
+int sNode = teamAnn.getStartNode().getOffset().intValue();
+int eNode = teamAnn.getEndNode().getOffset().intValue();
+features.put("startNode",sNode);
+features.put("endNode", eNode);
+String theWord = doc.getContent().toString().substring(sNode, eNode);		
+features.put("text",theWord);
+features.put("strength","Moderate");
+features.put("type", "Positive");
+
+// finally adding the feature with the annotation. It needs first node, last node,
+//the name off the annotation (type) to appear and the new features
+outputAS.add(team.firstNode(), team.lastNode(), "Obligation",features);
+}
+
+Rule: ModerateNegObligation
+Priority:70
+(
+	(OBL_MODNEG) 
+)  
+:obligation
+
+-->
+{
+// obtains the annotation
+gate.AnnotationSet team = (gate.AnnotationSet)bindings.get("obligation");
+gate.Annotation teamAnn = (gate.Annotation)team.iterator().next();
+
+// adding features to the annotation
+gate.FeatureMap features = Factory.newFeatureMap();
+features.put("rule","ModerateNegObligation");
+
+// adding string of the annotation to the fetures. It needs start and end node offsets as int values
+int sNode = teamAnn.getStartNode().getOffset().intValue();
+int eNode = teamAnn.getEndNode().getOffset().intValue();
+features.put("startNode",sNode);
+features.put("endNode", eNode);
+String theWord = doc.getContent().toString().substring(sNode, eNode);		
+features.put("text",theWord);
+features.put("strength","Moderate");
+features.put("type", "Negative");
+
+// finally adding the feature with the annotation. It needs first node, last node,
+//the name off the annotation (type) to appear and the new features
+outputAS.add(team.firstNode(), team.lastNode(), "Obligation",features);
+}
+
+Rule: SoftObligation
+Priority:60
+(
+	(OBL_SOFT) 
+)  
+:obligation
+
+-->
+{
+// obtains the annotation
+gate.AnnotationSet team = (gate.AnnotationSet)bindings.get("obligation");
+gate.Annotation teamAnn = (gate.Annotation)team.iterator().next();
+
+// adding features to the annotation
+gate.FeatureMap features = Factory.newFeatureMap();
+features.put("rule","SoftObligation");
+
+// adding string of the annotation to the fetures. It needs start and end node offsets as int values
+int sNode = teamAnn.getStartNode().getOffset().intValue();
+int eNode = teamAnn.getEndNode().getOffset().intValue();
+features.put("startNode",sNode);
+features.put("endNode", eNode);
+String theWord = doc.getContent().toString().substring(sNode, eNode);		
+features.put("text",theWord);
+features.put("strength","Soft");
+features.put("type", "Positive");
+
+// finally adding the feature with the annotation. It needs first node, last node,
+//the name off the annotation (type) to appear and the new features
+outputAS.add(team.firstNode(), team.lastNode(), "Obligation",features);
+}
+
+Rule: SoftNegObligation
+Priority:50
+(
+	(OBL_SOFTNEG) 
+)  
+:obligation
+
+-->
+{
+// obtains the annotation
+gate.AnnotationSet team = (gate.AnnotationSet)bindings.get("obligation");
+gate.Annotation teamAnn = (gate.Annotation)team.iterator().next();
+
+// adding features to the annotation
+gate.FeatureMap features = Factory.newFeatureMap();
+features.put("rule","SoftNegObligation");
+
+// adding string of the annotation to the fetures. It needs start and end node offsets as int values
+int sNode = teamAnn.getStartNode().getOffset().intValue();
+int eNode = teamAnn.getEndNode().getOffset().intValue();
+features.put("startNode",sNode);
+features.put("endNode", eNode);
+String theWord = doc.getContent().toString().substring(sNode, eNode);		
+features.put("text",theWord);
+features.put("strength","Soft");
+features.put("type", "Negative");
+
+// finally adding the feature with the annotation. It needs first node, last node,
+//the name off the annotation (type) to appear and the new features
+outputAS.add(team.firstNode(), team.lastNode(), "Obligation",features);
+}

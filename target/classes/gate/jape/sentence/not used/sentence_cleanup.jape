@@ -1,0 +1,20 @@
+/*
+* cleans the temporaray tags while defining the sentence
+*/
+Phase: sentence_cleanup
+Input:  start end  Sentence Split
+Options: control= all
+
+/* rule */
+rule: RemoveAnnotation
+Priority:90	
+(
+	({start}|{end}|{Sentence}|{Split})
+):ra
+-->
+{
+//Get the  annotations 
+AnnotationSet raSet = (gate.AnnotationSet) bindings.get("ra");
+inputAS.remove(raSet.iterator().next());
+
+} 

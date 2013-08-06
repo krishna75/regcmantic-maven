@@ -1,0 +1,83 @@
+/** Identifies subject and action containers. */
+// subject container and action containers have different annotations (i.e. A = PP, NP, T, C)
+
+/* header */
+Phase: container
+Input:  sentence 
+Options: control =  all
+
+/* rule: */
+Rule: ContainerCreator	 
+Priority:90
+(
+	{sentence}
+):ann
+-->
+{
+// required nodes
+Node subStartNode;
+Node subEndNode;
+Node actStartNode;
+Node actEndNode;
+
+// obtains the annotation
+gate.AnnotationSet senSet = (gate.AnnotationSet)bindings.get("ann");
+gate.AnnotationSet containedSet = inputAS.getContained(senSet.firstNode().getOffset(), senSet.lastNode().getOffset());
+gate.AnnotationSet oblSet 	= containedSet.get("obligation");
+gate.AnnotationSet condSet 	= containedSet.get("parsed_condition");
+gate.AnnotationSet modSet 	= containedSet.get("parsed_modifier");
+gate.AnnotationSet objSet 	= containedSet.get("parsed_object");
+
+
+// only process the sentences with obligations 
+if (oblSet.size()>0){
+	
+	subEndNode = oblSet.firstNode();
+	actStartNode = oblSet.lastNode();
+	
+	// if there is condition, set condition as the start of the subject container , otherwise set the start of the sentence as the start of the container.
+	if (condSet.size()>0 && condSet.lastNode().getOffset() <oblSet.firstNode().getOffset()){
+		subStartNode = condSet.lastNode();
+	} else {
+		subStartNode = senSet.firstNode();
+	}
+
+	
+	// if there is an object or modifier, set object or container as the end of the action container , otherwise set the end of the sentence as the end of the container.
+	if (objSet.size()>0){
+		actEndNode = objSet.firstNode();
+	} else if ( modSet.size()>0)  {
+		actEndNode = modSet.firstNode() ;
+	} else {
+		actEndNode = senSet.lastNode();
+	}
+	
+	/* creating subject container */
+	gate.FeatureMap features = Factory.newFeatureMap();
+	features.put("rule","ContainerCreator");
+	// adding string 
+	int sNode = subStartNode.getOffset().intValue();
+	int eNode = subEndNode.getOffset().intValue();
+	features.put("startNode",sNode);
+	features.put("endNode", eNode);
+	String theWord = doc.getContent().toString().substring(sNode, eNode);		
+	features.put("text",theWord);
+	// new annotation
+	outputAS.add(subStartNode, subEndNode, "subject_container",features);
+
+	/* creating subject container */
+	gate.FeatureMap actionFeatures = Factory.newFeatureMap();
+	actionFeatures.put("rule","ContainerCreator");
+	//adding string
+	int sNode2 = actStartNode.getOffset().intValue();
+	int eNode2 = actEndNode.getOffset().intValue();
+	actionFeatures.put("startNode",sNode2);
+	actionFeatures.put("endNode", eNode2);
+	String theWord2 = doc.getContent().toString().substring(sNode2, eNode2);		
+	actionFeatures.put("text",theWord2);
+	// new annotation
+	outputAS.add(actStartNode, actEndNode, "action_container",actionFeatures); 
+}
+
+
+}

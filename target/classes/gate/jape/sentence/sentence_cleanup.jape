@@ -1,0 +1,42 @@
+/*
+* cleans the temporaray tags while defining the sentence
+*/
+Phase: sentence_cleanup
+Input:  Token
+Options: control= once
+
+/* rule */
+rule: RemoveAnnotation
+Priority:90	
+(
+	({Token})
+):ra
+-->
+{
+//Get the  annotations (NOT USED)
+AnnotationSet raSet = (gate.AnnotationSet) bindings.get("ra");
+
+// getting all the annotations from the documents
+AnnotationSet allAS = doc.getAnnotations();
+
+// filtering only the required annotations. required annotations are added to an arraylist.
+ArrayList<String> removableList = new ArrayList<String>();
+removableList.add("sentence_start");
+removableList.add("sentence_end");
+removableList.add("paragraph_start");
+removableList.add("paragraph_end");
+//removableList.add("Sentence");
+//removableList.add("Split");
+
+// processing only the required annotations in the arraylist
+for (String markup: removableList){
+	AnnotationSet removableAS = allAS.get(markup);
+	Iterator<Annotation> removableIter = removableAS.iterator();
+	
+	// removes each removable annotation
+	while ( removableIter.hasNext()){
+			Annotation removableAnn = removableIter.next();		
+			inputAS.remove(removableAnn);		
+	}//  while	
+}// for markup list		
+} 

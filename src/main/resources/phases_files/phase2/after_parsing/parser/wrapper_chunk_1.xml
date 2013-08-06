@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<parsed_sentences size="50">
+    <parsed_sentence count="1">
+        <subject> This</subject>
+        <obligation> can</obligation>
+        <action> be</action>
+        <condition></condition>
+        <modifier> in in the form of separate QA and QC units or a single individual or group</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="2">
+        <subject> appropriate precautions</subject>
+        <obligation> should be</obligation>
+        <action> taken</action>
+        <condition> Where open equipment is used , or equipment is opened</condition>
+        <modifier> to minimize the risk</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="3">
+        <subject> a retrospective validation</subject>
+        <obligation> could be</obligation>
+        <action> conducted</action>
+        <condition> If an existing system was not validated at time of installation</condition>
+        <modifier> </modifier>
+    </parsed_sentence>
+    <parsed_sentence count="4">
+        <subject> they</subject>
+        <obligation> should be scientifically</obligation>
+        <action> sound</action>
+        <condition> While analytical methods performed to evaluate a batch of API for clinical trials may not yet be validated</condition>
+        <modifier> </modifier>
+    </parsed_sentence>
+    <parsed_sentence count="5">
+        <subject> purification</subject>
+        <obligation> should be</obligation>
+        <action> performed</action>
+        <condition> If open systems are used</condition>
+        <modifier> under environmental conditions appropriate</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="6">
+        <subject> Quality</subject>
+        <obligation> should be</obligation>
+        <action> the responsibility</action>
+        <condition></condition>
+        <modifier> of all persons involved</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="7">
+        <subject> Each manufacturer</subject>
+        <obligation> should</obligation>
+        <action> establish , document , and implement</action>
+        <condition></condition>
+        <modifier> for an effective system</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="8">
+        <subject> The system for managing quality</subject>
+        <obligation> should</obligation>
+        <action> encompass</action>
+        <condition></condition>
+        <modifier> the organisational structure , procedures , processes and resources , as well as activities</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="9">
+        <subject> All quality related activities</subject>
+        <obligation> should be</obligation>
+        <action> defined and documented</action>
+        <condition></condition>
+        <modifier> </modifier>
+    </parsed_sentence>
+    <parsed_sentence count="10">
+        <subject> </subject>
+        <obligation> should be</obligation>
+        <action> a quality unit -LRB- s -RRB- that is independent of production and that fulfills</action>
+        <condition></condition>
+        <modifier> </modifier>
+    </parsed_sentence>
+    <parsed_sentence count="11">
+        <subject> This</subject>
+        <obligation> can</obligation>
+        <action> be</action>
+        <condition></condition>
+        <modifier> in in the form of separate QA and QC units or a single individual or group</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="12">
+        <subject> The persons authorised</subject>
+        <obligation> should be</obligation>
+        <action> specified</action>
+        <condition></condition>
+        <modifier> </modifier>
+    </parsed_sentence>
+    <parsed_sentence count="13">
+        <subject> All quality related activities</subject>
+        <obligation> should be</obligation>
+        <action> recorded</action>
+        <condition></condition>
+        <modifier> at the time they are performed</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="14">
+        <subject> Any deviation from established procedures</subject>
+        <obligation> should be</obligation>
+        <action> documented and explained</action>
+        <condition></condition>
+        <modifier> </modifier>
+    </parsed_sentence>
+    <parsed_sentence count="15">
+        <subject> Critical deviations</subject>
+        <obligation> should be</obligation>
+        <action> investigated , and the investigation and its conclusions should be documented</action>
+        <condition></condition>
+        <modifier> </modifier>
+    </parsed_sentence>
+    <parsed_sentence count="16">
+        <subject> No materials</subject>
+        <obligation> should be</obligation>
+        <action> released or used</action>
+        <condition></condition>
+        <modifier> before the satisfactory completion of evaluation</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="17">
+        <subject> Procedures</subject>
+        <obligation> should</obligation>
+        <action> exist</action>
+        <condition></condition>
+        <modifier> notifying responsible management in a timely manner of regulatory inspections , serious GMP deficiencies , product defects and related actions -LRB- e.g. quality</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="18">
+        <subject> The quality unit -LRB- s</subject>
+        <obligation> should be</obligation>
+        <action> involved</action>
+        <condition></condition>
+        <modifier> in all quality-related matters</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="19">
+        <subject> The quality unit -LRB- s</subject>
+        <obligation> should</obligation>
+        <action> review and approve</action>
+        <condition></condition>
+        <modifier> all appropriate quality-related documents</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="20">
+        <subject> The main responsibilities of the independent quality unit</subject>
+        <obligation> should not be</obligation>
+        <action> delegated</action>
+        <condition></condition>
+        <modifier> </modifier>
+    </parsed_sentence>
+    <parsed_sentence count="21">
+        <subject> regular internal audits</subject>
+        <obligation> should be</obligation>
+        <action> performed</action>
+        <condition>  In order to verify compliance with the principles of GMP for APIs</condition>
+        <modifier> in with accordance</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="22">
+        <subject> Audit findings and corrective actions</subject>
+        <obligation> should be</obligation>
+        <action> documented and brought</action>
+        <condition></condition>
+        <modifier> to the attention of responsible management</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="23">
+        <subject> Agreed corrective actions</subject>
+        <obligation> should be</obligation>
+        <action> completed</action>
+        <condition></condition>
+        <modifier> in a timely and effective manner</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="24">
+        <subject> Regular quality reviews of APIs</subject>
+        <obligation> should be</obligation>
+        <action> conducted</action>
+        <condition></condition>
+        <modifier> with the objective of verifying</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="25">
+        <subject> Such reviews</subject>
+        <obligation> should normally be</obligation>
+        <action> conducted and documented annually and should include</action>
+        <condition></condition>
+        <modifier> </modifier>
+    </parsed_sentence>
+    <parsed_sentence count="26">
+        <subject> </subject>
+        <obligation></obligation>
+        <action> A review</action>
+        <condition></condition>
+        <modifier> of of of of of of of critical in-process control and critical API test results ; - A review of all batches that failed to meet established specification -LRB- s -RRB- ; - A review of all critical deviations or non-conformances and related investigations ; - A review of any changes carried out to the processes or analytical methods ; - A review of results of the stability monitoring program ; - A review of all quality-related returns , complaints and recalls ; and - A review</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="27">
+        <subject> The results of this review</subject>
+        <obligation> should be</obligation>
+        <action> evaluated and an assessment made</action>
+        <condition></condition>
+        <modifier> </modifier>
+    </parsed_sentence>
+    <parsed_sentence count="28">
+        <subject> Reasons for such corrective action</subject>
+        <obligation> should be</obligation>
+        <action> documented</action>
+        <condition></condition>
+        <modifier> </modifier>
+    </parsed_sentence>
+    <parsed_sentence count="29">
+        <subject> Agreed corrective actions</subject>
+        <obligation> should be</obligation>
+        <action> completed</action>
+        <condition></condition>
+        <modifier> in a timely and effective manner</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="30">
+        <subject> </subject>
+        <obligation> should be</obligation>
+        <action> an adequate number of personnel qualified by appropriate education , training and\/or experience</action>
+        <condition></condition>
+        <modifier> of personnel qualified</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="31">
+        <subject> The responsibilities of all personnel</subject>
+        <obligation> should be</obligation>
+        <action> specified</action>
+        <condition></condition>
+        <modifier> writing</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="32">
+        <subject> Training</subject>
+        <obligation> should be regularly</obligation>
+        <action> conducted by qualified individuals and should cover</action>
+        <condition></condition>
+        <modifier> </modifier>
+    </parsed_sentence>
+    <parsed_sentence count="33">
+        <subject> Records of training</subject>
+        <obligation> should be</obligation>
+        <action> maintained</action>
+        <condition></condition>
+        <modifier> </modifier>
+    </parsed_sentence>
+    <parsed_sentence count="34">
+        <subject> Training</subject>
+        <obligation> should be periodically</obligation>
+        <action> assessed</action>
+        <condition></condition>
+        <modifier> </modifier>
+    </parsed_sentence>
+    <parsed_sentence count="35">
+        <subject> Personnel</subject>
+        <obligation> should</obligation>
+        <action> practice</action>
+        <condition></condition>
+        <modifier> good sanitation and health habits</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="36">
+        <subject> Personnel</subject>
+        <obligation> should</obligation>
+        <action> wear clean clothing suitable for the manufacturing activity with which they are involved and this clothing should be changed</action>
+        <condition></condition>
+        <modifier> clothing suitable for the manufacturing activity</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="37">
+        <subject> Additional protective apparel , such as head , face , hand , and arm coverings</subject>
+        <obligation> should be</obligation>
+        <action> worn</action>
+        <condition></condition>
+        <modifier> to protect intermediates and APIs from contamination</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="38">
+        <subject> Personnel</subject>
+        <obligation> should</obligation>
+        <action> avoid</action>
+        <condition></condition>
+        <modifier> with with direct contact</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="39">
+        <subject> eating , drinking , chewing and the storage of food</subject>
+        <obligation> should be</obligation>
+        <action> restricted</action>
+        <condition>  Smoking</condition>
+        <modifier> to certain designated areas separate</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="40">
+        <subject> Personnel suffering from an infectious disease or having</subject>
+        <obligation> should not</obligation>
+        <action> engage</action>
+        <condition></condition>
+        <modifier> in activities that could result</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="41">
+        <subject> Any person shown</subject>
+        <obligation> should be</obligation>
+        <action> excluded</action>
+        <condition></condition>
+        <modifier> from activities where the health condition could adversely affect</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="42">
+        <subject> Consultants advising</subject>
+        <obligation> should</obligation>
+        <action> have</action>
+        <condition></condition>
+        <modifier> education , training , and experience , or any combination thereof , to advise on the subject</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="43">
+        <subject> Records</subject>
+        <obligation> should be</obligation>
+        <action> maintained</action>
+        <condition></condition>
+        <modifier> stating the name , address , qualifications , and type of service provided</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="44">
+        <subject> Buildings and facilities used</subject>
+        <obligation> should be</obligation>
+        <action> located , designed , and constructed</action>
+        <condition></condition>
+        <modifier> </modifier>
+    </parsed_sentence>
+    <parsed_sentence count="45">
+        <subject> Facilities</subject>
+        <obligation> should also be</obligation>
+        <action> designed</action>
+        <condition></condition>
+        <modifier> to minimize potential contamination</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="46">
+        <subject> facilities</subject>
+        <obligation> should also be</obligation>
+        <action> designed</action>
+        <condition> Where microbiological specifications have been established for the intermediate or API</condition>
+        <modifier> to limit exposure to objectionable microbiological contaminants</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="47">
+        <subject> Buildings and facilities</subject>
+        <obligation> should</obligation>
+        <action> have</action>
+        <condition></condition>
+        <modifier> for adequate space</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="48">
+        <subject> such equipment</subject>
+        <obligation> can be</obligation>
+        <action> located</action>
+        <condition> Where the equipment itself -LRB- e.g. , closed or contained systems -RRB- provides adequate protection of the material</condition>
+        <modifier> outdoors</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="49">
+        <subject> The flow of materials and personnel</subject>
+        <obligation> should be</obligation>
+        <action> designed</action>
+        <condition></condition>
+        <modifier> to prevent mix-ups or contamination</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="50">
+        <subject> areas or other control systems</subject>
+        <obligation> should be</obligation>
+        <action> defined</action>
+        <condition>  There should be</condition>
+        <modifier> for areas or other control systems</modifier>
+    </parsed_sentence>
+</parsed_sentences>

@@ -1,0 +1,176 @@
+/**
+* defines concepts.
+* based on noun and adjectives combination.
+*/
+Phase:noun_phrase
+//noun_phrase1
+Input:  Token
+Options: control = appelt 
+
+/* simple macros */
+Macro: CC ( {Token.category== CC})
+Macro: CD ( {Token.category == CD})
+Macro: COMMA ( {Token.string == ","})
+Macro: NNP ( {Token.category == NNP}) 
+Macro: NNPS ( {Token.category == NNPS})
+Macro: NN ({Token.category == NN})
+Macro: NNS ( {Token.category == NNS})
+Macro: JJ ({Token.category == JJ})
+Macro: VBN ({Token.category == VBN})
+Macro: VBNS ({Token.category == VBNS})
+Macro: DT ({Token.category == DT})
+Macro: IN ({Token.category == IN})
+Macro: POS ({Token.category == POS})
+Macro: PRP ({Token.category == PRP})
+Macro: PRP_D ({Token.category == "PRP$"})
+Macro: PRPR_D ({Token.category == "PRPR$"})
+Macro: LRB ( {Token.category == LRB}) //-LRB- - -unknown-
+Macro: VBD ({Token.category == VBD})
+Macro: VBG ({Token.category == VBG})
+Macro: OBL ({obligation})
+Macro: TKN ({Token})
+
+/* complex macros */
+Macro: CONJ ((CC) | (COMMA))
+Macro: CD_ALL ((CD)+)// three, four
+Macro: NO_AUX (
+		{!Token.string =~ "be"}
+		{!Token.string =~ "is"} 
+		{!Token.string =~ "was"}
+		{!Token.string =~ "been"}
+		{!Token.string =~ "are"}
+		{!Token.string =~ "were"}
+		{!Token.string =~ "has"}
+		{!Token.string =~ "have"}
+		{!Token.string =~ "had"}		
+)
+Macro: NNP_ALL (
+	((NNP) (NNPS)?) |
+	((NNPS) (NNP)?) 		
+)
+Macro: NN_ALL (
+	((NN) (NNS)?) |
+	((NNS) (NN)?) 		
+)
+Macro: NOUN (	
+		NN_ALL |
+		NNP_ALL 
+)
+
+/*  rule: */
+// modified verb as adjective + noun e.g. "approved schedules", "labelling operations"
+Rule: NounPhraseFinder1 
+Priority:90
+(
+  NO_AUX NO_AUX ( (JJ)? (NOUN)? (VBD | VBG | VBN )[1,3] (NOUN)[1,4]):ann
+)
+-->
+{
+// new variables
+String RULE	= "NounPrase1";
+String KIND = "defined";
+String NEW_ANNOTATION = "noun_phrase";
+
+// obtains the annotation
+gate.AnnotationSet annSet = (gate.AnnotationSet)bindings.get("ann");
+
+// adding features to the annotation
+gate.FeatureMap features = Factory.newFeatureMap();
+features.put("rule",RULE);
+features.put("kind",KIND);
+
+// adding string to the feature
+int sNode = annSet.firstNode().getOffset().intValue();
+int eNode = annSet.lastNode().getOffset().intValue();
+features.put("startNode",sNode);
+features.put("endNode", eNode);
+String theWord = doc.getContent().toString().substring(sNode, eNode);		
+features.put("text",theWord);
+
+// setting output
+outputAS.add(annSet.firstNode(), annSet.lastNode(), NEW_ANNOTATION,features);
+}
+
+/*  rule: */
+// adjective noun e.g. "cold water", "potential contamination"
+Rule: NounPhraseFinder2 
+Priority:80
+(
+ ((JJ)[1,3] (NOUN)[1,4])
+):ann
+-->
+{
+// new variables
+String RULE	= "NounPhrase2";
+String KIND = "defined";
+String NEW_ANNOTATION = "noun_phrase";
+
+// obtains the annotation
+gate.AnnotationSet annSet = (gate.AnnotationSet)bindings.get("ann");
+
+// adding features to the annotation
+gate.FeatureMap features = Factory.newFeatureMap();
+features.put("rule",RULE);
+features.put("kind",KIND);
+
+// adding string to the feature
+int sNode = annSet.firstNode().getOffset().intValue();
+int eNode = annSet.lastNode().getOffset().intValue();
+features.put("startNode",sNode);
+features.put("endNode", eNode);
+String theWord = doc.getContent().toString().substring(sNode, eNode);		
+features.put("text",theWord);
+
+// setting output
+outputAS.add(annSet.firstNode(), annSet.lastNode(), NEW_ANNOTATION,features);
+}
+
+
+/*  rule:  */
+// noun noun e.g. "toilet facilities", "quality control"
+Rule: NounPhraseFinder3 
+Priority:70
+(
+ ((NOUN)[2,4])
+):ann
+-->
+{
+// new variables
+String RULE	= "NounPhrase3";
+String KIND = "defined";
+String NEW_ANNOTATION = "noun_phrase";
+
+// obtains the annotation
+gate.AnnotationSet annSet = (gate.AnnotationSet)bindings.get("ann");
+
+// adding features to the annotation
+gate.FeatureMap features = Factory.newFeatureMap();
+features.put("rule",RULE);
+features.put("kind",KIND);
+
+// adding string to the feature
+int sNode = annSet.firstNode().getOffset().intValue();
+int eNode = annSet.lastNode().getOffset().intValue();
+features.put("startNode",sNode);
+features.put("endNode", eNode);
+String theWord = doc.getContent().toString().substring(sNode, eNode);		
+features.put("text",theWord);
+
+// setting output
+outputAS.add(annSet.firstNode(), annSet.lastNode(), NEW_ANNOTATION,features);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

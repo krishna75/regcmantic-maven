@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<regulation_data size="5">
+    <regulation id="Eudralex_5.21">
+        <statement id="Eudralex_5.21_4">
+            <topic>
+                <text>Chapter 5 ProductionProcess EquipementEquipment Maintainance and Cleaning</text>
+                <annotation>Process,Equipment,Cleaning</annotation>
+                <bow>Equipement,Maintainance,Process,Equipment,Cleaning</bow>
+            </topic>
+            <core>
+                <subject></subject>
+                <action></action>
+            </core>
+            <aux>
+                <text>Assignment of responsibility for cleaning of equipment;</text>
+                <annotation>cleaning,equipment</annotation>
+                <bow>Assignment,responsibility,cleaning,equipment</bow>
+            </aux>
+        </statement>
+        <statement id="Eudralex_5.21_7">
+            <topic>
+                <text>Chapter 5 ProductionProcess EquipementEquipment Maintainance and Cleaning</text>
+                <annotation>Process,Equipment,Cleaning</annotation>
+                <bow>Equipement,Maintainance,Process,Equipment,Cleaning</bow>
+            </topic>
+            <core>
+                <subject></subject>
+                <action></action>
+            </core>
+            <aux>
+                <text>When appropriate, instructions for disassembling and reassembling each article of equipment to ensure proper cleaning;</text>
+                <annotation>cleaning,proper cleaning,equipment</annotation>
+                <bow>instructions,disassembling,reassembling,article,ensure,proper,cleaning,equipment</bow>
+            </aux>
+        </statement>
+        <statement id="Eudralex_5.21_6">
+            <topic>
+                <text>Chapter 5 ProductionProcess EquipementEquipment Maintainance and Cleaning</text>
+                <annotation>Process,Equipment,Cleaning</annotation>
+                <bow>Equipement,Maintainance,Process,Equipment,Cleaning</bow>
+            </topic>
+            <core>
+                <subject></subject>
+                <action></action>
+            </core>
+            <aux>
+                <text>A complete description of the methods and materials, including dilution of cleaning agents used to clean equipment;</text>
+                <annotation>including dilution,cleaning,materials,clean,equipment</annotation>
+                <bow>complete,description,methods,agents,cleaning,materials,clean,equipment</bow>
+            </aux>
+        </statement>
+        <statement id="Eudralex_5.21_1">
+            <topic>
+                <text>Chapter 5 ProductionProcess EquipementEquipment Maintainance and Cleaning</text>
+                <annotation>Process,Equipment,Cleaning</annotation>
+                <bow>Equipement,Maintainance,Process,Equipment,Cleaning</bow>
+            </topic>
+            <core>
+                <subject>procedures</subject>
+                <action>established</action>
+            </core>
+            <aux>
+                <text>5.21 Written procedures should be established for cleaning of equipment and its subsequent release for use in the manufacture of intermediates and APIs</text>
+                <annotation>equipment,cleaning,APIs,use,procedures,intermediates</annotation>
+                <bow>Written,established,subsequent,release,manufacture,equipment,cleaning,APIs,procedures,intermediates</bow>
+            </aux>
+        </statement>
+        <statement id="Eudralex_5.21_9">
+            <topic>
+                <text>Chapter 5 ProductionProcess EquipementEquipment Maintainance and Cleaning</text>
+                <annotation>Process,Equipment,Cleaning</annotation>
+                <bow>Equipement,Maintainance,Process,Equipment,Cleaning</bow>
+            </topic>
+            <core>
+                <subject></subject>
+                <action></action>
+            </core>
+            <aux>
+                <text>Instructions for the removal or obliteration of previous batch identification;</text>
+                <annotation>previous batch identification,batch</annotation>
+                <bow>Instructions,removal,obliteration,batch</bow>
+            </aux>
+        </statement>
+        <statement id="Eudralex_5.21_12">
+            <topic>
+                <text>Chapter 5 ProductionProcess EquipementEquipment Maintainance and Cleaning</text>
+                <annotation>Process,Equipment,Cleaning</annotation>
+                <bow>Equipement,Maintainance,Process,Equipment,Cleaning</bow>
+            </topic>
+            <core>
+                <subject></subject>
+                <action></action>
+            </core>
+            <aux>
+                <text>Establishing the maximum time that may elapse between the completion of processing and equipment cleaning, when appropriate.</text>
+                <annotation>equipment cleaning,cleaning,maximum time,equipment,processing</annotation>
+                <bow>Establishing,elapse,completion,cleaning,equipment,processing</bow>
+            </aux>
+        </statement>
+        <statement id="Eudralex_5.21_10">
+            <topic>
+                <text>Chapter 5 ProductionProcess EquipementEquipment Maintainance and Cleaning</text>
+                <annotation>Process,Equipment,Cleaning</annotation>
+                <bow>Equipement,Maintainance,Process,Equipment,Cleaning</bow>
+            </topic>
+            <core>
+                <subject></subject>
+                <action></action>
+            </core>
+            <aux>
+                <text>Instructions for the protection of clean equipment from contamination prior to use;</text>
+                <annotation>contamination,clean,use,equipment</annotation>
+                <bow>Instructions,protection,prior,contamination,clean,equipment</bow>
+            </aux>
+        </statement>
+        <statement id="Eudralex_5.21_3">
+            <topic>
+                <text>Chapter 5 ProductionProcess EquipementEquipment Maintainance and Cleaning</text>
+                <annotation>Process,Equipment,Cleaning</annotation>
+                <bow>Equipement,Maintainance,Process,Equipment,Cleaning</bow>
+            </topic>
+            <core>
+                <subject>procedures</subject>
+                <action>include</action>
+            </core>
+            <aux>
+                <text>These procedures should include:</text>
+                <annotation>procedures</annotation>
+                <bow>procedures</bow>
+            </aux>
+        </statement>
+        <statement id="Eudralex_5.21_2">
+            <topic>
+                <text>Chapter 5 ProductionProcess EquipementEquipment Maintainance and Cleaning</text>
+                <annotation>Process,Equipment,Cleaning</annotation>
+                <bow>Equipement,Maintainance,Process,Equipment,Cleaning</bow>
+            </topic>
+            <core>
+                <subject>cleaning,procedures,cleaning,procedures,</subject>
+                <action>equipment,clean</action>
+            </core>
+            <aux>
+                <text>Cleaning procedures should contain sufficient details to enable operators to clean each type of equipment in a reproducible and effective manner.</text>
+                <annotation>procedures,Cleaning procedures,clean,equipment,Cleaning,sufficient details</annotation>
+                <bow>enable,operators,type,reproducible,effective,procedures,clean,equipment,Cleaning</bow>
+            </aux>
+        </statement>
+        <statement id="Eudralex_5.21_8">
+            <topic>
+                <text>Chapter 5 ProductionProcess EquipementEquipment Maintainance and Cleaning</text>
+                <annotation>Process,Equipment,Cleaning</annotation>
+                <bow>Equipement,Maintainance,Process,Equipment,Cleaning</bow>
+            </topic>
+            <core>
+                <subject></subject>
+                <action></action>
+            </core>
+            <aux>
+                <text>Instructions for the removal or obliteration of previous batch identification;</text>
+                <annotation>batch,previous batch identification</annotation>
+                <bow>Instructions,removal,obliteration,previous,batch</bow>
+            </aux>
+        </statement>
+        <statement id="Eudralex_5.21_5">
+            <topic>
+                <text>Chapter 5 ProductionProcess EquipementEquipment Maintainance and Cleaning</text>
+                <annotation>Process,Equipment,Cleaning</annotation>
+                <bow>Equipement,Maintainance,Process,Equipment,Cleaning</bow>
+            </topic>
+            <core>
+                <subject></subject>
+                <action></action>
+            </core>
+            <aux>
+                <text>Cleaning schedules, including, where appropriate, sanitizing schedules;</text>
+                <annotation>Cleaning schedules,Cleaning</annotation>
+                <bow>sanitizing,Cleaning</bow>
+            </aux>
+        </statement>
+        <statement id="Eudralex_5.21_11">
+            <topic>
+                <text>Chapter 5 ProductionProcess EquipementEquipment Maintainance and Cleaning</text>
+                <annotation>Process,Equipment,Cleaning</annotation>
+                <bow>Equipement,Maintainance,Process,Equipment,Cleaning</bow>
+            </topic>
+            <core>
+                <subject></subject>
+                <action></action>
+            </core>
+            <aux>
+                <text>Inspection of equipment for cleanliness immediately before use, if practical;and</text>
+                <annotation>use,equipment</annotation>
+                <bow>Inspection,cleanliness,immediately,equipment</bow>
+            </aux>
+        </statement>
+    </regulation>
+    <regulation id="Eudralex_5.22">
+        <statement id="Eudralex_5.22_1">
+            <topic>
+                <text>Chapter 5 ProductionProcess EquipementEquipment Maintainance and Cleaning</text>
+                <annotation>Process,Equipment,Cleaning</annotation>
+                <bow>Equipement,Maintainance,Process,Equipment,Cleaning</bow>
+            </topic>
+            <core>
+                <subject>equipment</subject>
+                <action>cleaned,stored</action>
+            </core>
+            <aux>
+                <text>5.22 Equipment and utensils should be cleaned, stored, and, where appropriate, sanitized or sterilized to prevent contamination or carry-over of a material that would alter the quality of the intermediate or API beyond the official or other established specfications.</text>
+                <annotation>API,quality,material,Equipment,other established specfications,contamination</annotation>
+                <bow>utensils,sanitized,sterilized,prevent,alter,intermediate,official,API,quality,material,Equipment,contamination</bow>
+            </aux>
+        </statement>
+    </regulation>
+    <regulation id="Eudralex_5.26">
+        <statement id="Eudralex_5.26_1">
+            <topic>
+                <text>Chapter 5 ProductionProcessStarting Material</text>
+                <annotation>Process,Material,Starting Material</annotation>
+                <bow>ProductionStarting,Process,Material</bow>
+            </topic>
+            <core>
+                <subject>materials</subject>
+                <action>materials,manufacturer,purchased,specifications,specification</action>
+            </core>
+            <aux>
+                <text>5.26 Starting materials should only be purchased from approved suppliers named in the relevant specification, and where possible, directly from the producer.It is recommended that the specifications established by the manufacturer for starting materials be discussed with the suppliers.</text>
+                <annotation>manufacturer,specification,specifications,starting materials,materials,relevant specification</annotation>
+                <bow>Starting,purchased,approved,suppliers,named,relevant,directly,recommended,established,discussed,manufacturer,specification,specifications,materials</bow>
+            </aux>
+        </statement>
+    </regulation>
+    <regulation id="Eudralex_5.31">
+        <statement id="Eudralex_5.31_1">
+            <topic>
+                <text>Chapter 5 ProductionProcessStarting Material</text>
+                <annotation>Process,Material,Starting Material</annotation>
+                <bow>ProductionStarting,Process,Material</bow>
+            </topic>
+            <core>
+                <subject>control,shelf,life,quality,quality,control,department,materials</subject>
+                <action></action>
+            </core>
+            <aux>
+                <text>5.31 Only starting materials which have been released by the Quality Control Department and which are within their shelf life should be used.</text>
+                <annotation>Quality,Control,Quality Control Department,shelf life,materials</annotation>
+                <bow>starting,released,Department,Quality,Control,materials</bow>
+            </aux>
+        </statement>
+    </regulation>
+    <regulation id="Eudralex_8.14">
+        <statement id="Eudralex_8.14_2">
+            <topic>
+                <text>Chapter 5 ProductionProduction and In-Process ControlsProduction Operations</text>
+                <annotation>Controls,Process,Production,Operations,Production,</annotation>
+                <bow>Controls,Process,Operations</bow>
+            </topic>
+            <core>
+                <subject></subject>
+                <action>data,manufacturing,laboratory,established</action>
+            </core>
+            <aux>
+                <text>Expected yields should be established on previous laboratory, pilot scale, or manufacturing data.</text>
+                <annotation>manufacturing,laboratory,data</annotation>
+                <bow>Expected,yields,established,previous,pilot,manufacturing,laboratory,data</bow>
+            </aux>
+        </statement>
+        <statement id="Eudralex_8.14_1">
+            <topic>
+                <text>Chapter 5 ProductionProduction and In-Process ControlsProduction Operations</text>
+                <annotation>Controls,Process,Production,Operations,Production,</annotation>
+                <bow>Controls,Process,Operations</bow>
+            </topic>
+            <core>
+                <subject></subject>
+                <action>compared</action>
+            </core>
+            <aux>
+                <text>8.14 Actual yields should be compared with expeected yieldsat designated steps in the production process.</text>
+                <annotation>steps,production,expeected yieldsat designated steps,production process,process</annotation>
+                <bow>Actual,yields,compared,expeected,yieldsat,designated,steps,process</bow>
+            </aux>
+        </statement>
+        <statement id="Eudralex_8.14_3">
+            <topic>
+                <text>Chapter 5 ProductionProduction and In-Process ControlsProduction Operations</text>
+                <annotation>Controls,Process,Production,Operations,Production,</annotation>
+                <bow>Controls,Process,Operations</bow>
+            </topic>
+            <core>
+                <subject>yield,steps,yield,witj</subject>
+                <action>investigated</action>
+            </core>
+            <aux>
+                <text>Deviations in yield associated witj designated process steps should be investigated to determine their impact or potential impact on the resulting quality of affected batches.</text>
+                <annotation>steps,yield,batches,affected batches,process,quality,yield associated witj</annotation>
+                <bow>Deviations,witj,designated,investigated,determine,impact,potential,impact,resulting,affected,steps,yield,batches,process,quality</bow>
+            </aux>
+        </statement>
+    </regulation>
+</regulation_data>

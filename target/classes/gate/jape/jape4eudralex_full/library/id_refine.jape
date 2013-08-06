@@ -1,0 +1,26 @@
+/*
+*
+*/
+Phase: id_refine
+Input: RegID  Obligation 
+Options: control = appelt
+
+Macro: REGID ( {RegID}) //CD - cardinal number
+//Macro: SUB ( {Subject}) // CD with Line Separator
+Macro: NOT_OBL ({!Obligation})
+//Macro: ACTION ({Action})
+//Macro: SPLIT ({Split})
+
+
+
+Rule: remover
+Priority:20 (
+	(REGID):pID
+	NOT_OBL
+)
+-->
+{
+	inputAS.removeAll(bindings.get("pID"));
+}
+
+

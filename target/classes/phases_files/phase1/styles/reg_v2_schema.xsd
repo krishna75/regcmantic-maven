@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+ <xs:annotation>
+  <xs:documentation xml:lang="en">
+   XML Schema to validate reg_v2.xml file.
+  </xs:documentation>
+ </xs:annotation>
+ 
+
+ <xs:element name="document" type="docType" />
+ 
+ <xs:complexType name="docType">
+  <xs:sequence>
+	<xs:element name="meta" type ="metaType"/>
+	<xs:element name="content" type="contentType"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <!-- Meta type -->
+ <xs:complexType name="metaType">
+  <xs:sequence>
+   <xs:element name="name" type="xs:string" />
+   <xs:element name="description" type="xs:string" />
+   <xs:element name="body" type="xs:string" />
+   <xs:element name="version" type="xs:string" />
+   <xs:element name="published_date" type="xs:string" />
+  </xs:sequence>
+ </xs:complexType>
+ 
+
+<!-- Content type -->
+<xs:complexType name="contentType">
+  <xs:sequence>
+	<xs:element name="topic" type="topicType" minOccurs="0" maxOccurs="unbounded"/>
+	</xs:sequence> 
+</xs:complexType>
+
+ <xs:complexType name="topicType">
+  <xs:sequence>
+   <xs:element name="title" type="xs:string"/>
+   <xs:element name="topic_text" type="topicTextType"/>
+  </xs:sequence>
+ </xs:complexType>
+
+ <xs:complexType name="topicTextType">
+  <xs:sequence>
+   <xs:element name="regulation"   type="regType" minOccurs="0" maxOccurs="unbounded"/>
+   </xs:sequence>
+ </xs:complexType>
+ 
+  <xs:complexType name="regType">
+  <xs:sequence>
+   <xs:element name="reg_id" type="xs:string"/>
+   <xs:element name="reg_text" type="xs:string"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+</xs:schema>

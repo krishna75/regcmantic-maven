@@ -1,0 +1,75 @@
+  8.14 Actual yields should be compared with expeected yields at designated steps in the production process.  
+  5.26 Starting materials should only be purchased from approved suppliers named in the relevant specification, and where possible, directly from the producer.It is recommended that the specifications established by the manufacturer for starting materials be discussed with the suppliers.
+  5.31 Only starting materials which have been released by the Quality Control Department and which are within their shelf life should be used. 
+	
+	
+	
+	<task id="InvestigationTask_1">
+        <subject>crystallization,cr,crystallize</subject>
+        <action>yetkin,sesen,qc,officer,quality,control,testing,test,evaluate,analyse,assess</action>
+        <annotation>investigate,yetkin,sesen,qc,officer,quality,control,testing,test,evaluate,analyse,assess,crystallization,cr,crystallize</annotation>
+    </task>
+    <task id="PharmaSupplierAssess_1">
+        <subject>abcchemicals,approved,supplier,pharma,distributor,dealer</subject>
+        <action>purchasing,officer,assessing,assess</action>
+        <annotation>pharma,supplier,assess,purchasing,officer,assessing,abcchemicals,approved,distributor,dealer</annotation>
+    </task>
+    <task id="StartingMaterialPurchase_1">
+        <subject>salicylic,acid,starting,material,substance</subject>
+        <action>purchasing,officer,purchase</action>
+        <annotation>starting,material,purchase,startint,purchasing,officer,salicylic,acid,substance</annotation>
+    </task>
+    <task id="StartingMaterialTestTask_7">
+        <subject>acetic,anhydrade,starting,material,substance</subject>
+        <action>yetkin,sesen,qc,officer,quality,control,testing,test,evaluate,analyse,assess</action>
+        <annotation>starting,material,test,yetkin,sesen,qc,officer,quality,control,testing,evaluate,analyse,assess,acetic,anhydrade,substance</annotation>
+    </task>
+
+
+   Incorrect
+
+<mapping mapping_id="mid_154">
+        <reg_id>Eudralex_5.26</reg_id>
+        <stmt_id>Eudralex_5.26_1</stmt_id>
+        <task_id>StartingMaterialTestTask_7</task_id>
+        <topic_score>0.89652</topic_score>
+        <core_score>0.5</core_score>
+        <aux_score>0.75946</aux_score>
+        <final_score>0.89652</final_score>
+    </mapping>
+
+<mapping mapping_id="mid_164">
+        <reg_id>Eudralex_5.31</reg_id>
+        <stmt_id>Eudralex_5.31_1</stmt_id>
+        <task_id>StartingMaterialPurchase_1</task_id>
+        <topic_score>0.8591</topic_score>
+        <core_score>0.5</core_score>
+        <aux_score>0.61175</aux_score>
+        <final_score>0.8591</final_score>
+    </mapping>
+
+
+Missing
+
+
+
+   <mapping mapping_id="mid_152">
+        <reg_id>Eudralex_5.26</reg_id>
+        <stmt_id>Eudralex_5.26_1</stmt_id>
+        <task_id>PharmaSupplierAssess_1</task_id>
+        <topic_score>0.42429</topic_score>
+        <core_score>0.65776</core_score>
+        <aux_score>0.33764</aux_score>
+        <final_score>0.65776</final_score>
+    </mapping>
+
+
+    <mapping mapping_id="mid_195">
+        <reg_id>Eudralex_8.14</reg_id>
+        <stmt_id>Eudralex_8.14_3</stmt_id>
+        <task_id>InvestigationTask_1</task_id>
+        <topic_score>0.5468</topic_score>
+        <core_score>0.6102</core_score>
+        <aux_score>0.55368</aux_score>
+        <final_score>0.6102</final_score>
+    </mapping>

@@ -1,0 +1,9 @@
+/**
+* main.jape
+* It identifies entities to populate SemReg ontology
+*/
+MultiPhase:	generic
+Phases:
+
+// [1]. Identifies concepts .
+noun_phrase

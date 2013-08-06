@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<parsed_sentences size="17">
+    <parsed_sentence count="1">
+        <subject> Written procedures</subject>
+        <obligation> should be</obligation>
+        <action> established</action>
+        <object> </object>
+        <condition></condition>
+        <modifier> for cleaning of equipment and its subsequent release for use in the manufacture of intermediates and APIs</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="2">
+        <subject> These procedures</subject>
+        <obligation> should</obligation>
+        <action> include</action>
+        <object> </object>
+        <condition>  Cleaning procedures should contain sufficient details to enable operators to clean each type of equipment in a reproducible and effective manner</condition>
+        <modifier> </modifier>
+    </parsed_sentence>
+    <parsed_sentence count="3">
+        <subject> </subject>
+        <obligation></obligation>
+        <action> Assignment</action>
+        <object> </object>
+        <condition></condition>
+        <modifier> of for of responsibility</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="4">
+        <subject> </subject>
+        <obligation></obligation>
+        <action> Cleaning</action>
+        <object> schedules</object>
+        <condition></condition>
+        <modifier> </modifier>
+    </parsed_sentence>
+    <parsed_sentence count="5">
+        <subject> A complete description of the methods and materials</subject>
+        <obligation></obligation>
+        <action> used</action>
+        <object> </object>
+        <condition></condition>
+        <modifier> description of the methods and materials , including dilution of cleaning agents used to clean equipment</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="6">
+        <subject> instructions for disassembling and reassembling</subject>
+        <obligation></obligation>
+        <action> cleaning</action>
+        <object> </object>
+        <condition> When appropriate</condition>
+        <modifier> </modifier>
+    </parsed_sentence>
+    <parsed_sentence count="7">
+        <subject> </subject>
+        <obligation></obligation>
+        <action> Instructions</action>
+        <object> </object>
+        <condition></condition>
+        <modifier> for for the removal or obliteration of previous batch identification</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="8">
+        <subject> </subject>
+        <obligation></obligation>
+        <action> Instructions</action>
+        <object> </object>
+        <condition></condition>
+        <modifier> for for the removal or obliteration of previous batch identification</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="9">
+        <subject> </subject>
+        <obligation></obligation>
+        <action> Instructions</action>
+        <object> </object>
+        <condition></condition>
+        <modifier> for of from the protection</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="10">
+        <subject> </subject>
+        <obligation></obligation>
+        <action></action>
+        <object> </object>
+        <condition></condition>
+        <modifier> of equipment for cleanliness</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="11">
+        <subject> that</subject>
+        <obligation> may</obligation>
+        <action> elapse</action>
+        <object> </object>
+        <condition></condition>
+        <modifier> between the completion of processing and equipment cleaning</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="12">
+        <subject> Equipment and utensils</subject>
+        <obligation> should be</obligation>
+        <action> cleaned</action>
+        <object> </object>
+        <condition></condition>
+        <modifier> where appropriate , sanitized or sterilized to prevent contamination or carry-over</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="13">
+        <subject> It</subject>
+        <obligation> is</obligation>
+        <action> recommended</action>
+        <object> </object>
+        <condition>  Starting materials should only be purchased from approved suppliers named in the relevant specification , and where possible , directly from the producer</condition>
+        <modifier> </modifier>
+    </parsed_sentence>
+    <parsed_sentence count="14">
+        <subject> </subject>
+        <obligation></obligation>
+        <action> Only starting materials which have been released by the Quality Control Department and which are within their shelf life should be used</action>
+        <object> </object>
+        <condition></condition>
+        <modifier> </modifier>
+    </parsed_sentence>
+    <parsed_sentence count="15">
+        <subject> Actual yields</subject>
+        <obligation> should be</obligation>
+        <action> compared</action>
+        <object> </object>
+        <condition></condition>
+        <modifier> with expeected yieldsat designated steps in the production process</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="16">
+        <subject> Expected yields</subject>
+        <obligation> should be</obligation>
+        <action> established</action>
+        <object> </object>
+        <condition></condition>
+        <modifier> on on on previous laboratory , pilot scale , or manufacturing data</modifier>
+    </parsed_sentence>
+    <parsed_sentence count="17">
+        <subject> Deviations in yield</subject>
+        <obligation> should be</obligation>
+        <action> investigated</action>
+        <object> </object>
+        <condition></condition>
+        <modifier> to determine their impact or potential impact on the resulting quality</modifier>
+    </parsed_sentence>
+</parsed_sentences>

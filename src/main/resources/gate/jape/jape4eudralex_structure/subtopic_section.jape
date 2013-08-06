@@ -1,0 +1,44 @@
+/*
+*
+*/
+Phase: subtopic_section
+/* Input:  Modified_Sentence   Split SpaceToken RegID */
+Input: SubtopicNo TopicNo
+Options: control = all
+
+Macro: TOPIC_NO ({TopicNo})
+Macro: SUBTOPIC_NO ({SubtopicNo})
+
+
+
+
+Rule: SubtopicSection 
+Priority:100(
+	(SUBTOPIC_NO):start
+	(TOPIC_NO | SUBTOPIC_NO):end
+)
+-->
+{
+// obtains the annotation
+gate.AnnotationSet startSet = (gate.AnnotationSet)bindings.get("start");
+gate.AnnotationSet endSet = (gate.AnnotationSet)bindings.get("end");
+
+// adding features to the annotation
+gate.FeatureMap features = Factory.newFeatureMap();
+features.put("rule","SubtopicSection");
+
+
+// adding string of the annotation to the fetures. It needs start and end node offsets as int values
+// I was wondering why there is no built in getString() function in JAPE/GATE.
+int sNode = startSet.firstNode().getOffset().intValue();
+int eNode = endSet.firstNode().getOffset().intValue();
+features.put("startNode",sNode);
+features.put("endNode", eNode);
+String theWord = doc.getContent().toString().substring(sNode, eNode);		
+features.put("string",theWord);
+
+// finally adding the feature with the annotation. It needs first node, last node,
+//the name off the annotation (type) to appear and the new features
+outputAS.add(startSet.firstNode(), endSet.firstNode(), "SubtopicSection",features);
+
+}

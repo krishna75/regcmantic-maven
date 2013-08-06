@@ -1,0 +1,43 @@
+5.1 Production should be performed and supervised by competent people.
+5.2 All handling of materials and products, such as receipt and quarantine, sampling, storage,
+labelling, dispensing, processing, packaging and distribution should be done in accordance
+with written procedures or instructions and, where necessary, recorded.
+5.3 All incoming materials should be checked to ensure that the consignment corresponds to
+the order. Containers should be cleaned where necessary and labelled with the prescribed
+data.
+5.4 Damage to containers and any other problem which might adversely affect the quality of a
+material should be investigated, recorded and reported to the Quality Control Department.
+5.5 Incoming materials and finished products should be physically or administratively
+quarantined immediately after receipt or processing, until they have been released for use
+or distribution.
+5.6 Intermediate and bulk products purchased as such should be handled on receipt as though
+they were starting materials.
+5.7 All materials and products should be stored under the appropriate conditions established
+by the manufacturer and in an orderly fashion to permit batch segregation and stock
+rotation.
+5.8 Checks on yields, and reconciliation of quantities, should be carried out as necessary to
+ensure that there are no discrepancies outside acceptable limits.
+5.9 Operations on different products should not be carried out simultaneously or consecutively
+in the same room unless there is no risk of mix-up or cross-contamination.
+5.10 At every stage of processing, products and materials should be protected from microbial and
+other contamination.
+5.11 When working with dry materials and products, special precautions should be taken to
+prevent the generation and dissemination of dust. This applies particularly to the handling
+of highly active or sensitising materials.
+5.12 At all times during processing, all materials, bulk containers, major items of equipment
+and where appropriate rooms used should be labelled or otherwise identified with an
+indication of the product or material being processed, its strength (where applicable) and
+batch number. Where applicable, this indication should also mention the stage of
+production.
+5.13 Labels applied to containers, equipment or premises should be clear, unambiguous and in
+the company&#xfffd;s agreed format. It is often helpful in addition to the wording on the labels to
+use colours to indicate status (for example, quarantined, accepted, rejected, clean, ...).
+5.14 Checks should be carried out to ensure that pipelines and other pieces of equipment used
+for the transportation of products from one area to another are connected in a correct
+manner.
+5.15 Any deviation from instructions or procedures should be avoided as far as possible. If a
+deviation occurs, it should be approved in writing by a competent person, with the
+involvement of the Quality Control Department when appropriate.
+5.16 Access to production premises should be restricted to authorised personnel.
+5.17 Normally, the production of non-medicinal products should be avoided in areas and with
+the equipment destined for the production of medicinal products.

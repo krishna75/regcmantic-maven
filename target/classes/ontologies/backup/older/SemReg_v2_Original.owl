@@ -1,0 +1,334 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns="http://www.owl-ontologies.com/SemanticRegulation.owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="file:/D:/Dropbox/NetBeansProjects/mapping_files/ontologies/SemReg_v2.owl">
+  <owl:Ontology rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl"/>
+  <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Action">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#RegulationEntity"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#RegulationSection">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#PhysicalConcept"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Topic">
+    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#RegulationSection"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#RegulationSource">
+    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#PhysicalConcept"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Strength">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:oneOf rdf:parseType="Collection">
+          <Strength rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Soft">
+            <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Soft</rdfs:comment>
+          </Strength>
+          <Strength rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Moderate">
+            <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Moderate</rdfs:comment>
+          </Strength>
+          <Strength rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Strong">
+            <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Strong</rdfs:comment>
+          </Strength>
+        </owl:oneOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Attribute"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#RegulationEntity">
+    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#PhysicalConcept"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Regulation">
+    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#RegulationSection"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Obligation">
+    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#RegulationEntity"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#PositiveNegative">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Attribute"/>
+    </rdfs:subClassOf>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:oneOf rdf:parseType="Collection">
+          <PositiveNegative rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Positive">
+            <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Positive</rdfs:comment>
+          </PositiveNegative>
+          <PositiveNegative rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Negative">
+            <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Negative</rdfs:comment>
+          </PositiveNegative>
+        </owl:oneOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Attribute">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#AbstractConcept"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Body">
+    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#RegulationSource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Document">
+    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#RegulationSource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Subject">
+    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#RegulationEntity"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Statement">
+    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#RegulationSection"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Quantity">
+    <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#AbstractConcept"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#isActionOf">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#hasAction"/>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Action"/>
+    <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Statement"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#hasAction">
+    <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Action"/>
+    <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#isActionOf"/>
+    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Statement"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#hasObligation">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#isObligationOf"/>
+    </owl:inverseOf>
+    <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Obligation"/>
+    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Statement"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#isObligationOf">
+    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Obligation"/>
+    <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Statement"/>
+    <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#hasObligation"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#isSubjectOf">
+    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Subject"/>
+    <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Statement"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#hasSubject"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#hasSubject">
+    <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Subject"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Topic"/>
+          <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Statement"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#isSubjectOf"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#description">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Document"/>
+          <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Body"/>
+          <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Topic"/>
+          <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Statement"/>
+          <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Regulation"/>
+          <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Action"/>
+          <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Obligation"/>
+          <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Subject"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#strength">
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >moderate</rdf:first>
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >soft</rdf:first>
+            </rdf:rest>
+          </rdf:rest>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >strong</rdf:first>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#hasName">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Body"/>
+          <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Document"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#id">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Topic"/>
+          <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Regulation"/>
+          <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Statement"/>
+          <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Body"/>
+          <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Document"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#similarWords">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Subject"/>
+          <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Action"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#title">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Topic"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#actionAnnotation">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#subjectAnnotation">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:TransitiveProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#isTopicOf">
+    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Topic"/>
+    <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Topic"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf>
+      <owl:TransitiveProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#hasTopic"/>
+    </owl:inverseOf>
+  </owl:TransitiveProperty>
+  <owl:TransitiveProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#hasTopic">
+    <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#isTopicOf"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Topic"/>
+    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Topic"/>
+  </owl:TransitiveProperty>
+  <owl:FunctionalProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#publishedDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Document"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#version">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Document"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#containedIn">
+    <owl:inverseOf>
+      <owl:InverseFunctionalProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#containsTopic"/>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Topic"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Document"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#hasStrength">
+    <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Strength"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Obligation"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#isStatementOf">
+    <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Regulation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Statement"/>
+    <owl:inverseOf>
+      <owl:InverseFunctionalProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#hasStatement"/>
+    </owl:inverseOf>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#isDocumentOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Body"/>
+    <owl:inverseOf>
+      <owl:InverseFunctionalProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#hasDocument"/>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Document"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#isRegulationOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Topic"/>
+    <owl:inverseOf>
+      <owl:InverseFunctionalProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#hasRegulation"/>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Regulation"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#hasType">
+    <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#PositiveNegative"/>
+    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Obligation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#containsTopic">
+    <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#containedIn"/>
+    <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Topic"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Document"/>
+  </owl:InverseFunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#hasRegulation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Topic"/>
+    <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#isRegulationOf"/>
+    <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Regulation"/>
+  </owl:InverseFunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#hasDocument">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Body"/>
+    <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Document"/>
+    <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#isDocumentOf"/>
+  </owl:InverseFunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#hasStatement">
+    <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Statement"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#isStatementOf"/>
+    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Regulation"/>
+  </owl:InverseFunctionalProperty>
+  <owl:DataRange>
+    <owl:oneOf rdf:parseType="Resource">
+      <rdf:rest rdf:parseType="Resource">
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >negative</rdf:first>
+      </rdf:rest>
+      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+      >positive</rdf:first>
+    </owl:oneOf>
+  </owl:DataRange>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.4.3, Build 572)  http://protege.stanford.edu -->
