@@ -7,13 +7,13 @@
        <family>Arial</family>
        <color>#ffffff</color>
    </chapter>
-  <subsection level="2">
+  <section level="2">
        <style>normal</style>
        <weight>bold </weight>
        <size>20</size>
        <family>Times New Roman</family>
        <color>#000000</color>
-   </subsection>
+   </section>
   <page_no level="3">
        <style>normal</style>
        <weight>bold </weight>

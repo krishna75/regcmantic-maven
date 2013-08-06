@@ -6,8 +6,9 @@
 package uk.ac.brookes.regcmantic.rcm.main;
 
 import uk.ac.brookes.regcmantic.rcm.phase1._1_FeatureAnnotator;
-
-
+import uk.ac.brookes.regcmantic.rcm.phase1._2_FeatureReader;
+import uk.ac.brookes.regcmantic.rcm.phase1._3_StructurePredictor;
+import uk.ac.brookes.regcmantic.rcm.phase1._4_UIStyleSelector_V3;
 
 
 /**
@@ -26,10 +27,10 @@ public static void main(String[] args)   {
  *  Makesure, you read the ReadMe.txt file for the files used in this project.
  */
 
-                    new _1_FeatureAnnotator();
-//                    new ParagraphReader();
-//                    new StructurePredictor();
-//                    new UIStyleSelector_V3();
+//                    new _1_FeatureAnnotator();
+//                    new _2_FeatureReader();
+//                    new _3_StructurePredictor();
+                    new _4_UIStyleSelector_V3();
 //             ======================================
 //                    1. SemReg population
 //                    new _1_EntityAnnotator_V3();
