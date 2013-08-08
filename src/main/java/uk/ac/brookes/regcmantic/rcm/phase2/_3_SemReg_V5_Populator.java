@@ -5,16 +5,15 @@
 
 package uk.ac.brookes.regcmantic.rcm.phase2;
 
-import uk.ac.brookes.regcmantic.api.ont.JenaAbstractOntology;
-import gate.util.GateException;
 import gate.util.Out;
+import uk.ac.brookes.regcmantic.api.ont.JenaAbstractOntology;
 import uk.ac.brookes.regcmantic.helper.reg.*;
 import uk.ac.brookes.regcmantic.helper.util.MyReader;
 import uk.ac.brookes.regcmantic.helper.util.Print;
-import java.io.IOException;
+import uk.ac.brookes.regcmantic.rcm.main.Settings;
+
 import java.io.Serializable;
 import java.util.ArrayList;
-import uk.ac.brookes.regcmantic.rcm.main.Settings;
 
 
 /**

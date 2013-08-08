@@ -9,6 +9,9 @@ import uk.ac.brookes.regcmantic.rcm.phase1._1_FeatureAnnotator;
 import uk.ac.brookes.regcmantic.rcm.phase1._2_FeatureReader;
 import uk.ac.brookes.regcmantic.rcm.phase1._3_StructurePredictor;
 import uk.ac.brookes.regcmantic.rcm.phase1._4_UIStyleSelector_V3;
+import uk.ac.brookes.regcmantic.rcm.phase2._1_EntityAnnotator_V3;
+import uk.ac.brookes.regcmantic.rcm.phase2._2_EntityReader_V3;
+import uk.ac.brookes.regcmantic.rcm.phase2._3_SemReg_V5_Populator;
 
 
 /**
@@ -30,39 +33,39 @@ public static void main(String[] args)   {
 //                    new _1_FeatureAnnotator();
 //                    new _2_FeatureReader();
 //                    new _3_StructurePredictor();
-                    new _4_UIStyleSelector_V3();
+//                    new _4_UIStyleSelector_V3();
 //             ======================================
-//                    1. SemReg population
+                   /* 1. SemReg population   */
 //                    new _1_EntityAnnotator_V3();
 //                    new _2_EntityReader_V3();
-//                    new _3_SemReg_V5_Populator();
-//                    2. ontoReg population
+                    new _3_SemReg_V5_Populator();
+                   /* 2. ontoReg population   */
 //                    new SemToOnto();
-//                    3. task annotation
+                   /* 3. task annotation */
 //                    new TaskAnnotator();
-//                    4. matching algorithm
+                   /* 4. matching algorithm  */
 //                    new MappingApplication().fillAllMatched();
 
 /* ============================ MAPPING STEPS ================================  */
 
-/*  1.  collects annotations of regulation and tasks.
-        write() - interpretes the ontological concepts
-        read() - reads the interpreted files */
-//                  RegTaskCollector collecter = new RegTaskCollector();
-//                  collecter.write();
-//                  collecter.read();
+                /*  1.  collects annotations of regulation and tasks.
+                        write() - interprets the ontological concepts
+                        read() - reads the interpreted files */
+//                  RegTaskCollector collector = new RegTaskCollector();
+//                  collector.write();
+//                  collector.read();
 
-/* 2. computes three scores */
+                    /* 2. computes three scores */
 //                  new ThreeScoresGenerator();
 
-/* 3. computes aggregate score from three scoes */
+                    /* 3. computes aggregate score from three scoes */
 //                  new MappingAlgorithms();
 
-/* 4. collectors collect the existing and computed mappings to compare */
+                    /* 4. collectors collect the existing and computed mappings to compare */
 //                  new ExistingMappingCollector();
 //                  new ComputedMappingCollector();
 
- /* 5. computes precision, recall and f-measure */
+                    /* 5. computes precision, recall and f-measure */
 //                  new MappingResultProcessor();
 
 

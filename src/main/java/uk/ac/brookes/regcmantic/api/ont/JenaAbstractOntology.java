@@ -4,6 +4,8 @@ package uk.ac.brookes.regcmantic.api.ont;
 import uk.ac.brookes.regcmantic.helper.util.Print;
 
 /**
+ * Note: It needs semreg ontology v5, make sure it is there and empty. I have created a bat file, which creates an empty
+ * semreg ontology . Please modify the paths in the bat file and run before running this class.
  *
  * @author Krishna Sapkota, 13-Dec-2011,   09:23:25
  * A PhD project at Oxford Brookes University

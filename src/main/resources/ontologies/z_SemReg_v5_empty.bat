@@ -1,6 +1,6 @@
 
 REM set path and file names
-set filepath="D:\Dropbox\Krishna\NetBeansProjects\mapping_files\ontologies\"
+set filepath="d:/Dropbox/Krishna/regcmantic/src/main/resources/ontologies/"
 set filename="SemReg_v5.owl"
 set empty_filename="SemReg_v5_empty.owl"
 
