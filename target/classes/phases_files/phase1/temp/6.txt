@@ -1,8 +1,0 @@
-5.35 Before any processing operation is started, steps should be taken to ensure that the work
-area and equipment are clean and free from any starting materials, products, product
-residues or documents not required for the current operation.
-5.36 Intermediate and bulk products should be kept under appropriate conditions.
-5.37 Critical processes should be validated (see &quot;VALIDATION&quot; in this Chapter).
-5.38 Any necessary in-process controls and environmental controls should be carried out and
-recorded.
-5.39 Any significant deviation from the expected yield should be recorded and investigated.

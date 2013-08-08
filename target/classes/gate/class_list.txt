@@ -1,6 +1,0 @@
-ValidationTask
-Position
-Equipment
-Operation
-Substance
-Document

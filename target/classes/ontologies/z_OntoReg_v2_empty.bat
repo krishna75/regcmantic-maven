@@ -1,2 +1,0 @@
-delete D:\Dropbox\Krishna\NetBeansProjects\mapping_files\ontologies\OntoReg_v2.owl
-copy D:\Dropbox\Krishna\NetBeansProjects\mapping_files\ontologies\backup\OntoReg_v2_Original.owl D:\Dropbox\Krishna\NetBeansProjects\mapping_files\ontologies\OntoReg_v2.owl

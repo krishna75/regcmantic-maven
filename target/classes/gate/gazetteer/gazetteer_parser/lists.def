@@ -1,6 +1,0 @@
-parsed_subject.lst:parsed_concept:parsed_subject
-parsed_obligation.lst:parsed_concept:parsed_obligation
-parsed_action.lst:parsed_concept:parsed_action
-parsed_object.lst:parsed_concept:parsed_object
-parsed_modifier.lst:parsed_concept:parsed_modifier
-parsed_condition.lst:parsed_concept:parsed_condition

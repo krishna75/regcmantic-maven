@@ -1,8 +1,0 @@
-/*
-*  main.jape
-*
-*/
-MultiPhase:	HTML_Structure
-Phases:
-style_head //extracts information about the styles in the page
-style_body // extracts the text where the styles from the head section is applied
