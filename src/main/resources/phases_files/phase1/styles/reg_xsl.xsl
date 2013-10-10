@@ -26,23 +26,23 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:for-each select="document/body/*">
         <div class="level_1">                 <xsl:value-of select="text"/>         </div>
         <xsl:for-each select="./*">
-        <div class="level_2">                 <xsl:value-of select="text"/>         </div>
-        <xsl:for-each select="./*">
-        <div class="level_3">                 <xsl:value-of select="text"/>         </div>
-        <xsl:for-each select="./*">
-        <div class="level_4">                 <xsl:value-of select="text"/>         </div>
-        <xsl:for-each select="./*">
-        <div class="level_5">                 <xsl:value-of select="text"/>         </div>
-        <xsl:for-each select="./*">
-        <div class="level_6">                 <xsl:value-of select="text"/>         </div>
-        <xsl:for-each select="./*">
+			<div class="level_2">                 <xsl:value-of select="text"/>         </div>
+			<xsl:for-each select="./*">
+				<div class="level_3">                 <xsl:value-of select="text"/>         </div>
+				<xsl:for-each select="./*">
+					<div class="level_4">                 <xsl:value-of select="text"/>         </div>
+					<xsl:for-each select="./*">
+						<div class="level_5">                 <xsl:value-of select="text"/>         </div>
+						<xsl:for-each select="./*">
+							<div class="level_6">                 <xsl:value-of select="text"/>         </div>
+							<xsl:for-each select="./*">
+						   </xsl:for-each>
+					   </xsl:for-each>
+				   </xsl:for-each>
+			   </xsl:for-each>
+		   </xsl:for-each>
        </xsl:for-each>
-       </xsl:for-each>
-       </xsl:for-each>
-       </xsl:for-each>
-       </xsl:for-each>
-       </xsl:for-each>
-       </xsl:for-each>
+    </xsl:for-each>
   </body>
   </html>
 </xsl:template>

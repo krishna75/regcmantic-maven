@@ -12,6 +12,7 @@ import uk.ac.brookes.regcmantic.rcm.phase1._4_UIStyleSelector_V3;
 import uk.ac.brookes.regcmantic.rcm.phase2._1_EntityAnnotator_V3;
 import uk.ac.brookes.regcmantic.rcm.phase2._2_EntityReader_V3;
 import uk.ac.brookes.regcmantic.rcm.phase2._3_SemReg_V5_Populator;
+import uk.ac.brookes.regcmantic.rcm.phase31.pre.RegTaskCollector;
 
 
 /**
@@ -26,7 +27,7 @@ public class Main {
      */
 public static void main(String[] args)   {
 
-/* ================== EXTRACTION STEPS (OLD, USE NEW ONE) ================== 
+/* ================== EXTRACTION STEPS (OLD, USE NEW ONE) ==================
  *  Makesure, you read the ReadMe.txt file for the files used in this project.
  */
 
@@ -38,7 +39,7 @@ public static void main(String[] args)   {
                    /* 1. SemReg population   */
 //                    new _1_EntityAnnotator_V3();
 //                    new _2_EntityReader_V3();
-                    new _3_SemReg_V5_Populator();
+//                    new _3_SemReg_V5_Populator();
                    /* 2. ontoReg population   */
 //                    new SemToOnto();
                    /* 3. task annotation */
@@ -51,9 +52,9 @@ public static void main(String[] args)   {
                 /*  1.  collects annotations of regulation and tasks.
                         write() - interprets the ontological concepts
                         read() - reads the interpreted files */
-//                  RegTaskCollector collector = new RegTaskCollector();
-//                  collector.write();
-//                  collector.read();
+                  RegTaskCollector collector = new RegTaskCollector();
+                  collector.write();
+                  collector.read();
 
                     /* 2. computes three scores */
 //                  new ThreeScoresGenerator();
@@ -94,7 +95,7 @@ public static void main(String[] args)   {
 //   ResultData rd = new ResultData();
 //   rd.readFile();
 //   rd.writeFile();
-//    new UIComplianceChecker1(); 
+//    new UIComplianceChecker1();
 //    new OntoRegChecker(); // spin based
 //    new OntoRegOrdering();
 //        new api.ont.Tester();
@@ -112,7 +113,7 @@ public static void main(String[] args)   {
 //    new UIViolationDetails(indName);
 //    new ViolationCollector();
 //    new HelloCssParser();
-//    new StanfordParser(); 
+//    new StanfordParser();
 //    new RegulationtSentenceReader();
 //    new RefinedSentenceReader();
 //    new Chunker();//  creates paresed chunk (small file)
@@ -128,7 +129,7 @@ public static void main(String[] args)   {
 //  DifferenceTable table =  new DifferenceTable();
 //  table.readFile();
 //  double value = table.getDifference("Equipment", "name");
-    
+
 //  new RegEx();
 //  ThreeScores ts =   new ThreeScores();
 //  ts.read();
@@ -162,8 +163,8 @@ public static void main(String[] args)   {
 //    new UINodeMatrixPanel(new JFrame());
 //    new DOS();
 
-    
-    
+
+
     }
 
 

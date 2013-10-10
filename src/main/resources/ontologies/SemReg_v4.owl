@@ -40,10 +40,10 @@
             >Strong</rdfs:comment>
           </Strength>
           <YesNo rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Unknown">
-            <rdf:type rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Strength"/>
             <rdf:type>
               <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#PositiveNegative"/>
             </rdf:type>
+            <rdf:type rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Strength"/>
           </YesNo>
         </owl:oneOf>
       </owl:Class>
@@ -54,9 +54,9 @@
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Regulation">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Regulation (Medium.Legal_Source.Legal_Document.Regulation)</rdfs:comment>
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Regulation (Medium.Legal_Document.Regulation)</rdfs:comment>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Regulation (Medium.Legal_Source.Legal_Document.Regulation)</rdfs:comment>
     <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Legal_Document"/>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Regulation_Body">
@@ -138,9 +138,9 @@
       <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Norm"/>
     </rdfs:subClassOf>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Normatively_Qualified (Qulalified.Normatively_Qualified)</rdfs:comment>
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Norm (Mental_Entity.Mental_Object.Qalification.Norm)</rdfs:comment>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Normatively_Qualified (Qulalified.Normatively_Qualified)</rdfs:comment>
   </owl:Class>
   <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Equipment">
     <rdfs:subClassOf>
@@ -249,11 +249,32 @@
     <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Action"/>
     <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Statement"/>
   </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#hasStrength">
+    <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Strength"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Obligation"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#lowerTopic">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Topic"/>
+    <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Topic"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#higherTopic"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#isObligationOf">
     <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Obligation"/>
     <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Statement"/>
     <owl:inverseOf>
       <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#hasObligation"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#isSubjectOf">
+    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Subject"/>
+    <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Statement"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#hasSubject"/>
     </owl:inverseOf>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#hasWhen">
@@ -263,13 +284,6 @@
     <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Statement"/>
     <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Time"/>
   </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#isSubjectOf">
-    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Subject"/>
-    <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Statement"/>
-    <owl:inverseOf>
-      <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#hasSubject"/>
-    </owl:inverseOf>
-  </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#hasHow">
     <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Statement"/>
     <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Evaluative_Expression"/>
@@ -277,10 +291,33 @@
       <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#isHowOf"/>
     </owl:inverseOf>
   </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#hasDocument">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Regulation_Body"/>
+    <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Regulation_Document"/>
+    <owl:inverseOf>
+      <owl:FunctionalProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#isDocumentOf"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#higherTopic">
+    <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Topic"/>
+    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Topic"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#lowerTopic"/>
+  </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#hasWhy">
     <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#isWhyOf"/>
     <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Intention"/>
     <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Statement"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#isTopicOf">
+    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Topic"/>
+    <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Regulation_Document"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#hasTopic"/>
+    </owl:inverseOf>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#hasAction">
     <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Action"/>
@@ -299,6 +336,22 @@
     <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Statement"/>
     <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Place"/>
   </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#hasRegulation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Topic"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#isRegulationOf"/>
+    </owl:inverseOf>
+    <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Regulation"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#isStatementOf">
+    <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Regulation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Statement"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#hasStatement"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#hasWhere">
     <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Statement"/>
     <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#isWhereOf"/>
@@ -309,18 +362,22 @@
     <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Obligation"/>
     <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Statement"/>
   </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#isDocumentOf">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Regulation_Body"/>
-    <owl:inverseOf>
-      <owl:InverseFunctionalProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#hasDocument"/>
-    </owl:inverseOf>
+  <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#hasTopic">
+    <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#isTopicOf"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Topic"/>
     <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Regulation_Document"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#isHowOf">
     <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#hasHow"/>
     <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Statement"/>
     <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Evaluative_Expression"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#isRegulationOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Topic"/>
+    <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#hasRegulation"/>
+    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Regulation"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#hasSubject">
     <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Subject"/>
@@ -334,9 +391,21 @@
     </rdfs:domain>
     <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#isSubjectOf"/>
   </owl:ObjectProperty>
-  <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#publishedDate">
+  <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#hasType">
+    <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#PositiveNegative"/>
+    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Obligation"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#hasStatement">
+    <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Statement"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#isStatementOf"/>
+    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Regulation"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#documentStructure">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Topic"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#description">
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
@@ -358,31 +427,6 @@
         </owl:unionOf>
       </owl:Class>
     </rdfs:domain>
-  </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#version">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Regulation_Document"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-  </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#strength">
-    <rdfs:range>
-      <owl:DataRange>
-        <owl:oneOf rdf:parseType="Resource">
-          <rdf:rest rdf:parseType="Resource">
-            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >moderate</rdf:first>
-            <rdf:rest rdf:parseType="Resource">
-              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >soft</rdf:first>
-              <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-            </rdf:rest>
-          </rdf:rest>
-          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-          >strong</rdf:first>
-        </owl:oneOf>
-      </owl:DataRange>
-    </rdfs:range>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#hasAnnotation">
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
@@ -406,9 +450,63 @@
       </owl:Class>
     </rdfs:domain>
   </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#id">
+  <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#similarWords">
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Subject"/>
+          <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Action"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#actionAnnotation">
+    <rdfs:subPropertyOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#hasAnnotation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#subjectAnnotation">
+    <rdfs:subPropertyOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#hasAnnotation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:FunctionalProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#publishedDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#version">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Regulation_Document"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#strength">
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >moderate</rdf:first>
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >soft</rdf:first>
+            </rdf:rest>
+          </rdf:rest>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >strong</rdf:first>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#isDocumentOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Regulation_Body"/>
+    <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#hasDocument"/>
+    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Regulation_Document"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#id">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <rdfs:domain>
       <owl:Class>
         <owl:unionOf rdf:parseType="Collection">
@@ -427,116 +525,18 @@
         </owl:unionOf>
       </owl:Class>
     </rdfs:domain>
-  </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#similarWords">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:domain>
-      <owl:Class>
-        <owl:unionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Subject"/>
-          <owl:Class rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Action"/>
-        </owl:unionOf>
-      </owl:Class>
-    </rdfs:domain>
-  </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#title">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Topic"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-  </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#actionAnnotation">
-    <rdfs:subPropertyOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#hasAnnotation"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-  </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#subjectAnnotation">
-    <rdfs:subPropertyOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#hasAnnotation"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-  </owl:DatatypeProperty>
-  <owl:FunctionalProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#documentStructure">
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#title">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Topic"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Topic"/>
   </owl:FunctionalProperty>
-  <owl:FunctionalProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#isTopicOf">
-    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Topic"/>
-    <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Regulation_Document"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <owl:inverseOf>
-      <owl:InverseFunctionalProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#hasTopic"/>
-    </owl:inverseOf>
-  </owl:FunctionalProperty>
-  <owl:FunctionalProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#hasStrength">
-    <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Strength"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Obligation"/>
-  </owl:FunctionalProperty>
-  <owl:FunctionalProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#isStatementOf">
-    <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Regulation"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Statement"/>
-    <owl:inverseOf>
-      <owl:InverseFunctionalProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#hasStatement"/>
-    </owl:inverseOf>
-  </owl:FunctionalProperty>
-  <owl:FunctionalProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#isRegulationOf">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Topic"/>
-    <owl:inverseOf>
-      <owl:InverseFunctionalProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#hasRegulation"/>
-    </owl:inverseOf>
-    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Regulation"/>
-  </owl:FunctionalProperty>
-  <owl:FunctionalProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#hasType">
-    <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#PositiveNegative"/>
-    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Obligation"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-  </owl:FunctionalProperty>
-  <owl:FunctionalProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#higherTopic">
-    <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Topic"/>
-    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Topic"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <owl:inverseOf>
-      <owl:InverseFunctionalProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#lowerTopic"/>
-    </owl:inverseOf>
-  </owl:FunctionalProperty>
-  <owl:InverseFunctionalProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#hasRegulation">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Topic"/>
-    <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#isRegulationOf"/>
-    <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Regulation"/>
-  </owl:InverseFunctionalProperty>
-  <owl:InverseFunctionalProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#lowerTopic">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Topic"/>
-    <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Topic"/>
-    <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#higherTopic"/>
-  </owl:InverseFunctionalProperty>
-  <owl:InverseFunctionalProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#hasTopic">
-    <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#isTopicOf"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Topic"/>
-    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Regulation_Document"/>
-  </owl:InverseFunctionalProperty>
-  <owl:InverseFunctionalProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#hasDocument">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Regulation_Body"/>
-    <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Regulation_Document"/>
-    <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#isDocumentOf"/>
-  </owl:InverseFunctionalProperty>
-  <owl:InverseFunctionalProperty rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#hasStatement">
-    <rdfs:range rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Statement"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#isStatementOf"/>
-    <rdfs:domain rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Regulation"/>
-  </owl:InverseFunctionalProperty>
   <owl:DataRange>
     <owl:oneOf rdf:parseType="Resource">
       <rdf:rest rdf:parseType="Resource">
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
         <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
         >negative</rdf:first>
-        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
       </rdf:rest>
       <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
       >positive</rdf:first>
@@ -591,506 +591,506 @@
 	    Expected yields should be established on previous laboratory, pilot scale, or manufacturing data. 
 		
 		 Deviations in yield associated witj designated process steps should be investigated to determine their impact or potential impact on the resulting quality of affected batches.</rdfs:comment>
+        <hasStatement rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_8.14_3"/>
         <hasStatement>
-          <Statement rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_8.14_2">
-            <hasAction>
-              <Action rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#action_data">
-                <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                >data</description>
-                <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                >action_data</id>
-                <isActionOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_8.14_2"/>
-              </Action>
-            </hasAction>
-            <hasAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >manufacturing</hasAnnotation>
-            <hasAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >laboratory</hasAnnotation>
-            <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >Expected yields should be established on previous laboratory, pilot scale, or manufacturing data.</description>
-            <hasAction>
-              <Action rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#action_manufacturing">
-                <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                >action_manufacturing</id>
-                <isActionOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_8.14_2"/>
-                <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                >manufacturing</description>
-              </Action>
-            </hasAction>
-            <isStatementOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_8.14"/>
+          <Statement rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_8.14_1">
             <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >5.8_2</id>
+            >5.8_1</id>
+            <hasAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >steps</hasAnnotation>
+            <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >8.14 Actual yields should be compared with expeected yieldsat designated steps in the production process.</description>
+            <isStatementOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_8.14"/>
+            <hasAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >production</hasAnnotation>
+            <hasAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >expeected yieldsat designated steps</hasAnnotation>
             <hasAction>
-              <Action rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#action_laboratory">
+              <Action rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#action_compared">
                 <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                >laboratory</description>
+                >compared</description>
                 <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                >action_laboratory</id>
-                <isActionOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_8.14_2"/>
+                >action_compared</id>
+                <isActionOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_8.14_1"/>
               </Action>
             </hasAction>
             <hasAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >data</hasAnnotation>
-            <hasAction>
-              <Action rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#action_established">
-                <isActionOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_8.14_2"/>
-                <isActionOf>
-                  <Statement rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_1">
-                    <hasObligation>
-                      <Obligation rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#should_be">
-                        <hasStrength rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Moderate"/>
+            >production process</hasAnnotation>
+            <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >8.14 Actual yields should be compared with expeected yieldsat designated steps in the production process.</rdfs:comment>
+            <hasObligation>
+              <Obligation rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#should_be">
+                <hasStrength rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Moderate"/>
+                <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >should_be_obligation</id>
+                <isObligationOf>
+                  <Statement rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.22_1">
+                    <hasObligation rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#should_be"/>
+                    <hasAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >API</hasAnnotation>
+                    <hasAction>
+                      <Action rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#action_cleaned">
                         <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                        >should_be_obligation</id>
-                        <isObligationOf>
-                          <Statement rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.22_1">
-                            <hasObligation rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#should_be"/>
-                            <hasAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                            >API</hasAnnotation>
-                            <hasAction>
-                              <Action rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#action_cleaned">
+                        >action_cleaned</id>
+                        <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >cleaned</description>
+                        <isActionOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.22_1"/>
+                      </Action>
+                    </hasAction>
+                    <hasAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >quality</hasAnnotation>
+                    <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >5.22 Equipment and utensils should be cleaned, stored, and, where appropriate, sanitized or sterilized to prevent contamination or carry-over of a material that would alter the quality of the intermediate or API beyond the official or other established specfications.</description>
+                    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >5.22_1</id>
+                    <hasAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >material</hasAnnotation>
+                    <hasAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >Equipment</hasAnnotation>
+                    <hasSubject>
+                      <Subject rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#subject_Equipment">
+                        <isSubjectOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.22_1"/>
+                        <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >subject_Equipment</id>
+                        <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Equipment</description>
+                      </Subject>
+                    </hasSubject>
+                    <hasAction>
+                      <Action rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#action_stored">
+                        <isActionOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.22_1"/>
+                        <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >action_stored</id>
+                        <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >stored</description>
+                      </Action>
+                    </hasAction>
+                    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >5.22 Equipment and utensils should be cleaned, stored, and, where appropriate, sanitized or sterilized to prevent contamination or carry-over of a material that would alter the quality of the intermediate or API beyond the official or other established specfications.</rdfs:comment>
+                    <isStatementOf>
+                      <Regulation rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.22">
+                        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >5.22 Equipment and utensils should be cleaned, stored, and, where appropriate, sanitized or sterilized to prevent contamination or carry-over of a material that would alter the quality of the intermediate or API beyond the official or other established specfications.</rdfs:comment>
+                        <hasStatement rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.22_1"/>
+                        <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >5.22</id>
+                        <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >5.22 Equipment and utensils should be cleaned, stored, and, where appropriate, sanitized or sterilized to prevent contamination or carry-over of a material that would alter the quality of the intermediate or API beyond the official or other established specfications.</description>
+                        <isRegulationOf>
+                          <Topic rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#topic_subsection_5.20">
+                            <higherTopic>
+                              <Topic rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#topic_section_5.2">
                                 <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                                >action_cleaned</id>
-                                <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                                >cleaned</description>
-                                <isActionOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.22_1"/>
-                              </Action>
-                            </hasAction>
-                            <hasAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                            >quality</hasAnnotation>
-                            <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                            >5.22 Equipment and utensils should be cleaned, stored, and, where appropriate, sanitized or sterilized to prevent contamination or carry-over of a material that would alter the quality of the intermediate or API beyond the official or other established specfications.</description>
-                            <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                            >5.22_1</id>
-                            <hasAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                            >material</hasAnnotation>
-                            <hasAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                            >Equipment</hasAnnotation>
-                            <hasSubject>
-                              <Subject rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#subject_Equipment">
-                                <isSubjectOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.22_1"/>
-                                <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                                >subject_Equipment</id>
-                                <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                                >Equipment</description>
-                              </Subject>
-                            </hasSubject>
-                            <hasAction>
-                              <Action rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#action_stored">
-                                <isActionOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.22_1"/>
-                                <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                                >action_stored</id>
-                                <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                                >stored</description>
-                              </Action>
-                            </hasAction>
-                            <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                            >5.22 Equipment and utensils should be cleaned, stored, and, where appropriate, sanitized or sterilized to prevent contamination or carry-over of a material that would alter the quality of the intermediate or API beyond the official or other established specfications.</rdfs:comment>
-                            <isStatementOf>
-                              <Regulation rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.22">
-                                <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                                >5.22 Equipment and utensils should be cleaned, stored, and, where appropriate, sanitized or sterilized to prevent contamination or carry-over of a material that would alter the quality of the intermediate or API beyond the official or other established specfications.</rdfs:comment>
-                                <hasStatement rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.22_1"/>
-                                <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                                >5.22</id>
-                                <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                                >5.22 Equipment and utensils should be cleaned, stored, and, where appropriate, sanitized or sterilized to prevent contamination or carry-over of a material that would alter the quality of the intermediate or API beyond the official or other established specfications.</description>
-                                <isRegulationOf>
-                                  <Topic rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#topic_subsection_5.20">
-                                    <higherTopic>
-                                      <Topic rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#topic_section_5.2">
-                                        <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                                        >section_5.2</id>
-                                        <title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                                        >Process Equipement</title>
-                                        <lowerTopic rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#topic_subsection_5.20"/>
-                                        <documentStructure rdf:datatype=
-                                        "http://www.w3.org/2001/XMLSchema#string"
-                                        >section</documentStructure>
-                                        <higherTopic>
-                                          <Topic rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#topic_chapter_5">
-                                            <id rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >chapter_5</id>
+                                >section_5.2</id>
+                                <title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                >Process Equipement</title>
+                                <lowerTopic rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#topic_subsection_5.20"/>
+                                <documentStructure rdf:datatype=
+                                "http://www.w3.org/2001/XMLSchema#string"
+                                >section</documentStructure>
+                                <higherTopic>
+                                  <Topic rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#topic_chapter_5">
+                                    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                    >chapter_5</id>
+                                    <title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                    >Chapter 5 Production</title>
+                                    <isTopicOf>
+                                      <Regulation_Document rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#eudralex5">
+                                        <hasTopic>
+                                          <Topic rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#topic_section_5.8">
+                                            <lowerTopic>
+                                              <Topic rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#topic_subsection_5.80">
+                                                <documentStructure
+                                                 rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >subsection</documentStructure>
+                                                <hasAnnotation
+                                                 rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >Production</hasAnnotation>
+                                                <hasAnnotation
+                                                 rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >Operations</hasAnnotation>
+                                                <id rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >subsection_5.80</id>
+                                                <higherTopic rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#topic_section_5.8"/>
+                                                <hasRegulation rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_8.14"/>
+                                                <isTopicOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#eudralex5"/>
+                                                <title rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >Production Operations</title>
+                                              </Topic>
+                                            </lowerTopic>
+                                            <isTopicOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#eudralex5"/>
                                             <title rdf:datatype=
                                             "http://www.w3.org/2001/XMLSchema#string"
-                                            >Chapter 5 Production</title>
-                                            <isTopicOf>
-                                              <Regulation_Document rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#eudralex5">
-                                                <hasTopic>
-                                                  <Topic rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#topic_section_5.8">
-                                                    <lowerTopic>
-                                                      <Topic rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#topic_subsection_5.80">
-                                                        <documentStructure
-                                                         rdf:datatype=
-                                                        "http://www.w3.org/2001/XMLSchema#string"
-                                                        >subsection</documentStructure>
-                                                        <hasAnnotation
-                                                         rdf:datatype=
-                                                        "http://www.w3.org/2001/XMLSchema#string"
-                                                        >Operations</hasAnnotation>
-                                                        <hasAnnotation
-                                                         rdf:datatype=
-                                                        "http://www.w3.org/2001/XMLSchema#string"
-                                                        >Production</hasAnnotation>
+                                            >Production and In-Process Controls</title>
+                                            <documentStructure
+                                             rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                            >section</documentStructure>
+                                            <hasAnnotation rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#string"
+                                            >Controls</hasAnnotation>
+                                            <hasAnnotation rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#string"
+                                            >Process</hasAnnotation>
+                                            <hasAnnotation rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#string"
+                                            >Production</hasAnnotation>
+                                            <id rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#string"
+                                            >section_5.8</id>
+                                            <higherTopic rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#topic_chapter_5"/>
+                                          </Topic>
+                                        </hasTopic>
+                                        <hasTopic>
+                                          <Topic rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#topic_subsection_5.30">
+                                            <id rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#string"
+                                            >subsection_5.30</id>
+                                            <isTopicOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#eudralex5"/>
+                                            <documentStructure
+                                             rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                            >subsection</documentStructure>
+                                            <hasRegulation>
+                                              <Regulation rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.31">
+                                                <rdfs:comment
+                                                 rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >5.31 Only starting materials which have been released by the Quality Control Department and which are within their shelf life should be used.</rdfs:comment>
+                                                <description rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >5.31 Only starting materials which have been released by the Quality Control Department and which are within their shelf life should be used.</description>
+                                                <id rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >5.31</id>
+                                                <isRegulationOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#topic_subsection_5.30"/>
+                                                <hasStatement>
+                                                  <Statement rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.31_1">
+                                                    <hasSubject>
+                                                      <Subject rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#subject_Control">
                                                         <id rdf:datatype=
                                                         "http://www.w3.org/2001/XMLSchema#string"
-                                                        >subsection_5.80</id>
-                                                        <higherTopic rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#topic_section_5.8"/>
-                                                        <hasRegulation rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_8.14"/>
-                                                        <isTopicOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#eudralex5"/>
-                                                        <title
-                                                         rdf:datatype=
-                                                        "http://www.w3.org/2001/XMLSchema#string"
-                                                        >Production Operations</title>
-                                                      </Topic>
-                                                    </lowerTopic>
-                                                    <isTopicOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#eudralex5"/>
-                                                    <title rdf:datatype=
-                                                    "http://www.w3.org/2001/XMLSchema#string"
-                                                    >Production and In-Process Controls</title>
-                                                    <documentStructure
-                                                     rdf:datatype=
-                                                    "http://www.w3.org/2001/XMLSchema#string"
-                                                    >section</documentStructure>
-                                                    <hasAnnotation
-                                                     rdf:datatype=
-                                                    "http://www.w3.org/2001/XMLSchema#string"
-                                                    >Controls</hasAnnotation>
-                                                    <hasAnnotation
-                                                     rdf:datatype=
-                                                    "http://www.w3.org/2001/XMLSchema#string"
-                                                    >Process</hasAnnotation>
-                                                    <hasAnnotation
-                                                     rdf:datatype=
-                                                    "http://www.w3.org/2001/XMLSchema#string"
-                                                    >Production</hasAnnotation>
-                                                    <id rdf:datatype=
-                                                    "http://www.w3.org/2001/XMLSchema#string"
-                                                    >section_5.8</id>
-                                                    <higherTopic rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#topic_chapter_5"/>
-                                                  </Topic>
-                                                </hasTopic>
-                                                <hasTopic>
-                                                  <Topic rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#topic_subsection_5.30">
-                                                    <id rdf:datatype=
-                                                    "http://www.w3.org/2001/XMLSchema#string"
-                                                    >subsection_5.30</id>
-                                                    <isTopicOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#eudralex5"/>
-                                                    <documentStructure
-                                                     rdf:datatype=
-                                                    "http://www.w3.org/2001/XMLSchema#string"
-                                                    >subsection</documentStructure>
-                                                    <hasRegulation>
-                                                      <Regulation rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.31">
-                                                        <rdfs:comment
-                                                         rdf:datatype=
-                                                        "http://www.w3.org/2001/XMLSchema#string"
-                                                        >5.31 Only starting materials which have been released by the Quality Control Department and which are within their shelf life should be used.</rdfs:comment>
+                                                        >subject_Control</id>
                                                         <description
                                                          rdf:datatype=
                                                         "http://www.w3.org/2001/XMLSchema#string"
-                                                        >5.31 Only starting materials which have been released by the Quality Control Department and which are within their shelf life should be used.</description>
+                                                        >Control</description>
+                                                        <isSubjectOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.31_1"/>
+                                                      </Subject>
+                                                    </hasSubject>
+                                                    <hasAction>
+                                                      <Action rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#action_used">
+                                                        <isActionOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.31_1"/>
+                                                        <description
+                                                         rdf:datatype=
+                                                        "http://www.w3.org/2001/XMLSchema#string"
+                                                        >used</description>
                                                         <id rdf:datatype=
                                                         "http://www.w3.org/2001/XMLSchema#string"
-                                                        >5.31</id>
-                                                        <isRegulationOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#topic_subsection_5.30"/>
-                                                        <hasStatement>
-                                                          <Statement rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.31_1">
-                                                            <hasSubject>
-                                                              <Subject rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#subject_Control">
-    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >subject_Control</id>
-    <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Control</description>
-    <isSubjectOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.31_1"/>
-                                                              </Subject>
-                                                            </hasSubject>
-                                                            <hasAction>
-                                                              <Action rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#action_used">
-    <isActionOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.31_1"/>
-    <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >used</description>
-    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >action_used</id>                                         </Action>
-                                                            </hasAction>
-                                                            <description
-                                                             rdf:datatype=
-                                                            "http://www.w3.org/2001/XMLSchema#string"
-                                                            >5.31 Only starting materials which have been released by the Quality Control Department and which are within their shelf life should be used.</description>
-                                                            <hasObligation rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#should_be"/>
-                                                            <hasSubject>
-                                                              <Subject rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#subject_shelf_life">
-    <isSubjectOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.31_1"/>
-    <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >shelf life</description>
-    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >subject_shelf_life</id>                                  </Subject>
-                                                            </hasSubject>
-                                                            <hasSubject>
-                                                              <Subject rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#subject_Quality">
-    <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Quality</description>
-    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >subject_Quality</id>
-    <isSubjectOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.31_1"/>
-                                                              </Subject>
-                                                            </hasSubject>
-                                                            <isStatementOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.31"/>
-                                                            <hasAnnotation
-                                                             rdf:datatype=
-                                                            "http://www.w3.org/2001/XMLSchema#string"
-                                                            >Quality</hasAnnotation>
-                                                            <hasAnnotation
-                                                             rdf:datatype=
-                                                            "http://www.w3.org/2001/XMLSchema#string"
-                                                            >Control</hasAnnotation>
-                                                            <hasAnnotation
-                                                             rdf:datatype=
-                                                            "http://www.w3.org/2001/XMLSchema#string"
-                                                            >Quality Control Department</hasAnnotation>
+                                                        >action_used</id>
+                                                      </Action>
+                                                    </hasAction>
+                                                    <description
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#string"
+                                                    >5.31 Only starting materials which have been released by the Quality Control Department and which are within their shelf life should be used.</description>
+                                                    <hasObligation rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#should_be"/>
+                                                    <hasSubject>
+                                                      <Subject rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#subject_shelf_life">
+                                                        <isSubjectOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.31_1"/>
+                                                        <description
+                                                         rdf:datatype=
+                                                        "http://www.w3.org/2001/XMLSchema#string"
+                                                        >shelf life</description>
+                                                        <id rdf:datatype=
+                                                        "http://www.w3.org/2001/XMLSchema#string"
+                                                        >subject_shelf_life</id>
+                                                      </Subject>
+                                                    </hasSubject>
+                                                    <hasSubject>
+                                                      <Subject rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#subject_Quality">
+                                                        <description
+                                                         rdf:datatype=
+                                                        "http://www.w3.org/2001/XMLSchema#string"
+                                                        >Quality</description>
+                                                        <id rdf:datatype=
+                                                        "http://www.w3.org/2001/XMLSchema#string"
+                                                        >subject_Quality</id>
+                                                        <isSubjectOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.31_1"/>
+                                                      </Subject>
+                                                    </hasSubject>
+                                                    <isStatementOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.31"/>
+                                                    <hasAnnotation
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#string"
+                                                    >Quality</hasAnnotation>
+                                                    <hasAnnotation
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#string"
+                                                    >Control</hasAnnotation>
+                                                    <hasAnnotation
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#string"
+                                                    >Quality Control Department</hasAnnotation>
+                                                    <id rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#string"
+                                                    >5.31_1</id>
+                                                    <hasAnnotation
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#string"
+                                                    >shelf life</hasAnnotation>
+                                                    <hasSubject>
+                                                      <Subject rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#subject_Quality_Control_Department">
+                                                        <description
+                                                         rdf:datatype=
+                                                        "http://www.w3.org/2001/XMLSchema#string"
+                                                        >Quality Control Department</description>
+                                                        <isSubjectOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.31_1"/>
+                                                        <id rdf:datatype=
+                                                        "http://www.w3.org/2001/XMLSchema#string"
+                                                        >subject_Quality_Control_Department</id>
+                                                      </Subject>
+                                                    </hasSubject>
+                                                    <hasSubject>
+                                                      <Subject rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#subject_materials">
+                                                        <description
+                                                         rdf:datatype=
+                                                        "http://www.w3.org/2001/XMLSchema#string"
+                                                        >materials</description>
+                                                        <id rdf:datatype=
+                                                        "http://www.w3.org/2001/XMLSchema#string"
+                                                        >subject_materials</id>
+                                                        <isSubjectOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.31_1"/>
+                                                        <isSubjectOf>
+                                                          <Statement rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.26_1">
                                                             <id
                                                              rdf:datatype=
                                                             "http://www.w3.org/2001/XMLSchema#string"
-                                                            >5.31_1</id>
+                                                            >5.26_1</id>
                                                             <hasAnnotation
                                                              rdf:datatype=
                                                             "http://www.w3.org/2001/XMLSchema#string"
-                                                            >shelf life</hasAnnotation>
-                                                            <hasSubject>
-                                                              <Subject rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#subject_Quality_Control_Department">
-    <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Quality Control Department</description>
-    <isSubjectOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.31_1"/>
-    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >subject_Quality_Control_Department</id>                  </Subject>
-                                                            </hasSubject>
-                                                            <hasSubject>
-                                                              <Subject rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#subject_materials">
-    <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >materials</description>
-    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >subject_materials</id>
-    <isSubjectOf>
-      <Statement rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.26_1">
-        <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >5.26_1</id>
-        <hasAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >manufacturer</hasAnnotation>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >5.26 Starting materials should only be purchased from approved suppliers named in the relevant specification, and where possible, directly from the producer.It is recommended that the specifications established by the manufacturer for starting materials be discussed with the suppliers.</rdfs:comment>
-        <hasAction>
-          <Action rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#action_materials">
-            <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >materials</description>
-            <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >action_materials</id>
-            <isActionOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.26_1"/>
-          </Action>
-        </hasAction>
-        <hasAction>
-          <Action rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#action_manufacturer">
-            <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >manufacturer</description>
-            <isActionOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.26_1"/>
-            <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >action_manufacturer</id>
-          </Action>
-        </hasAction>
-        <hasObligation>
-          <Obligation rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#should_only_be">
-            <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >should only be</description>
-            <isObligationOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.26_1"/>
-            <hasStrength rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Moderate"/>
-            <hasType rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Positive"/>
-            <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >should_only_be_obligation</id>
-          </Obligation>
-        </hasObligation>
-        <hasAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >specification</hasAnnotation>
-        <hasAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >specifications</hasAnnotation>
-        <isStatementOf>
-          <Regulation rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.26">
-            <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >5.26</id>
-            <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >5.26 Starting materials should only be purchased from approved suppliers named in the relevant specification, and where possible, directly from the producer.It is recommended that the specifications established by the manufacturer for starting materials be discussed with the suppliers.</rdfs:comment>
-            <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >5.26 Starting materials should only be purchased from approved suppliers named in the relevant specification, and where possible, directly from the producer.It is recommended that the specifications established by the manufacturer for starting materials be discussed with the suppliers.</description>
-            <hasStatement rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.26_1"/>
-            <isRegulationOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#topic_subsection_5.30"/>
-          </Regulation>
-        </isStatementOf>
-        <hasSubject rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#subject_materials"/>
-        <hasAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >starting materials</hasAnnotation>
-        <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >5.26 Starting materials should only be purchased from approved suppliers named in the relevant specification, and where possible, directly from the producer.It is recommended that the specifications established by the manufacturer for starting materials be discussed with the suppliers.</description>
-        <hasAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >materials</hasAnnotation>
-        <hasAction>
-          <Action rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#action_purchased">
-            <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >purchased</description>
-            <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >action_purchased</id>
-            <isActionOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.26_1"/>
-          </Action>
-        </hasAction>
-        <hasAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >relevant specification</hasAnnotation>
-        <hasAction>
-          <Action rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#action_specifications">
-            <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >action_specifications</id>
-            <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >specifications</description>
-            <isActionOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.26_1"/>
-          </Action>
-        </hasAction>
-        <hasAction>
-          <Action rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#action_specification">
-            <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >action_specification</id>
-            <isActionOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.26_1"/>
-            <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >specification</description>
-          </Action>
-        </hasAction>
-      </Statement>
-    </isSubjectOf>
-    <isSubjectOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.31_1"/>
-                                                              </Subject>
-                                                            </hasSubject>
+                                                            >manufacturer</hasAnnotation>
                                                             <rdfs:comment
                                                              rdf:datatype=
                                                             "http://www.w3.org/2001/XMLSchema#string"
-                                                            >5.31 Only starting materials which have been released by the Quality Control Department and which are within their shelf life should be used.</rdfs:comment>
+                                                            >5.26 Starting materials should only be purchased from approved suppliers named in the relevant specification, and where possible, directly from the producer.It is recommended that the specifications established by the manufacturer for starting materials be discussed with the suppliers.</rdfs:comment>
+                                                            <hasAction>
+                                                              <Action rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#action_materials">
+    <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >materials</description>
+    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >action_materials</id>
+    <isActionOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.26_1"/>
+                                                              </Action>
+                                                            </hasAction>
+                                                            <hasAction>
+                                                              <Action rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#action_manufacturer">
+    <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >manufacturer</description>
+    <isActionOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.26_1"/>
+    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >action_manufacturer</id>                                 </Action>
+                                                            </hasAction>
+                                                            <hasObligation>
+                                                              <Obligation rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#should_only_be">
+    <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >should only be</description>
+    <isObligationOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.26_1"/>
+    <hasStrength rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Moderate"/>
+    <hasType rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Positive"/>
+    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >should_only_be_obligation</id>                           </Obligation>
+                                                            </hasObligation>
+                                                            <hasAnnotation
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#string"
+                                                            >specification</hasAnnotation>
+                                                            <hasAnnotation
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#string"
+                                                            >specifications</hasAnnotation>
+                                                            <isStatementOf>
+                                                              <Regulation rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.26">
+    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >5.26</id>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >5.26 Starting materials should only be purchased from approved suppliers named in the relevant specification, and where possible, directly from the producer.It is recommended that the specifications established by the manufacturer for starting materials be discussed with the suppliers.</rdfs:comment>
+    <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >5.26 Starting materials should only be purchased from approved suppliers named in the relevant specification, and where possible, directly from the producer.It is recommended that the specifications established by the manufacturer for starting materials be discussed with the suppliers.</description>
+    <hasStatement rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.26_1"/>
+    <isRegulationOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#topic_subsection_5.30"/>
+                                                              </Regulation>
+                                                            </isStatementOf>
+                                                            <hasSubject rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#subject_materials"/>
+                                                            <hasAnnotation
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#string"
+                                                            >starting materials</hasAnnotation>
+                                                            <description
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#string"
+                                                            >5.26 Starting materials should only be purchased from approved suppliers named in the relevant specification, and where possible, directly from the producer.It is recommended that the specifications established by the manufacturer for starting materials be discussed with the suppliers.</description>
                                                             <hasAnnotation
                                                              rdf:datatype=
                                                             "http://www.w3.org/2001/XMLSchema#string"
                                                             >materials</hasAnnotation>
+                                                            <hasAction>
+                                                              <Action rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#action_purchased">
+    <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >purchased</description>
+    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >action_purchased</id>
+    <isActionOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.26_1"/>
+                                                              </Action>
+                                                            </hasAction>
+                                                            <hasAnnotation
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#string"
+                                                            >relevant specification</hasAnnotation>
+                                                            <hasAction>
+                                                              <Action rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#action_specifications">
+    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >action_specifications</id>
+    <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >specifications</description>
+    <isActionOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.26_1"/>
+                                                              </Action>
+                                                            </hasAction>
+                                                            <hasAction>
+                                                              <Action rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#action_specification">
+    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >action_specification</id>
+    <isActionOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.26_1"/>
+    <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >specification</description>                              </Action>
+                                                            </hasAction>
                                                           </Statement>
-                                                        </hasStatement>
-                                                      </Regulation>
-                                                    </hasRegulation>
-                                                    <higherTopic>
-                                                      <Topic rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#topic_section_5.3">
-                                                        <documentStructure
-                                                         rdf:datatype=
-                                                        "http://www.w3.org/2001/XMLSchema#string"
-                                                        >section</documentStructure>
-                                                        <higherTopic rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#topic_chapter_5"/>
-                                                        <title
-                                                         rdf:datatype=
-                                                        "http://www.w3.org/2001/XMLSchema#string"
-                                                        >Process</title>
-                                                        <isTopicOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#eudralex5"/>
-                                                        <hasAnnotation
-                                                         rdf:datatype=
-                                                        "http://www.w3.org/2001/XMLSchema#string"
-                                                        >Process</hasAnnotation>
-                                                        <lowerTopic rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#topic_subsection_5.30"/>
-                                                        <id rdf:datatype=
-                                                        "http://www.w3.org/2001/XMLSchema#string"
-                                                        >section_5.3</id>
-                                                      </Topic>
-                                                    </higherTopic>
+                                                        </isSubjectOf>
+                                                      </Subject>
+                                                    </hasSubject>
+                                                    <rdfs:comment
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#string"
+                                                    >5.31 Only starting materials which have been released by the Quality Control Department and which are within their shelf life should be used.</rdfs:comment>
                                                     <hasAnnotation
                                                      rdf:datatype=
                                                     "http://www.w3.org/2001/XMLSchema#string"
-                                                    >Material</hasAnnotation>
-                                                    <hasAnnotation
-                                                     rdf:datatype=
-                                                    "http://www.w3.org/2001/XMLSchema#string"
-                                                    >Starting Material</hasAnnotation>
-                                                    <title rdf:datatype=
-                                                    "http://www.w3.org/2001/XMLSchema#string"
-                                                    >Starting Material</title>
-                                                    <hasRegulation rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.26"/>
-                                                  </Topic>
-                                                </hasTopic>
-                                                <hasTopic rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#topic_section_5.3"/>
-                                                <version rdf:datatype=
+                                                    >materials</hasAnnotation>
+                                                  </Statement>
+                                                </hasStatement>
+                                              </Regulation>
+                                            </hasRegulation>
+                                            <higherTopic>
+                                              <Topic rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#topic_section_5.3">
+                                                <documentStructure
+                                                 rdf:datatype=
                                                 "http://www.w3.org/2001/XMLSchema#string"
-                                                >5</version>
-                                                <hasTopic rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#topic_subsection_5.20"/>
+                                                >section</documentStructure>
+                                                <higherTopic rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#topic_chapter_5"/>
+                                                <title rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >Process</title>
+                                                <isTopicOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#eudralex5"/>
+                                                <hasAnnotation
+                                                 rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >Process</hasAnnotation>
+                                                <lowerTopic rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#topic_subsection_5.30"/>
                                                 <id rdf:datatype=
                                                 "http://www.w3.org/2001/XMLSchema#string"
-                                                >eudralex5</id>
-                                                <hasTopic rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#topic_subsection_5.80"/>
-                                                <isDocumentOf>
-                                                  <Regulation_Body rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#emea">
-                                                    <description
-                                                     rdf:datatype=
-                                                    "http://www.w3.org/2001/XMLSchema#string"
-                                                    >European Medicines Agency</description>
-                                                    <hasName rdf:datatype=
-                                                    "http://www.w3.org/2001/XMLSchema#string"
-                                                    >EMEA</hasName>
-                                                    <hasDocument rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#eudralex5"/>
-                                                    <id rdf:datatype=
-                                                    "http://www.w3.org/2001/XMLSchema#string"
-                                                    >emea</id>
-                                                  </Regulation_Body>
-                                                </isDocumentOf>
-                                                <hasTopic rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#topic_section_5.2"/>
-                                                <hasTopic rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#topic_chapter_5"/>
-                                                <hasName rdf:datatype=
-                                                "http://www.w3.org/2001/XMLSchema#string"
-                                                >EudraLex</hasName>
-                                                <description rdf:datatype=
-                                                "http://www.w3.org/2001/XMLSchema#string"
-                                                >EudraLex is the collection of rules and regulations governing medicinal products in the European Union</description>
-                                              </Regulation_Document>
-                                            </isTopicOf>
-                                            <documentStructure
-                                             rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                                            >chapter</documentStructure>
-                                            <lowerTopic rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#topic_section_5.8"/>
-                                            <lowerTopic rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#topic_section_5.3"/>
-                                            <lowerTopic rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#topic_section_5.2"/>
+                                                >section_5.3</id>
+                                              </Topic>
+                                            </higherTopic>
+                                            <hasAnnotation rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#string"
+                                            >Material</hasAnnotation>
+                                            <hasAnnotation rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#string"
+                                            >Starting Material</hasAnnotation>
+                                            <title rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#string"
+                                            >Starting Material</title>
+                                            <hasRegulation rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.26"/>
                                           </Topic>
-                                        </higherTopic>
-                                        <isTopicOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#eudralex5"/>
-                                        <hasAnnotation rdf:datatype=
+                                        </hasTopic>
+                                        <hasTopic rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#topic_section_5.3"/>
+                                        <version rdf:datatype=
                                         "http://www.w3.org/2001/XMLSchema#string"
-                                        >Process</hasAnnotation>
-                                      </Topic>
-                                    </higherTopic>
-                                    <hasRegulation rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.22"/>
-                                    <title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                                    >Equipment Maintainance and Cleaning</title>
-                                    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                                    >subsection_5.20</id>
-                                    <hasRegulation>
-                                      <Regulation rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21">
-                                        <hasStatement>
-                                          <Statement rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_4">
-                                            <rdfs:comment rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >Assignment of responsibility for cleaning of equipment;</rdfs:comment>
-                                            <hasAnnotation rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >cleaning</hasAnnotation>
-                                            <hasAnnotation rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >equipment</hasAnnotation>
-                                            <isStatementOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21"/>
-                                            <id rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >5.21_4</id>
+                                        >5</version>
+                                        <hasTopic rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#topic_subsection_5.20"/>
+                                        <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                        >eudralex5</id>
+                                        <hasTopic rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#topic_subsection_5.80"/>
+                                        <isDocumentOf>
+                                          <Regulation_Body rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#emea">
                                             <description rdf:datatype=
                                             "http://www.w3.org/2001/XMLSchema#string"
-                                            >Assignment of responsibility for cleaning of equipment;</description>
-                                          </Statement>
-                                        </hasStatement>
-                                        <isRegulationOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#topic_subsection_5.20"/>
-                                        <rdfs:comment rdf:datatype=
+                                            >European Medicines Agency</description>
+                                            <hasName rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#string"
+                                            >EMEA</hasName>
+                                            <hasDocument rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#eudralex5"/>
+                                            <id rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#string"
+                                            >emea</id>
+                                          </Regulation_Body>
+                                        </isDocumentOf>
+                                        <hasTopic rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#topic_section_5.2"/>
+                                        <hasTopic rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#topic_chapter_5"/>
+                                        <hasName rdf:datatype=
                                         "http://www.w3.org/2001/XMLSchema#string"
-                                        >5.21 Written procedures should be established for cleaning of equipment and its subsequent release for use in the manufacture of intermediates and APIs 
+                                        >EudraLex</hasName>
+                                        <description rdf:datatype=
+                                        "http://www.w3.org/2001/XMLSchema#string"
+                                        >EudraLex is the collection of rules and regulations governing medicinal products in the European Union</description>
+                                      </Regulation_Document>
+                                    </isTopicOf>
+                                    <documentStructure rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >chapter</documentStructure>
+                                    <lowerTopic rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#topic_section_5.2"/>
+                                    <lowerTopic rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#topic_section_5.3"/>
+                                    <lowerTopic rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#topic_section_5.8"/>
+                                  </Topic>
+                                </higherTopic>
+                                <isTopicOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#eudralex5"/>
+                                <hasAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                >Process</hasAnnotation>
+                              </Topic>
+                            </higherTopic>
+                            <hasRegulation rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.22"/>
+                            <title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                            >Equipment Maintainance and Cleaning</title>
+                            <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                            >subsection_5.20</id>
+                            <hasRegulation>
+                              <Regulation rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21">
+                                <hasStatement>
+                                  <Statement rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_4">
+                                    <rdfs:comment rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >Assignment of responsibility for cleaning of equipment;</rdfs:comment>
+                                    <hasAnnotation rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >equipment</hasAnnotation>
+                                    <hasAnnotation rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >cleaning</hasAnnotation>
+                                    <isStatementOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21"/>
+                                    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                    >5.21_4</id>
+                                    <description rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >Assignment of responsibility for cleaning of equipment;</description>
+                                  </Statement>
+                                </hasStatement>
+                                <isRegulationOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#topic_subsection_5.20"/>
+                                <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                >5.21 Written procedures should be established for cleaning of equipment and its subsequent release for use in the manufacture of intermediates and APIs 
 		 Cleaning procedures should contain sufficient details to enable operators to clean each type of equipment in a reproducible and effective manner. 
 		 These procedures should include:
 		 Assignment of responsibility for cleaning of equipment;
@@ -1102,296 +1102,379 @@
 		 Instructions for the protection of clean equipment from contamination prior to use;
 		 Inspection of equipment for cleanliness immediately before use, if practical;and
 		 Establishing the maximum time that may elapse between the completion of processing and equipment cleaning, when appropriate.</rdfs:comment>
-                                        <hasStatement>
-                                          <Statement rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_7">
-                                            <hasAnnotation rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >cleaning</hasAnnotation>
-                                            <hasAnnotation rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >proper cleaning</hasAnnotation>
-                                            <hasAnnotation rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >equipment</hasAnnotation>
-                                            <description rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >When appropriate, instructions for disassembling and reassembling each article of equipment to ensure proper cleaning;</description>
-                                            <rdfs:comment rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >When appropriate, instructions for disassembling and reassembling each article of equipment to ensure proper cleaning;</rdfs:comment>
-                                            <isStatementOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21"/>
-                                            <id rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >5.21_7</id>
-                                          </Statement>
-                                        </hasStatement>
-                                        <hasStatement>
-                                          <Statement rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_6">
-                                            <id rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >5.21_6</id>
-                                            <hasAnnotation rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >including dilution</hasAnnotation>
-                                            <hasAnnotation rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >cleaning</hasAnnotation>
-                                            <hasAnnotation rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >materials</hasAnnotation>
-                                            <description rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >A complete description of the methods and materials, including dilution of cleaning agents used to clean equipment;</description>
-                                            <rdfs:comment rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >A complete description of the methods and materials, including dilution of cleaning agents used to clean equipment;</rdfs:comment>
-                                            <hasAnnotation rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >clean</hasAnnotation>
-                                            <hasAnnotation rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >equipment</hasAnnotation>
-                                            <isStatementOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21"/>
-                                          </Statement>
-                                        </hasStatement>
-                                        <hasStatement rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_1"/>
-                                        <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                                        >5.21</id>
-                                        <hasStatement>
-                                          <Statement rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_9">
-                                            <id rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >5.21_9</id>
-                                            <rdfs:comment rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >Instructions for the removal or obliteration of previous batch identification;</rdfs:comment>
-                                            <isStatementOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21"/>
-                                            <hasAnnotation rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >previous batch identification</hasAnnotation>
-                                            <hasAnnotation rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >batch</hasAnnotation>
-                                            <description rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >Instructions for the removal or obliteration of previous batch identification;</description>
-                                          </Statement>
-                                        </hasStatement>
-                                        <hasStatement>
-                                          <Statement rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_12">
-                                            <isStatementOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21"/>
-                                            <description rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >Establishing the maximum time that may elapse between the completion of processing and equipment cleaning, when appropriate.</description>
-                                            <hasAnnotation rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >equipment cleaning</hasAnnotation>
-                                            <rdfs:comment rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >Establishing the maximum time that may elapse between the completion of processing and equipment cleaning, when appropriate.</rdfs:comment>
-                                            <id rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >5.21_12</id>
-                                            <hasAnnotation rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >cleaning</hasAnnotation>
-                                            <hasAnnotation rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >maximum time</hasAnnotation>
-                                            <hasAnnotation rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >equipment</hasAnnotation>
-                                            <hasAnnotation rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >processing</hasAnnotation>
-                                          </Statement>
-                                        </hasStatement>
-                                        <hasStatement>
-                                          <Statement rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_10">
-                                            <isStatementOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21"/>
-                                            <description rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >Instructions for the protection of clean equipment from contamination prior to use;</description>
-                                            <id rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >5.21_10</id>
-                                            <rdfs:comment rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >Instructions for the protection of clean equipment from contamination prior to use;</rdfs:comment>
-                                            <hasAnnotation rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >contamination</hasAnnotation>
-                                            <hasAnnotation rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >clean</hasAnnotation>
-                                            <hasAnnotation rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >use</hasAnnotation>
-                                            <hasAnnotation rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >equipment</hasAnnotation>
-                                          </Statement>
-                                        </hasStatement>
-                                        <hasStatement>
-                                          <Statement rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_3">
-                                            <description rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >These procedures should include:</description>
+                                <hasStatement>
+                                  <Statement rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_7">
+                                    <hasAnnotation rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >equipment</hasAnnotation>
+                                    <hasAnnotation rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >proper cleaning</hasAnnotation>
+                                    <hasAnnotation rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >cleaning</hasAnnotation>
+                                    <description rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >When appropriate, instructions for disassembling and reassembling each article of equipment to ensure proper cleaning;</description>
+                                    <rdfs:comment rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >When appropriate, instructions for disassembling and reassembling each article of equipment to ensure proper cleaning;</rdfs:comment>
+                                    <isStatementOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21"/>
+                                    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                    >5.21_7</id>
+                                  </Statement>
+                                </hasStatement>
+                                <hasStatement>
+                                  <Statement rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_6">
+                                    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                    >5.21_6</id>
+                                    <hasAnnotation rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >including dilution</hasAnnotation>
+                                    <hasAnnotation rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >cleaning</hasAnnotation>
+                                    <hasAnnotation rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >materials</hasAnnotation>
+                                    <description rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >A complete description of the methods and materials, including dilution of cleaning agents used to clean equipment;</description>
+                                    <rdfs:comment rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >A complete description of the methods and materials, including dilution of cleaning agents used to clean equipment;</rdfs:comment>
+                                    <hasAnnotation rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >clean</hasAnnotation>
+                                    <hasAnnotation rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >equipment</hasAnnotation>
+                                    <isStatementOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21"/>
+                                  </Statement>
+                                </hasStatement>
+                                <hasStatement>
+                                  <Statement rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_1">
+                                    <hasObligation rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#should_be"/>
+                                    <hasAnnotation rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >equipment</hasAnnotation>
+                                    <hasAnnotation rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >cleaning</hasAnnotation>
+                                    <description rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >5.21 Written procedures should be established for cleaning of equipment and its subsequent release for use in the manufacture of intermediates and APIs</description>
+                                    <rdfs:comment rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >5.21 Written procedures should be established for cleaning of equipment and its subsequent release for use in the manufacture of intermediates and APIs</rdfs:comment>
+                                    <hasAnnotation rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >APIs</hasAnnotation>
+                                    <hasAnnotation rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >use</hasAnnotation>
+                                    <hasAction>
+                                      <Action rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#action_established">
+                                        <isActionOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_1"/>
+                                        <isActionOf>
+                                          <Statement rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_8.14_2">
                                             <hasAction>
-                                              <Action rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#action_include">
-                                                <id rdf:datatype=
-                                                "http://www.w3.org/2001/XMLSchema#string"
-                                                >action_include</id>
-                                                <isActionOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_3"/>
+                                              <Action rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#action_data">
                                                 <description rdf:datatype=
                                                 "http://www.w3.org/2001/XMLSchema#string"
-                                                >include</description>
-                                              </Action>
-                                            </hasAction>
-                                            <rdfs:comment rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >These procedures should include:</rdfs:comment>
-                                            <hasSubject>
-                                              <Subject rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#subject_procedures">
+                                                >data</description>
                                                 <id rdf:datatype=
                                                 "http://www.w3.org/2001/XMLSchema#string"
-                                                >subject_procedures</id>
-                                                <isSubjectOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_3"/>
-                                                <isSubjectOf>
-                                                  <Statement rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_2">
+                                                >action_data</id>
+                                                <isActionOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_8.14_2"/>
+                                              </Action>
+                                            </hasAction>
+                                            <hasAnnotation rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#string"
+                                            >manufacturing</hasAnnotation>
+                                            <hasAnnotation rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#string"
+                                            >laboratory</hasAnnotation>
+                                            <description rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#string"
+                                            >Expected yields should be established on previous laboratory, pilot scale, or manufacturing data.</description>
+                                            <hasAction>
+                                              <Action rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#action_manufacturing">
+                                                <id rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >action_manufacturing</id>
+                                                <isActionOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_8.14_2"/>
+                                                <description rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >manufacturing</description>
+                                              </Action>
+                                            </hasAction>
+                                            <isStatementOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_8.14"/>
+                                            <id rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#string"
+                                            >5.8_2</id>
+                                            <hasAction>
+                                              <Action rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#action_laboratory">
+                                                <description rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >laboratory</description>
+                                                <id rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >action_laboratory</id>
+                                                <isActionOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_8.14_2"/>
+                                              </Action>
+                                            </hasAction>
+                                            <hasAnnotation rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#string"
+                                            >data</hasAnnotation>
+                                            <hasAction rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#action_established"/>
+                                            <rdfs:comment rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#string"
+                                            >Expected yields should be established on previous laboratory, pilot scale, or manufacturing data.</rdfs:comment>
+                                            <hasObligation rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#should_be"/>
+                                          </Statement>
+                                        </isActionOf>
+                                        <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                        >action_established</id>
+                                        <description rdf:datatype=
+                                        "http://www.w3.org/2001/XMLSchema#string"
+                                        >established</description>
+                                      </Action>
+                                    </hasAction>
+                                    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                    >5.21_1</id>
+                                    <hasSubject>
+                                      <Subject rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#subject_procedures">
+                                        <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                        >subject_procedures</id>
+                                        <isSubjectOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_1"/>
+                                        <isSubjectOf>
+                                          <Statement rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_2">
+                                            <hasAnnotation rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#string"
+                                            >procedures</hasAnnotation>
+                                            <hasAction>
+                                              <Action rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#action_contain">
+                                                <id rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >action_contain</id>
+                                                <description rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >contain</description>
+                                                <isActionOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_2"/>
+                                              </Action>
+                                            </hasAction>
+                                            <hasSubject>
+                                              <Subject rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#subject_Cleaning_procedures">
+                                                <id rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >subject_Cleaning_procedures</id>
+                                                <isSubjectOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_2"/>
+                                                <description rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >Cleaning procedures</description>
+                                              </Subject>
+                                            </hasSubject>
+                                            <hasAnnotation rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#string"
+                                            >Cleaning procedures</hasAnnotation>
+                                            <id rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#string"
+                                            >5.21_2</id>
+                                            <hasAnnotation rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#string"
+                                            >clean</hasAnnotation>
+                                            <hasAnnotation rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#string"
+                                            >equipment</hasAnnotation>
+                                            <hasAnnotation rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#string"
+                                            >Cleaning</hasAnnotation>
+                                            <hasObligation>
+                                              <Obligation rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#should">
+                                                <description rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >should</description>
+                                                <id rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >should_obligation</id>
+                                                <isObligationOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_2"/>
+                                                <isObligationOf>
+                                                  <Statement rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_3">
+                                                    <description
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#string"
+                                                    >These procedures should include:</description>
+                                                    <hasAction>
+                                                      <Action rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#action_include">
+                                                        <id rdf:datatype=
+                                                        "http://www.w3.org/2001/XMLSchema#string"
+                                                        >action_include</id>
+                                                        <isActionOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_3"/>
+                                                        <description
+                                                         rdf:datatype=
+                                                        "http://www.w3.org/2001/XMLSchema#string"
+                                                        >include</description>
+                                                      </Action>
+                                                    </hasAction>
+                                                    <rdfs:comment
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#string"
+                                                    >These procedures should include:</rdfs:comment>
+                                                    <hasSubject rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#subject_procedures"/>
+                                                    <isStatementOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21"/>
+                                                    <id rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#string"
+                                                    >5.21_3</id>
+                                                    <hasObligation rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#should"/>
                                                     <hasAnnotation
                                                      rdf:datatype=
                                                     "http://www.w3.org/2001/XMLSchema#string"
                                                     >procedures</hasAnnotation>
-                                                    <hasAction>
-                                                      <Action rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#action_contain">
-                                                        <id rdf:datatype=
-                                                        "http://www.w3.org/2001/XMLSchema#string"
-                                                        >action_contain</id>
-                                                        <description
-                                                         rdf:datatype=
-                                                        "http://www.w3.org/2001/XMLSchema#string"
-                                                        >contain</description>
-                                                        <isActionOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_2"/>
-                                                      </Action>
-                                                    </hasAction>
-                                                    <hasSubject>
-                                                      <Subject rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#subject_Cleaning_procedures">
-                                                        <id rdf:datatype=
-                                                        "http://www.w3.org/2001/XMLSchema#string"
-                                                        >subject_Cleaning_procedures</id>
-                                                        <isSubjectOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_2"/>
-                                                        <description
-                                                         rdf:datatype=
-                                                        "http://www.w3.org/2001/XMLSchema#string"
-                                                        >Cleaning procedures</description>
-                                                      </Subject>
-                                                    </hasSubject>
-                                                    <hasAnnotation
-                                                     rdf:datatype=
-                                                    "http://www.w3.org/2001/XMLSchema#string"
-                                                    >Cleaning procedures</hasAnnotation>
-                                                    <id rdf:datatype=
-                                                    "http://www.w3.org/2001/XMLSchema#string"
-                                                    >5.21_2</id>
-                                                    <hasAnnotation
-                                                     rdf:datatype=
-                                                    "http://www.w3.org/2001/XMLSchema#string"
-                                                    >clean</hasAnnotation>
-                                                    <hasAnnotation
-                                                     rdf:datatype=
-                                                    "http://www.w3.org/2001/XMLSchema#string"
-                                                    >equipment</hasAnnotation>
-                                                    <hasAnnotation
-                                                     rdf:datatype=
-                                                    "http://www.w3.org/2001/XMLSchema#string"
-                                                    >Cleaning</hasAnnotation>
-                                                    <hasObligation>
-                                                      <Obligation rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#should">
-                                                        <description
-                                                         rdf:datatype=
-                                                        "http://www.w3.org/2001/XMLSchema#string"
-                                                        >should</description>
-                                                        <id rdf:datatype=
-                                                        "http://www.w3.org/2001/XMLSchema#string"
-                                                        >should_obligation</id>
-                                                        <isObligationOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_3"/>
-                                                        <isObligationOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_2"/>
-                                                        <hasStrength rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Moderate"/>
-                                                        <hasType rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Positive"/>
-                                                      </Obligation>
-                                                    </hasObligation>
-                                                    <hasAnnotation
-                                                     rdf:datatype=
-                                                    "http://www.w3.org/2001/XMLSchema#string"
-                                                    >sufficient details</hasAnnotation>
-                                                    <hasAction>
-                                                      <Action rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#action_equipment">
-                                                        <id rdf:datatype=
-                                                        "http://www.w3.org/2001/XMLSchema#string"
-                                                        >action_equipment</id>
-                                                        <isActionOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_2"/>
-                                                        <description
-                                                         rdf:datatype=
-                                                        "http://www.w3.org/2001/XMLSchema#string"
-                                                        >equipment</description>
-                                                      </Action>
-                                                    </hasAction>
-                                                    <description
-                                                     rdf:datatype=
-                                                    "http://www.w3.org/2001/XMLSchema#string"
-                                                    >Cleaning procedures should contain sufficient details to enable operators to clean each type of equipment in a reproducible and effective manner.</description>
-                                                    <hasSubject>
-                                                      <Subject rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#subject_Cleaning">
-                                                        <description
-                                                         rdf:datatype=
-                                                        "http://www.w3.org/2001/XMLSchema#string"
-                                                        >Cleaning</description>
-                                                        <isSubjectOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_2"/>
-                                                        <id rdf:datatype=
-                                                        "http://www.w3.org/2001/XMLSchema#string"
-                                                        >subject_Cleaning</id>
-                                                      </Subject>
-                                                    </hasSubject>
-                                                    <rdfs:comment
-                                                     rdf:datatype=
-                                                    "http://www.w3.org/2001/XMLSchema#string"
-                                                    >Cleaning procedures should contain sufficient details to enable operators to clean each type of equipment in a reproducible and effective manner.</rdfs:comment>
-                                                    <hasSubject rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#subject_procedures"/>
-                                                    <isStatementOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21"/>
-                                                    <hasAction>
-                                                      <Action rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#action_clean">
-                                                        <description
-                                                         rdf:datatype=
-                                                        "http://www.w3.org/2001/XMLSchema#string"
-                                                        >clean</description>
-                                                        <isActionOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_2"/>
-                                                        <id rdf:datatype=
-                                                        "http://www.w3.org/2001/XMLSchema#string"
-                                                        >action_clean</id>
-                                                      </Action>
-                                                    </hasAction>
                                                   </Statement>
-                                                </isSubjectOf>
-                                                <isSubjectOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_1"/>
-                                                <description rdf:datatype=
-                                                "http://www.w3.org/2001/XMLSchema#string"
-                                                >procedures</description>
-                                              </Subject>
-                                            </hasSubject>
-                                            <isStatementOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21"/>
-                                            <id rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >5.21_3</id>
-                                            <hasObligation rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#should"/>
+                                                </isObligationOf>
+                                                <hasStrength rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Moderate"/>
+                                                <hasType rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Positive"/>
+                                              </Obligation>
+                                            </hasObligation>
                                             <hasAnnotation rdf:datatype=
                                             "http://www.w3.org/2001/XMLSchema#string"
-                                            >procedures</hasAnnotation>
+                                            >sufficient details</hasAnnotation>
+                                            <hasAction>
+                                              <Action rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#action_equipment">
+                                                <id rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >action_equipment</id>
+                                                <isActionOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_2"/>
+                                                <description rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >equipment</description>
+                                              </Action>
+                                            </hasAction>
+                                            <description rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#string"
+                                            >Cleaning procedures should contain sufficient details to enable operators to clean each type of equipment in a reproducible and effective manner.</description>
+                                            <hasSubject>
+                                              <Subject rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#subject_Cleaning">
+                                                <description rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >Cleaning</description>
+                                                <isSubjectOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_2"/>
+                                                <id rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >subject_Cleaning</id>
+                                              </Subject>
+                                            </hasSubject>
+                                            <rdfs:comment rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#string"
+                                            >Cleaning procedures should contain sufficient details to enable operators to clean each type of equipment in a reproducible and effective manner.</rdfs:comment>
+                                            <hasSubject rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#subject_procedures"/>
+                                            <isStatementOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21"/>
+                                            <hasAction>
+                                              <Action rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#action_clean">
+                                                <description rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >clean</description>
+                                                <isActionOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_2"/>
+                                                <id rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#string"
+                                                >action_clean</id>
+                                              </Action>
+                                            </hasAction>
                                           </Statement>
-                                        </hasStatement>
+                                        </isSubjectOf>
+                                        <isSubjectOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_3"/>
                                         <description rdf:datatype=
                                         "http://www.w3.org/2001/XMLSchema#string"
-                                        >5.21 Written procedures should be established for cleaning of equipment and its subsequent release for use in the manufacture of intermediates and APIs 
+                                        >procedures</description>
+                                      </Subject>
+                                    </hasSubject>
+                                    <hasAnnotation rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >procedures</hasAnnotation>
+                                    <hasAnnotation rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >intermediates</hasAnnotation>
+                                    <isStatementOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21"/>
+                                  </Statement>
+                                </hasStatement>
+                                <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                >5.21</id>
+                                <hasStatement>
+                                  <Statement rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_9">
+                                    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                    >5.21_9</id>
+                                    <rdfs:comment rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >Instructions for the removal or obliteration of previous batch identification;</rdfs:comment>
+                                    <isStatementOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21"/>
+                                    <hasAnnotation rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >batch</hasAnnotation>
+                                    <hasAnnotation rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >previous batch identification</hasAnnotation>
+                                    <description rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >Instructions for the removal or obliteration of previous batch identification;</description>
+                                  </Statement>
+                                </hasStatement>
+                                <hasStatement>
+                                  <Statement rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_12">
+                                    <isStatementOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21"/>
+                                    <description rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >Establishing the maximum time that may elapse between the completion of processing and equipment cleaning, when appropriate.</description>
+                                    <hasAnnotation rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >equipment cleaning</hasAnnotation>
+                                    <rdfs:comment rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >Establishing the maximum time that may elapse between the completion of processing and equipment cleaning, when appropriate.</rdfs:comment>
+                                    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                    >5.21_12</id>
+                                    <hasAnnotation rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >cleaning</hasAnnotation>
+                                    <hasAnnotation rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >maximum time</hasAnnotation>
+                                    <hasAnnotation rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >equipment</hasAnnotation>
+                                    <hasAnnotation rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >processing</hasAnnotation>
+                                  </Statement>
+                                </hasStatement>
+                                <hasStatement>
+                                  <Statement rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_10">
+                                    <isStatementOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21"/>
+                                    <description rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >Instructions for the protection of clean equipment from contamination prior to use;</description>
+                                    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                    >5.21_10</id>
+                                    <rdfs:comment rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >Instructions for the protection of clean equipment from contamination prior to use;</rdfs:comment>
+                                    <hasAnnotation rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >equipment</hasAnnotation>
+                                    <hasAnnotation rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >use</hasAnnotation>
+                                    <hasAnnotation rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >clean</hasAnnotation>
+                                    <hasAnnotation rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >contamination</hasAnnotation>
+                                  </Statement>
+                                </hasStatement>
+                                <hasStatement rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_3"/>
+                                <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                >5.21 Written procedures should be established for cleaning of equipment and its subsequent release for use in the manufacture of intermediates and APIs 
 		 Cleaning procedures should contain sufficient details to enable operators to clean each type of equipment in a reproducible and effective manner. 
 		 These procedures should include:
 		 Assignment of responsibility for cleaning of equipment;
@@ -1403,165 +1486,98 @@
 		 Instructions for the protection of clean equipment from contamination prior to use;
 		 Inspection of equipment for cleanliness immediately before use, if practical;and
 		 Establishing the maximum time that may elapse between the completion of processing and equipment cleaning, when appropriate.</description>
-                                        <hasStatement rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_2"/>
-                                        <hasStatement>
-                                          <Statement rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_8">
-                                            <isStatementOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21"/>
-                                            <description rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >Instructions for the removal or obliteration of previous batch identification;</description>
-                                            <rdfs:comment rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >Instructions for the removal or obliteration of previous batch identification;</rdfs:comment>
-                                            <id rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >5.21_8</id>
-                                            <hasAnnotation rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >batch</hasAnnotation>
-                                            <hasAnnotation rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >previous batch identification</hasAnnotation>
-                                          </Statement>
-                                        </hasStatement>
-                                        <hasStatement>
-                                          <Statement rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_5">
-                                            <isStatementOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21"/>
-                                            <hasAnnotation rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >Cleaning schedules</hasAnnotation>
-                                            <hasAnnotation rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >Cleaning</hasAnnotation>
-                                            <id rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >5.21_5</id>
-                                            <description rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >Cleaning schedules, including, where appropriate, sanitizing schedules;</description>
-                                            <rdfs:comment rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >Cleaning schedules, including, where appropriate, sanitizing schedules;</rdfs:comment>
-                                          </Statement>
-                                        </hasStatement>
-                                        <hasStatement>
-                                          <Statement rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_11">
-                                            <isStatementOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21"/>
-                                            <rdfs:comment rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >Inspection of equipment for cleanliness immediately before use, if practical;and</rdfs:comment>
-                                            <hasAnnotation rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >use</hasAnnotation>
-                                            <hasAnnotation rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >equipment</hasAnnotation>
-                                            <description rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >Inspection of equipment for cleanliness immediately before use, if practical;and</description>
-                                            <id rdf:datatype=
-                                            "http://www.w3.org/2001/XMLSchema#string"
-                                            >5.21_11</id>
-                                          </Statement>
-                                        </hasStatement>
-                                      </Regulation>
-                                    </hasRegulation>
+                                <hasStatement rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_2"/>
+                                <hasStatement>
+                                  <Statement rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_8">
+                                    <isStatementOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21"/>
+                                    <description rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >Instructions for the removal or obliteration of previous batch identification;</description>
+                                    <rdfs:comment rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >Instructions for the removal or obliteration of previous batch identification;</rdfs:comment>
+                                    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                    >5.21_8</id>
                                     <hasAnnotation rdf:datatype=
                                     "http://www.w3.org/2001/XMLSchema#string"
-                                    >Equipment</hasAnnotation>
-                                    <documentStructure rdf:datatype=
+                                    >previous batch identification</hasAnnotation>
+                                    <hasAnnotation rdf:datatype=
                                     "http://www.w3.org/2001/XMLSchema#string"
-                                    >subsection</documentStructure>
-                                    <isTopicOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#eudralex5"/>
+                                    >batch</hasAnnotation>
+                                  </Statement>
+                                </hasStatement>
+                                <hasStatement>
+                                  <Statement rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_5">
+                                    <isStatementOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21"/>
                                     <hasAnnotation rdf:datatype=
                                     "http://www.w3.org/2001/XMLSchema#string"
                                     >Cleaning</hasAnnotation>
-                                  </Topic>
-                                </isRegulationOf>
+                                    <hasAnnotation rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >Cleaning schedules</hasAnnotation>
+                                    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                    >5.21_5</id>
+                                    <description rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >Cleaning schedules, including, where appropriate, sanitizing schedules;</description>
+                                    <rdfs:comment rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >Cleaning schedules, including, where appropriate, sanitizing schedules;</rdfs:comment>
+                                  </Statement>
+                                </hasStatement>
+                                <hasStatement>
+                                  <Statement rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_11">
+                                    <isStatementOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21"/>
+                                    <rdfs:comment rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >Inspection of equipment for cleanliness immediately before use, if practical;and</rdfs:comment>
+                                    <hasAnnotation rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >equipment</hasAnnotation>
+                                    <hasAnnotation rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >use</hasAnnotation>
+                                    <description rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >Inspection of equipment for cleanliness immediately before use, if practical;and</description>
+                                    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                    >5.21_11</id>
+                                  </Statement>
+                                </hasStatement>
                               </Regulation>
-                            </isStatementOf>
+                            </hasRegulation>
                             <hasAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                            >other established specfications</hasAnnotation>
+                            >Equipment</hasAnnotation>
+                            <documentStructure rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                            >subsection</documentStructure>
+                            <isTopicOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#eudralex5"/>
                             <hasAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                            >contamination</hasAnnotation>
-                          </Statement>
-                        </isObligationOf>
-                        <isObligationOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.31_1"/>
-                        <hasType rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Positive"/>
-                        <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                        >should be</description>
-                        <isObligationOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_8.14_3"/>
-                        <isObligationOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_1"/>
-                        <isObligationOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_8.14_2"/>
-                        <isObligationOf>
-                          <Statement rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_8.14_1">
-                            <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                            >5.8_1</id>
-                            <hasAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                            >steps</hasAnnotation>
-                            <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                            >8.14 Actual yields should be compared with expeected yieldsat designated steps in the production process.</description>
-                            <isStatementOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_8.14"/>
-                            <hasAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                            >production</hasAnnotation>
-                            <hasAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                            >expeected yieldsat designated steps</hasAnnotation>
-                            <hasAction>
-                              <Action rdf:about="http://www.owl-ontologies.com/SemanticRegulation.owl#action_compared">
-                                <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                                >compared</description>
-                                <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                                >action_compared</id>
-                                <isActionOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_8.14_1"/>
-                              </Action>
-                            </hasAction>
-                            <hasAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                            >production process</hasAnnotation>
-                            <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                            >8.14 Actual yields should be compared with expeected yieldsat designated steps in the production process.</rdfs:comment>
-                            <hasObligation rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#should_be"/>
-                            <hasAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                            >process</hasAnnotation>
-                          </Statement>
-                        </isObligationOf>
-                      </Obligation>
-                    </hasObligation>
+                            >Cleaning</hasAnnotation>
+                          </Topic>
+                        </isRegulationOf>
+                      </Regulation>
+                    </isStatementOf>
                     <hasAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                    >equipment</hasAnnotation>
+                    >other established specfications</hasAnnotation>
                     <hasAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                    >cleaning</hasAnnotation>
-                    <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                    >5.21 Written procedures should be established for cleaning of equipment and its subsequent release for use in the manufacture of intermediates and APIs</description>
-                    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                    >5.21 Written procedures should be established for cleaning of equipment and its subsequent release for use in the manufacture of intermediates and APIs</rdfs:comment>
-                    <hasAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                    >APIs</hasAnnotation>
-                    <hasAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                    >use</hasAnnotation>
-                    <hasAction rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#action_established"/>
-                    <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                    >5.21_1</id>
-                    <hasSubject rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#subject_procedures"/>
-                    <hasAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                    >procedures</hasAnnotation>
-                    <hasAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                    >intermediates</hasAnnotation>
-                    <isStatementOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21"/>
+                    >contamination</hasAnnotation>
                   </Statement>
-                </isActionOf>
-                <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                >action_established</id>
+                </isObligationOf>
+                <isObligationOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.31_1"/>
+                <hasType rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Positive"/>
                 <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                >established</description>
-              </Action>
-            </hasAction>
-            <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >Expected yields should be established on previous laboratory, pilot scale, or manufacturing data.</rdfs:comment>
-            <hasObligation rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#should_be"/>
+                >should be</description>
+                <isObligationOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_8.14_3"/>
+                <isObligationOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_5.21_1"/>
+                <isObligationOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_8.14_2"/>
+                <isObligationOf rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_8.14_1"/>
+              </Obligation>
+            </hasObligation>
+            <hasAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >process</hasAnnotation>
           </Statement>
         </hasStatement>
-        <hasStatement rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_8.14_1"/>
-        <hasStatement rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_8.14_3"/>
+        <hasStatement rdf:resource="http://www.owl-ontologies.com/SemanticRegulation.owl#Eudralex_8.14_2"/>
         <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
         >8.14 Actual yields should be compared with expeected yieldsat designated steps in the production process. 
 
@@ -1602,4 +1618,4 @@
   </Statement>
 </rdf:RDF>
 
-<!-- Created with Protege (with OWL Plugin 3.4.5, Build 608)  http://protege.stanford.edu -->
+<!-- Created with Protege (with OWL Plugin 3.5, Build 663)  http://protege.stanford.edu -->
